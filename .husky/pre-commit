@@ -1,0 +1,4 @@
+{
+  "name": "pre-commit",
+  "command": "npx lint-staged"
+}

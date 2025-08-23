@@ -1,0 +1,133 @@
+{
+  "auth": {
+    "register_success": "User registered successfully.",
+    "login_success": "Logged in successfully.",
+    "token_refreshed": "Access token refreshed successfully.",
+    "logout_success": "Logged out successfully.",
+    "google_auth_initiated": "Google authentication initiated.",
+    "google_login_success": "Logged in successfully with Google.",
+    "forgot_password_email_sent": "If the email exists, a password reset email has been sent.",
+    "otp_verified_successfully": "OTP verified successfully.",
+    "password_reset_successful": "Password reset successful."
+  },
+  "user": {
+    "users_retrieved_success": "Users retrieved successfully.",
+    "user_retrieved_success": "User retrieved successfully.",
+    "user_updated_success": "User updated successfully.",
+    "user_deleted_success": "User soft-deleted successfully.",
+    "user_restored_success": "User restored successfully.",
+    "profile_retrieved_success": "User profile retrieved successfully.",
+    "profile_updated_success": "User profile updated successfully."
+  },
+  "post": {
+    "create_success": "Post created successfully.",
+    "retrieve_all_success": "Posts retrieved successfully.",
+    "retrieve_single_success": "Post retrieved successfully.",
+    "update_success": "Post updated successfully.",
+    "delete_success": "Post soft-deleted successfully.",
+    "restore_success": "Post restored successfully.",
+    "view_count_incremented": "Post view count incremented.",
+    "search_results": "Search results retrieved successfully.",
+    "author_posts_success": "Author posts fetched successfully.",
+    "trending_posts_success": "Trending posts fetched successfully.",
+    "featured_posts_success": "Featured posts fetched successfully."
+  },
+  "category": {
+    "create_success": "Category created successfully.",
+    "retrieve_all_success": "Categories retrieved successfully.",
+    "retrieve_single_success": "Category retrieved successfully.",
+    "update_success": "Category updated successfully.",
+    "delete_success": "Category deleted successfully."
+  },
+  "tag": {
+    "create_success": "Tag created successfully.",
+    "retrieve_all_success": "Tags retrieved successfully.",
+    "retrieve_single_success": "Tag retrieved successfully.",
+    "update_success": "Tag updated successfully.",
+    "delete_success": "Tag deleted successfully."
+  },
+  "series": {
+    "create_success": "Series created successfully.",
+    "retrieve_all_success": "Series retrieved successfully.",
+    "retrieve_single_success": "Series retrieved successfully.",
+    "update_success": "Series updated successfully.",
+    "delete_success": "Series deleted successfully."
+  },
+  "comment": {
+    "create_success": "Comment created successfully.",
+    "retrieve_all_success": "Comments retrieved successfully.",
+    "update_success": "Comment updated successfully.",
+    "delete_success": "Comment deleted successfully.",
+    "reply_success": "Reply added successfully."
+  },
+  "like": {
+    "like_success": "Post liked successfully.",
+    "unlike_success": "Post unliked successfully.",
+    "count_retrieved_success": "Like count retrieved successfully."
+  },
+  "bookmark": {
+    "bookmark_success": "Post bookmarked successfully.",
+    "remove_success": "Bookmark removed successfully.",
+    "retrieve_all_success": "Bookmarks retrieved successfully."
+  },
+  "file": {
+    "upload_success": "File uploaded successfully.",
+    "retrieve_success": "File retrieved successfully.",
+    "delete_success": "File deleted successfully."
+  },
+  "newsletter": {
+    "subscribe_success": "Successfully subscribed to newsletter.",
+    "unsubscribe_success": "Successfully unsubscribed from newsletter.",
+    "update_success": "Newsletter preferences updated successfully.",
+    "retrieve_all_success": "Newsletter subscriptions retrieved successfully.",
+    "retrieve_single_success": "Newsletter subscription retrieved successfully.",
+    "delete_success": "Newsletter subscription deleted successfully.",
+    "statistics_success": "Newsletter statistics retrieved successfully.",
+    "export_success": "Newsletter subscribers exported successfully.",
+    "already_subscribed": "Email {{email}} is already subscribed to the newsletter.",
+    "already_unsubscribed": "Email {{email}} is already unsubscribed from the newsletter.",
+    "not_found": "Newsletter subscription not found for email {{email}}.",
+    "not_found_by_id": "Newsletter subscription not found with ID {{id}}."
+  },
+  "validation": {
+    "newsletter_id_invalid_format": "Invalid newsletter ID format.",
+    "email_invalid_format": "Invalid email format.",
+    "email_required": "Email is required.",
+    "first_name_required": "First name is required.",
+    "first_name_max_length": "First name must be at most 50 characters.",
+    "last_name_required": "Last name is required.",
+    "last_name_max_length": "Last name must be at most 50 characters.",
+    "source_max_length": "Source must be at most 100 characters.",
+    "reason_max_length": "Reason must be at most 500 characters.",
+    "contact_id_invalid_format": "Invalid contact ID format.",
+    "name_required": "Name is required.",
+    "name_max_length": "Name must be at most 100 characters.",
+    "subject_required": "Subject is required.",
+    "subject_max_length": "Subject must be at most 200 characters.",
+    "message_min_length": "Message must be at least 10 characters.",
+    "message_max_length": "Message must be at most 2000 characters.",
+    "phone_max_length": "Phone must be at most 20 characters.",
+    "company_max_length": "Company must be at most 100 characters.",
+    "admin_notes_max_length": "Admin notes must be at most 1000 characters.",
+    "reply_message_required": "Reply message is required.",
+    "reply_message_max_length": "Reply message must be at most 2000 characters."
+  },
+  "contact": {
+    "submit_success": "Thank you for your message. We'll get back to you soon.",
+    "retrieve_all_success": "Contacts retrieved successfully.",
+    "retrieve_single_success": "Contact retrieved successfully.",
+    "update_success": "Contact updated successfully.",
+    "reply_success": "Reply sent successfully.",
+    "statistics_success": "Contact statistics retrieved successfully.",
+    "export_success": "Contacts exported successfully.",
+    "mark_read_success": "Contact marked as read successfully.",
+    "close_success": "Contact closed successfully.",
+    "not_found": "Contact not found with ID {{id}}."
+  },
+  "system": {
+    "metrics_retrieved_success": "Metrics retrieved successfully."
+  },
+  "health": {
+    "status_ok": "Application is healthy."
+  }
+}

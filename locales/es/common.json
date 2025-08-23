@@ -1,0 +1,81 @@
+{
+  "auth": {
+    "register_success": "Usuario registrado exitosamente.",
+    "login_success": "Sesión iniciada exitosamente.",
+    "token_refreshed": "Token de acceso actualizado exitosamente.",
+    "logout_success": "Sesión cerrada exitosamente.",
+    "google_auth_initiated": "Autenticación con Google iniciada.",
+    "google_login_success": "Sesión iniciada exitosamente con Google.",
+    "forgot_password_email_sent": "Si el correo existe, se ha enviado un correo para restablecer la contraseña.",
+    "otp_verified_successfully": "OTP verificado exitosamente.",
+    "password_reset_successful": "Contraseña restablecida exitosamente."
+  },
+  "user": {
+    "users_retrieved_success": "Usuarios recuperados exitosamente.",
+    "user_retrieved_success": "Usuario recuperado exitosamente.",
+    "user_updated_success": "Usuario actualizado exitosamente.",
+    "user_deleted_success": "Usuario eliminado suavemente exitosamente.",
+    "user_restored_success": "Usuario restaurado exitosamente.",
+    "profile_retrieved_success": "Perfil de usuario recuperado exitosamente.",
+    "profile_updated_success": "Perfil de usuario actualizado exitosamente."
+  },
+  "post": {
+    "create_success": "Publicación creada exitosamente.",
+    "retrieve_all_success": "Publicaciones recuperadas exitosamente.",
+    "retrieve_single_success": "Publicación recuperada exitosamente.",
+    "update_success": "Publicación actualizada exitosamente.",
+    "delete_success": "Publicación eliminada suavemente exitosamente.",
+    "restore_success": "Publicación restaurada exitosamente.",
+    "view_count_incremented": "Conteo de vistas de publicación incrementado.",
+    "search_results": "Resultados de búsqueda recuperados exitosamente."
+  },
+  "category": {
+    "create_success": "Categoría creada exitosamente.",
+    "retrieve_all_success": "Categorías recuperadas exitosamente.",
+    "retrieve_single_success": "Categoría recuperada exitosamente.",
+    "update_success": "Categoría actualizada exitosamente.",
+    "delete_success": "Categoría eliminada exitosamente."
+  },
+  "tag": {
+    "create_success": "Etiqueta creada exitosamente.",
+    "retrieve_all_success": "Etiquetas recuperadas exitosamente.",
+    "retrieve_single_success": "Etiqueta recuperada exitosamente.",
+    "update_success": "Etiqueta actualizada exitosamente.",
+    "delete_success": "Etiqueta eliminada exitosamente."
+  },
+  "series": {
+    "create_success": "Serie creada exitosamente.",
+    "retrieve_all_success": "Series recuperadas exitosamente.",
+    "retrieve_single_success": "Serie recuperada exitosamente.",
+    "update_success": "Serie actualizada exitosamente.",
+    "delete_success": "Serie eliminada exitosamente."
+  },
+  "comment": {
+    "create_success": "Comentario creado exitosamente.",
+    "retrieve_all_success": "Comentarios recuperados exitosamente.",
+    "update_success": "Comentario actualizado exitosamente.",
+    "delete_success": "Comentario eliminado exitosamente.",
+    "reply_success": "Respuesta añadida exitosamente."
+  },
+  "like": {
+    "like_success": "Publicación marcada como 'me gusta' exitosamente.",
+    "unlike_success": "Publicación marcada como 'ya no me gusta' exitosamente.",
+    "count_retrieved_success": "Conteo de 'me gusta' recuperado exitosamente."
+  },
+  "bookmark": {
+    "bookmark_success": "Publicación marcada como favorita exitosamente.",
+    "remove_success": "Marcador eliminado exitosamente.",
+    "retrieve_all_success": "Marcadores recuperados exitosamente."
+  },
+  "file": {
+    "upload_success": "Archivo subido exitosamente.",
+    "retrieve_success": "Archivo recuperado exitosamente.",
+    "delete_success": "Archivo eliminado exitosamente."
+  },
+  "system": {
+    "metrics_retrieved_success": "Métricas recuperadas exitosamente."
+  },
+  "health": {
+    "status_ok": "Aplicación saludable."
+  }
+}

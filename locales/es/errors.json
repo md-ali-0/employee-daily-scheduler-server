@@ -1,0 +1,19 @@
+{
+  "validation_error": "Error de validación",
+  "bad_request": "Solicitud incorrecta",
+  "unauthorized": "No autorizado",
+  "forbidden": "Prohibido",
+  "not_found": "No encontrado",
+  "conflict": "Conflicto",
+  "internal_server_error": "Error interno del servidor",
+  "token_expired": "Token expirado.",
+  "invalid_token": "Token inválido.",
+  "invalid_csrf_token": "Token CSRF inválido.",
+  "database_error": "Ocurrió un error en la base de datos.",
+  "record_not_found": "Registro no encontrado.",
+  "duplicate_entry": "Entrada duplicada para {{target}}.",
+  "foreign_key_constraint_failed": "Fallo de restricción de clave externa.",
+  "api_key_missing": "Falta la clave API.",
+  "invalid_api_key": "Clave API inválida.",
+  "too_many_requests": "Demasiadas solicitudes desde esta IP, por favor intente de nuevo en {{minutes}} minutos."
+}

@@ -1,0 +1,104 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpassword
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          echo "Waiting for PostgreSQL..."
+          for i in $(seq 1 10); do
+            nc -z localhost 5432 && echo "PostgreSQL is ready!" && break
+            echo "Still waiting for PostgreSQL..."
+            sleep 5
+          done
+          # Ensure the health check passes before proceeding
+          docker inspect postgres --format "{{json .State.Health }}" | grep "healthy" || (echo "PostgreSQL not healthy" && exit 1)
+
+      - name: Wait for Redis to be ready
+        run: |
+          echo "Waiting for Redis..."
+          for i in $(seq 1 10); do
+            nc -z localhost 6379 && echo "Redis is ready!" && break
+            echo "Still waiting for Redis..."
+            sleep 5
+          done
+          # Ensure the health check passes before proceeding
+          docker inspect redis --format "{{json .State.Health }}" | grep "healthy" || (echo "Redis not healthy" && exit 1)
+
+      - name: Set up Prisma environment for tests
+        run: |
+          echo "DATABASE_URL=postgresql://testuser:testpassword@localhost:5432/testdb" > .env
+          echo "REDIS_HOST=localhost" >> .env
+          echo "REDIS_PORT=6379" >> .env
+          echo "JWT_SECRET=supersecretjwtkeyforcienvironment" >> .env
+          echo "JWT_REFRESH_SECRET=supersecretjwtrefreshkeyforcienvironment" >> .env
+          echo "ACCESS_TOKEN_EXPIRATION=15m" >> .env
+          echo "REFRESH_TOKEN_EXPIRATION=7d" >> .env
+          echo "SENTRY_DSN=" >> .env # No Sentry for CI
+          echo "SESSION_SECRET=supersecretsessionkeyforcienvironment" >> .env
+          echo "CORS_ORIGIN=http://localhost:3000" >> .env
+          echo "API_KEY_SECRET=supersecretapikeyforcienvironment" >> .env
+          echo "FILE_STORAGE_PROVIDER=LOCAL" >> .env
+          echo "DEFAULT_ADMIN_EMAIL=admin@example.com" >> .env
+          echo "DEFAULT_ADMIN_PASSWORD=admin123" >> .env
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Run Prisma migrations
+        run: npx prisma migrate deploy
+
+      - name: Seed database
+        run: npm run prisma:seed
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build application
+        run: npm run build
