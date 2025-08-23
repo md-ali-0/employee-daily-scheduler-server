@@ -1,11 +1,11 @@
-import prisma from "@config/db"
 
 import env from "@config/env"
 import logger from "@config/winston"
 import { sessionMiddleware } from "@middlewares/csrf.middleware"
 import { authRateLimiter, globalRateLimiter } from "@middlewares/rate-limit.middleware"
 import { validate } from "@middlewares/validation.middleware"
-import { Role } from "@prisma/client"
+import { IUser } from "@modules/user/user.interface"
+import { UserModel } from "@modules/user/user.model"
 import { AuditLogUtil } from "@utils/audit-log.util"
 import { Router } from "express"
 import passport from "passport"
@@ -45,23 +45,10 @@ export class AuthRoutes {
 
     passport.deserializeUser(async (id: string, done) => {
       try {
-        const user = await prisma.user.findUnique({
-          where: { id },
-          include: {
-            userPermissions: {
-              select: {
-                permission: {
-                  select: {
-                    name: true,
-                  },
-                },
-              },
-            },
-          },
-        })
-        done(null, user)
+        const user = await UserModel.findById(id).lean();
+        done(null, user);
       } catch (error) {
-        done(error, null)
+        done(error, null);
       }
     })
 
@@ -75,96 +62,36 @@ export class AuthRoutes {
           },
           async (accessToken, refreshToken, profile, done) => {
             try {
-              let user = await prisma.user.findUnique({
-                where: { googleId: profile.id },
-                include: {
-                  userPermissions: {
-                    select: {
-                      permission: {
-                        select: {
-                          name: true,
-                        },
-                      },
-                    },
-                  },
-                },
-              })
+              let user = await UserModel.findOne({ googleId: profile.id }).lean();
 
               if (!user) {
-                // Check if user exists with email
-                user = await prisma.user.findUnique({
-                  where: { email: profile.emails?.[0]?.value },
-                  include: {
-                    userPermissions: {
-                      select: {
-                        permission: {
-                          select: {
-                            name: true,
-                          },
-                        },
-                      },
-                    },
-                  },
-                })
-
+                user = await UserModel.findOne({ email: profile.emails?.[0]?.value }).lean();
                 if (user) {
-                  // Link existing user to Google account
-                  user = await prisma.user.update({
-                    where: { id: user.id },
-                    data: { googleId: profile.id },
-                    include: {
-                      userPermissions: {
-                        select: {
-                          permission: {
-                            select: {
-                              name: true,
-                            },
-                          },
-                        },
-                      },
-                    },
-                  })
-                  logger.info(`Linked existing user ${user.email} to Google account.`)
-                  await auditLogUtil.logAudit("user", user.id, "GOOGLE_LINK", null, user, user.id, "N/A", "N/A")
+                  await UserModel.findByIdAndUpdate(user._id, { googleId: profile.id });
+                  user = await UserModel.findById(user._id).lean();
+                  if (!user) {
+                    return done(new Error("User not found after linking Google account."), undefined);
+                  }
+                  logger.info(`Linked existing user ${user.email} to Google account.`);
+                  await auditLogUtil.logAudit("user", user._id.toString(), "GOOGLE_LINK", null, user, user._id.toString(), "N/A", "N/A");
                 } else {
-                  // Create new user
-                  const newUser = await prisma.user.create({
-                    data: {
-                      email: profile.emails?.[0]?.value || `${profile.id}@google.com`,
-                      name: profile.displayName,
-                      googleId: profile.id,
-                      role: Role.USER, // Default role for new OAuth users
-                    },
-                    include: {
-                      userPermissions: {
-                        select: {
-                          permission: {
-                            select: {
-                              name: true,
-                            },
-                          },
-                        },
-                      },
-                    },
-                  })
-                  logger.info(`Created new user ${newUser.email} via Google OAuth.`)
-                  await auditLogUtil.logAudit(
-                    "user",
-                    newUser.id,
-                    "GOOGLE_REGISTER",
-                    null,
-                    newUser,
-                    newUser.id,
-                    "N/A",
-                    "N/A",
-                  )
-                  user = newUser
+                  const newUser = await UserModel.create({
+                    email: profile.emails?.[0]?.value || `${profile.id}@google.com`,
+                    name: profile.displayName,
+                    googleId: profile.id,
+                    role: "USER",
+                  });
+                  logger.info(`Created new user ${newUser.email} via Google OAuth.`);
+                  await auditLogUtil.logAudit("user", newUser._id.toString(), "GOOGLE_REGISTER", null, newUser, newUser._id.toString(), "N/A", "N/A");
+                  // @ts-ignore
+                  user = newUser as IUser;
                 }
               }
-              done(null, user)
-            } catch (error: any) {
-              logger.error("Google OAuth callback error:", error)
-              done(error, undefined)
+              // @ts-ignore
+              done(null, user);
+            } catch (error) {
+              logger.error("Google OAuth callback error:", error);
+              done(error, undefined);
             }
           },
         ),

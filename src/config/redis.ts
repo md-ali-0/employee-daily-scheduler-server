@@ -8,6 +8,7 @@ const redisClient = new Redis({
   username : env.REDIS_USER,
   password: env.REDIS_PASSWORD,
   maxRetriesPerRequest: null,
+  db: 1, // Use a separate DB for application data (default is 0)
 })
 
 redisClient.on("connect", () => {

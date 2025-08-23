@@ -46,7 +46,7 @@ export class UserController extends BaseController<unknown> {
     successResponse(
       res,
       i18n.__('user.create_success'),
-      { id: user.id, email: user.email, name: user.name, role: user.role },
+      { id: user._id, email: user.email, name: user.username, role: user.role },
       HTTP_STATUS.CREATED,
     );
   });

@@ -1,6 +1,6 @@
 import i18n from '@config/i18n-compat';
-import { Role } from '@prisma/client';
 import { z } from 'zod';
+import { Role } from './user.interface';
 
 export const userIdSchema = z.object({
   id: z.string().uuid(i18n.__('validation.user_id_invalid_format')),

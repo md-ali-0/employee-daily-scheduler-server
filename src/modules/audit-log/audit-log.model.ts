@@ -1,8 +1,7 @@
-import mongoose, { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { IAuditLog } from "./audit-log.interface";
 
-
-const AuditLogSchema = new Schema<IAuditLog>({
+const auditLogSchema = new Schema<IAuditLog>({
   entityType: { type: String, required: true },
   entityId: { type: String, required: true },
   action: { type: String, required: true },
@@ -12,10 +11,8 @@ const AuditLogSchema = new Schema<IAuditLog>({
   ipAddress: { type: String },
   userAgent: { type: String },
   userId: { type: String },
-  postId: { type: String },
   fileId: { type: String },
-  commentId: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 
-export const AuditLogModel = mongoose.model<IAuditLog>("AuditLog", AuditLogSchema);
+export const AuditLogModel = model<IAuditLog>("AuditLog", auditLogSchema);

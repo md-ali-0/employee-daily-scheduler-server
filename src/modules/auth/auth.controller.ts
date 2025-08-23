@@ -33,7 +33,7 @@ export class AuthController {
       successResponse(
         res,
         i18n.__("auth.register_success"),
-        { user: { id: user.id, email: user.email, name: user.name } },
+        { user: { id: user.id, email: user.email, name: user.username } },
         HTTP_STATUS.CREATED
       );
     } catch (error) {
@@ -70,7 +70,7 @@ export class AuthController {
       });
 
       successResponse(res, i18n.__("auth.login_success"), {
-        user: { id: user.id, email: user.email, name: user.name, avatar: user.avatar, role: user.role },
+        user: { id: user.id, email: user.email, name: user.username, avatar: user.avatar, role: user.role },
       });
     } catch (error) {
       next(error);

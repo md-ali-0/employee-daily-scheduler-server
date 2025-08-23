@@ -1,0 +1,67 @@
+2025-08-23 16:32:34 info: Sentry initialized early.
+2025-08-23 16:32:34 info: Loaded 12 email templates from JSON files
+2025-08-23 16:32:34 info: BullMQ queues initialized.
+2025-08-23 16:32:34 info: BullMQ workers initialized.
+2025-08-23 16:32:35 info: Prometheus metrics initialized.
+2025-08-23 16:32:37 info: Using storage type: LOCAL
+2025-08-23 16:32:37 info: Sentry Express error handler setup complete.
+2025-08-23 16:32:37 info: Google OAuth strategy initialized.
+2025-08-23 16:32:37 info: Using storage type: LOCAL
+2025-08-23 16:32:37 info: Swagger UI is available at /api-docs
+2025-08-23 16:32:37 error: UNCAUGHT EXCEPTION! 💥 Shutting down...
+2025-08-23 16:32:37 error: Error
+2025-08-23 16:32:37 info: Connected to Redis
+2025-08-23 16:32:37 info: Image processing worker is ready and listening for jobs.
+2025-08-23 16:32:37 info: Email worker is ready and listening for jobs.
+2025-08-23 16:32:37 info: Sentry closed.
+2025-08-23 16:50:20 info: Sentry initialized early.
+2025-08-23 16:50:21 info: Loaded 12 email templates from JSON files
+2025-08-23 16:50:23 info: BullMQ queues initialized.
+2025-08-23 16:50:23 info: BullMQ workers initialized.
+2025-08-23 16:50:26 info: Prometheus metrics initialized.
+2025-08-23 16:50:42 info: Using storage type: LOCAL
+2025-08-23 16:50:42 info: Sentry Express error handler setup complete.
+2025-08-23 16:50:42 info: Google OAuth strategy initialized.
+2025-08-23 16:50:42 info: Using storage type: LOCAL
+2025-08-23 16:50:42 info: Swagger UI is available at /api-docs
+2025-08-23 16:50:42 info: Server running on port 5000 in development mode
+2025-08-23 16:50:42 info: API Docs available at http://localhost:5000/api-docs
+2025-08-23 16:50:42 info: Health check available at http://localhost:5000/health
+2025-08-23 16:50:42 info: Connected to Redis
+2025-08-23 16:50:42 info: Email worker is ready and listening for jobs.
+2025-08-23 16:50:42 info: Image processing worker is ready and listening for jobs.
+2025-08-23 16:50:43 info: Email service is ready
+2025-08-23 16:54:07 info: Sentry initialized early.
+2025-08-23 16:54:07 info: Loaded 12 email templates from JSON files
+2025-08-23 16:54:08 info: BullMQ queues initialized.
+2025-08-23 16:54:08 info: BullMQ workers initialized.
+2025-08-23 16:54:08 info: Prometheus metrics initialized.
+2025-08-23 16:54:10 info: Using storage type: LOCAL
+2025-08-23 16:54:10 info: Sentry Express error handler setup complete.
+2025-08-23 16:54:10 info: Google OAuth strategy initialized.
+2025-08-23 16:54:10 info: Using storage type: LOCAL
+2025-08-23 16:54:10 info: Swagger UI is available at /api-docs
+2025-08-23 16:54:10 info: Server running on port 5000 in development mode
+2025-08-23 16:54:10 info: API Docs available at http://localhost:5000/api-docs
+2025-08-23 16:54:10 info: Health check available at http://localhost:5000/health
+2025-08-23 16:54:13 info: Sentry initialized early.
+2025-08-23 16:54:13 info: Loaded 12 email templates from JSON files
+2025-08-23 16:54:14 info: BullMQ queues initialized.
+2025-08-23 16:54:14 info: BullMQ workers initialized.
+2025-08-23 16:54:14 info: Prometheus metrics initialized.
+2025-08-23 16:54:17 info: Using storage type: LOCAL
+2025-08-23 16:54:17 info: Sentry Express error handler setup complete.
+2025-08-23 16:54:17 info: Google OAuth strategy initialized.
+2025-08-23 16:54:17 info: Using storage type: LOCAL
+2025-08-23 16:54:17 info: Swagger UI is available at /api-docs
+2025-08-23 16:54:17 info: Server running on port 5000 in development mode
+2025-08-23 16:54:17 info: API Docs available at http://localhost:5000/api-docs
+2025-08-23 16:54:17 info: Health check available at http://localhost:5000/health
+2025-08-23 16:54:17 info: Connected to Redis
+2025-08-23 16:54:17 info: Image processing worker is ready and listening for jobs.
+2025-08-23 16:54:18 info: Email worker is ready and listening for jobs.
+2025-08-23 16:54:19 info: Email service is ready
+2025-08-23 16:54:28 info: SIGINT received. Shutting down gracefully...
+2025-08-23 16:54:28 info: Sentry closed.
+2025-08-23 16:54:28 info: Image processing worker closed.
+2025-08-23 16:54:28 info: Email worker closed.

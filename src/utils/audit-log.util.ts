@@ -38,9 +38,7 @@ export class AuditLogUtil {
         ipAddress,
         userAgent,
         userId: entityType === "user" ? entityId : changedBy || undefined,
-        postId: entityType === "post" ? entityId : undefined,
         fileId: entityType === "file" ? entityId : undefined,
-        commentId: entityType === "comment" ? entityId : undefined,
       });
       logger.debug(`Audit Logged: ${action} on ${String(entityType)} (ID: ${entityId}) by ${changedBy || "System"}`);
       return auditLog;

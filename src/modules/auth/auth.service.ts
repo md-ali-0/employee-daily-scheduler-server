@@ -2,12 +2,13 @@ import env from '@config/env';
 import i18n from '@config/i18n-compat';
 import { BadRequestError, UnauthorizedError } from '@core/error.classes';
 import { addLoginNotificationJob, addWelcomeEmailJob } from '@jobs/queue';
-import { User } from '@modules/user/user.model';
+import { AuditLogModel } from '@modules/audit-log/audit-log.model';
+import { UserModel } from '@modules/user/user.model';
 import emailService from '@services/email.service';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
-import { AuditLog, PasswordReset } from './auth.model';
+import { PasswordReset } from './auth.model';
 import type {
   ForgotPasswordInput,
   RegisterInput,
@@ -25,14 +26,14 @@ export class AuthService {
   // Register new user
   async register(userData: RegisterInput, ip: string, userAgent: string) {
     // Check if user already exists
-    const existingUser = await User.findOne({ email: userData.email }).exec();
+    const existingUser = await UserModel.findOne({ email: userData.email }).exec();
     if (existingUser) throw new Error('User already exists');
 
     // Hash password
     const hashedPassword = await bcrypt.hash(userData.password, this.SALT_ROUNDS);
 
     // Create user
-    const user = await User.create({
+    const user = await UserModel.create({
       email: userData.email,
       name: userData.name,
       password: hashedPassword,
@@ -51,7 +52,7 @@ export class AuthService {
 
   // Login function (email + password)
   async login(email: string, password: string, ip: string, userAgent: string) {
-    const user = await User.findOne({ email }).select('+password +avatar').exec();
+    const user = await UserModel.findOne({ email }).select('+password +avatar').exec();
     if (!user) throw new UnauthorizedError('Invalid credentials', 'invalid_credentials');
     if (!user.password) {
       throw new Error('Password not set for user');
@@ -106,7 +107,7 @@ export class AuthService {
     try {
       const payload = jwt.verify(refreshToken, JWT_REFRESH_SECRET) as { userId: string };
 
-      const user = await User.findById(payload.userId).exec();
+      const user = await UserModel.findById(payload.userId).exec();
       if (!user) throw new UnauthorizedError('User not found', 'user_not_found');
 
       const newAccessToken = this.generateAccessToken(user);
@@ -135,7 +136,7 @@ export class AuthService {
     const verificationMethod = env.VERIFICATION_METHOD || 'BOTH';
 
     // Check if user exists
-    const user = await User.findOne({ email }).exec();
+    const user = await UserModel.findOne({ email }).exec();
     if (!user) {
       return { message: i18n.__('auth.forgot_password_email_sent') };
     }
@@ -241,7 +242,7 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(password, this.SALT_ROUNDS);
 
     // Update user password
-    const user = await User.findOneAndUpdate(
+    const user = await UserModel.findOneAndUpdate(
       { email: passwordReset.email },
       { password: hashedPassword },
       { new: true }
@@ -282,7 +283,7 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(password, this.SALT_ROUNDS);
 
     // Update user password
-    const user = await User.findOneAndUpdate(
+    const user = await UserModel.findOneAndUpdate(
       { email: passwordReset.email },
       { password: hashedPassword },
       { new: true }
@@ -314,7 +315,7 @@ export class AuthService {
   // Log user activity
   private async logUserActivity(userId: string, action: string, ip: string, userAgent: string) {
     try {
-      await AuditLog.create({
+      await AuditLogModel.create({
         entityType: 'user',
         entityId: userId,
         action,

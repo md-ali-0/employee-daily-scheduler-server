@@ -1,5 +1,6 @@
 export interface IUser extends Document {
   _id: string;
+  avatar?: string;
   email: string;
   username: string;
   password: string;
@@ -14,6 +15,7 @@ export interface IUserPermission {
 }
 
 export enum Role {
+  USER = "USER",
   ADMIN = "ADMIN",
   MANAGER = "MANAGER",
   EMPLOYEE = "EMPLOYEE",

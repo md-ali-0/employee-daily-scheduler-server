@@ -1,10 +1,10 @@
 import { BaseService } from "@core/base.service";
 import { IUser } from "./user.interface";
-import { User } from "./user.model";
+import { UserModel } from "./user.model";
 
 export class UserService extends BaseService<IUser> {
   constructor() {
-    super(User);
+    super(UserModel);
   }
 
   // Override the base methods to add user-specific logic if needed

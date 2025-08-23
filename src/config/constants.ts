@@ -1,4 +1,5 @@
-import { Role } from "@prisma/client"
+import { Role } from "@modules/user/user.interface"
+
 
 export const PORT = process.env.PORT || 3000
 export const NODE_ENV = process.env.NODE_ENV || "development"
@@ -77,7 +78,7 @@ export const ROLE_PERMISSIONS: Record<Role, string[]> = {
     // Special
     "admin:full_access",
   ],
-  [Role.EDITOR]: [
+  [Role.MANAGER]: [
     "post:read", "post:create", "post:update", "post:delete", "post:publish",
     "category:manage", "tag:manage", "series:manage",
     "comment:read", "comment:update", "comment:delete", "comment:moderate",
@@ -87,7 +88,7 @@ export const ROLE_PERMISSIONS: Record<Role, string[]> = {
     "bookmark:read", "bookmark:create", "bookmark:delete",
     "like:read", "like:create", "like:delete",
   ],
-  [Role.AUTHOR]: [
+  [Role.EMPLOYEE]: [
     "post:read", "post:create", "post:update",
     "file:upload", "file:read",
     "comment:create",

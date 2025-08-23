@@ -2,7 +2,7 @@ import { JWT_SECRET } from "@config/constants";
 import logger from "@config/winston";
 import { ForbiddenError, UnauthorizedError } from "@core/error.classes";
 import { Role } from "@modules/user/user.interface";
-import { User } from "@modules/user/user.model";
+import { UserModel } from "@modules/user/user.model";
 import { verifyToken } from "@utils/jwt.util";
 import type { NextFunction, Request, Response } from "express";
 
@@ -38,7 +38,7 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
     }
 
   // Fetch user using Mongoose User model and populate permissions
-  const user = await User.findById(decoded.id).lean();
+  const user = await UserModel.findById(decoded.id).lean();
 
     if (!user || user.deletedAt) {
       throw new UnauthorizedError("User not found or account deactivated", "auth.user_not_found_or_deactivated")
