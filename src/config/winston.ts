@@ -33,7 +33,7 @@ const format = winston.format.combine(
 // Check if we're in a serverless environment
 const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.FUNCTIONS_EMULATOR;
 
-const transports = [
+const transports: winston.transport[] = [
   new winston.transports.Console({
     format: winston.format.combine(
       winston.format.colorize({ all: true }),
@@ -53,7 +53,7 @@ if (!isServerless) {
       maxSize: "20m",
       maxFiles: "14d",
       format: winston.format.uncolorize(),
-    }),
+    }) as winston.transport,
     new DailyRotateFile({
       filename: "logs/combined-%DATE%.log",
       datePattern: "YYYY-MM-DD",
@@ -61,7 +61,7 @@ if (!isServerless) {
       maxSize: "20m",
       maxFiles: "14d",
       format: winston.format.uncolorize(),
-    })
+    }) as winston.transport
   );
 }
 
