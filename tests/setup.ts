@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import redisClient from '../src/config/redis';
 
 // Load environment variables
 dotenv.config({ path: '.env.test' });
@@ -17,10 +16,6 @@ beforeAll(async () => {
   // Connect to test database
   await mongoose.connect(mongoUri);
   
-  // Connect to Redis (use test database)
-  await redisClient.connect();
-  await redisClient.select(1); // Use database 1 for testing
-  
   console.log('Test environment initialized');
 });
 
@@ -29,9 +24,6 @@ afterAll(async () => {
   // Disconnect from MongoDB
   await mongoose.disconnect();
   await mongod.stop();
-  
-  // Disconnect from Redis
-  await redisClient.disconnect();
   
   console.log('Test environment cleaned up');
 });
@@ -44,9 +36,6 @@ afterEach(async () => {
     const collection = collections[key];
     await collection.deleteMany({});
   }
-  
-  // Clear Redis test database
-  await redisClient.flushdb();
 });
 
 // Mock environment variables for testing

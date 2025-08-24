@@ -18,7 +18,7 @@ const config = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@config/(.*)$': '<rootDir>/src/config/$1',
     '^@core/(.*)$': '<rootDir>/src/core/$1',
