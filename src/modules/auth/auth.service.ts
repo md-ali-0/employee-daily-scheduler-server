@@ -26,6 +26,7 @@ export class AuthService {
   // Register new user
   async register(userData: RegisterInput, ip: string, userAgent: string) {
     // Check if user already exists
+
     const existingUser = await UserModel.findOne({ email: userData.email }).exec();
     if (existingUser) throw new Error('User already exists');
 
@@ -39,7 +40,6 @@ export class AuthService {
       last_name: userData.last_name,
       username: userData.username,
       password: hashedPassword,
-      // Other necessary fields
     });
 
     // Send welcome email
@@ -122,8 +122,8 @@ export class AuthService {
   }
 
   // Generate tokens for Google OAuth or other OAuth
-  async generateAuthTokens(userId: string, email: string, role: string, permissions: string[]) {
-    const accessToken = jwt.sign({ userId, email, role, permissions }, JWT_ACCESS_SECRET, {
+  async generateAuthTokens(userId: string, email: string, role: string) {
+    const accessToken = jwt.sign({ userId, email, role }, JWT_ACCESS_SECRET, {
       expiresIn: '15m',
     });
 
@@ -197,7 +197,7 @@ export class AuthService {
     }
 
     // Log the activity
-    await this.logUserActivity(user._id, 'FORGOT_PASSWORD_REQUEST', ip, userAgent);
+    await this.logUserActivity(String(user._id), 'FORGOT_PASSWORD_REQUEST', ip, userAgent);
 
     return { message: i18n.__('auth.forgot_password_email_sent') };
   }
@@ -258,7 +258,7 @@ export class AuthService {
     await PasswordReset.findByIdAndUpdate(passwordReset._id, { usedAt: new Date() }).exec();
 
     // Log the activity
-    await this.logUserActivity(user._id, 'PASSWORD_RESET', ip, userAgent);
+    await this.logUserActivity(String(user._id), 'PASSWORD_RESET', ip, userAgent);
 
     return { message: i18n.__('auth.password_reset_successful') };
   }
@@ -299,7 +299,7 @@ export class AuthService {
     await PasswordReset.findByIdAndUpdate(passwordReset._id, { usedAt: new Date() }).exec();
 
     // Log the activity
-    await this.logUserActivity(user._id, 'PASSWORD_RESET_WITH_OTP', ip, userAgent);
+    await this.logUserActivity(String(user._id), 'PASSWORD_RESET_WITH_OTP', ip, userAgent);
 
     return { message: i18n.__('auth.password_reset_successful') };
   }

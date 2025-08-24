@@ -1,7 +1,7 @@
+import { Role } from "@modules/user/user.interface";
+
 export * from "./jwt-signin-options";
 export * from "./multer";
-
-import { Role } from "@prisma/client";
 
 declare global {
   namespace Express {
@@ -10,7 +10,6 @@ declare global {
         id: string
         email: string
         role: Role
-        permissions: string[]
       }
     }
   }

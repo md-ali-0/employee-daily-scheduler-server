@@ -116,7 +116,7 @@ export class EmailService {
   async sendWelcomeEmail(userEmail: string, userName: string, userRole: string): Promise<boolean> {
     return this.sendEmail({
       to: userEmail,
-      subject: 'Welcome to Our Blog Platform!',
+      subject: 'Welcome to Our Employee Management!',
       template: 'welcome',
       context: {
         name: userName,

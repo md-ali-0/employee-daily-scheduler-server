@@ -1,10 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-import { IUser, IUserPermission, Role } from "./user.interface";
-
-const UserPermissionSchema = new Schema<IUserPermission>({
-  name: { type: String, required: true },
-});
+import { IUser, Role } from "./user.interface";
 
 const UserSchema = new Schema<IUser>({
   first_name: { type: String , required: true},
@@ -12,8 +8,7 @@ const UserSchema = new Schema<IUser>({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: Object.values(Role), required: true },
-  userPermissions: { type: [UserPermissionSchema], default: [] },
+  role: { type: String, enum: Object.values(Role), default: Role.EMPLOYEE, required: true },
   deletedAt: { type: Date, default: null },
 });
 

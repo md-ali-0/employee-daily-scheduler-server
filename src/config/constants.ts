@@ -1,4 +1,3 @@
-import { Role } from "@modules/user/user.interface"
 
 
 export const PORT = process.env.PORT || 3000
@@ -53,56 +52,6 @@ export const HTTP_STATUS = {
 }
 
 export const FEATURE_FLAGS = JSON.parse(process.env.FEATURE_FLAGS || "{}")
-
-// Define permissions for each role
-export const ROLE_PERMISSIONS: Record<Role, string[]> = {
-  [Role.ADMIN]: [
-    // User
-    "user:read", "user:create", "user:update", "user:delete",
-    // Post
-    "post:read", "post:create", "post:update", "post:delete", "post:publish",
-    // Category, Tag, Series
-    "category:manage", "tag:manage", "series:manage",
-    // Comment
-    "comment:read", "comment:create", "comment:update", "comment:delete", "comment:moderate",
-    // File
-    "file:upload", "file:read", "file:delete",
-    // Contact
-    "contact:read", "contact:create", "contact:update", "contact:delete",
-    // Newsletter
-    "newsletter:read", "newsletter:create", "newsletter:update", "newsletter:delete",
-    // Bookmark
-    "bookmark:read", "bookmark:create", "bookmark:delete",
-    // Like
-    "like:read", "like:create", "like:delete",
-    // Special
-    "admin:full_access",
-  ],
-  [Role.MANAGER]: [
-    "post:read", "post:create", "post:update", "post:delete", "post:publish",
-    "category:manage", "tag:manage", "series:manage",
-    "comment:read", "comment:update", "comment:delete", "comment:moderate",
-    "file:upload", "file:read", "file:delete",
-    "contact:read", "contact:update",
-    "newsletter:read", "newsletter:update",
-    "bookmark:read", "bookmark:create", "bookmark:delete",
-    "like:read", "like:create", "like:delete",
-  ],
-  [Role.EMPLOYEE]: [
-    "post:read", "post:create", "post:update",
-    "file:upload", "file:read",
-    "comment:create",
-    "bookmark:read", "bookmark:create", "bookmark:delete",
-    "like:read", "like:create", "like:delete",
-    "newsletter:read",
-  ],
-  [Role.USER]: [
-    "post:read", "file:read", "comment:create",
-    "bookmark:read", "bookmark:create", "bookmark:delete",
-    "like:read", "like:create", "like:delete",
-    "newsletter:read",
-  ],
-}
 
 export const PERMISSIONS = {
   FILE_UPLOAD: "file:upload",

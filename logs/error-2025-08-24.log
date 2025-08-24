@@ -58,3 +58,90 @@ Error: not authorized on employee_scheduler to execute command { find: "users", 
     at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
     at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
     at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:59:32 error: Non-Operational Error: Expected double-quoted property name in JSON at position 46 (line 3 column 1)
+Error: Expected double-quoted property name in JSON at position 46 (line 3 column 1)
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 14:27:16 error: Email QueueEvents error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:16 error: Redis connection error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:16 error: Image Processing QueueEvents error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:17 error: Post Publishing QueueEvents error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Post Publishing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Image Processing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Email QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Image Processing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Post Publishing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Email QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Post Publishing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Image Processing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Email QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 17:17:54 error: Redis connection error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)

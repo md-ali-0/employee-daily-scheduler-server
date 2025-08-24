@@ -358,3 +358,1184 @@ Error: not authorized on employee_scheduler to execute command { find: "users", 
 2025-08-24 10:09:25 info: SIGINT received. Shutting down gracefully...
 2025-08-24 10:09:25 info: Sentry closed.
 2025-08-24 10:09:25 info: Image processing worker closed.
+2025-08-24 11:23:18 info: Sentry initialized early.
+2025-08-24 11:23:23 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:23:24 info: Loaded 12 email templates from JSON files
+2025-08-24 11:23:25 info: BullMQ queues initialized.
+2025-08-24 11:23:25 info: BullMQ workers initialized.
+2025-08-24 11:23:28 info: Prometheus metrics initialized.
+2025-08-24 11:23:34 info: Using storage type: LOCAL
+2025-08-24 11:23:34 info: Sentry Express error handler setup complete.
+2025-08-24 11:23:34 info: Google OAuth strategy initialized.
+2025-08-24 11:23:34 info: Using storage type: LOCAL
+2025-08-24 11:23:34 info: Swagger UI is available at /api-docs
+2025-08-24 11:23:34 info: Connected to Redis
+2025-08-24 11:23:35 info: Email service is ready
+2025-08-24 11:23:38 info: Database connected successfully
+2025-08-24 11:23:38 info: Server running on port 5000 in development mode
+2025-08-24 11:23:38 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:23:38 info: Health check available at http://localhost:5000/health
+2025-08-24 11:27:26 info: Sentry initialized early.
+2025-08-24 11:27:26 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:27:27 info: Loaded 12 email templates from JSON files
+2025-08-24 11:27:27 info: BullMQ queues initialized.
+2025-08-24 11:27:27 info: BullMQ workers initialized.
+2025-08-24 11:27:27 info: Prometheus metrics initialized.
+2025-08-24 11:27:29 info: Using storage type: LOCAL
+2025-08-24 11:27:29 info: Sentry Express error handler setup complete.
+2025-08-24 11:27:29 info: Google OAuth strategy initialized.
+2025-08-24 11:27:29 info: Using storage type: LOCAL
+2025-08-24 11:27:29 info: Swagger UI is available at /api-docs
+2025-08-24 11:27:29 info: Connected to Redis
+2025-08-24 11:27:30 info: Email service is ready
+2025-08-24 11:27:32 info: Database connected successfully
+2025-08-24 11:27:32 info: Server running on port 5000 in development mode
+2025-08-24 11:27:32 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:27:32 info: Health check available at http://localhost:5000/health
+2025-08-24 11:27:43 info: Sentry initialized early.
+2025-08-24 11:27:43 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:27:43 info: Loaded 12 email templates from JSON files
+2025-08-24 11:27:43 info: BullMQ queues initialized.
+2025-08-24 11:27:43 info: BullMQ workers initialized.
+2025-08-24 11:27:44 info: Connected to Redis
+2025-08-24 11:28:32 info: Sentry initialized early.
+2025-08-24 11:28:32 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:28:32 info: Loaded 12 email templates from JSON files
+2025-08-24 11:28:32 info: BullMQ queues initialized.
+2025-08-24 11:28:32 info: BullMQ workers initialized.
+2025-08-24 11:28:33 info: Connected to Redis
+2025-08-24 11:28:35 info: Sentry initialized early.
+2025-08-24 11:28:36 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:28:36 info: Loaded 12 email templates from JSON files
+2025-08-24 11:28:36 info: BullMQ queues initialized.
+2025-08-24 11:28:36 info: BullMQ workers initialized.
+2025-08-24 11:28:36 info: Connected to Redis
+2025-08-24 11:28:41 info: Sentry initialized early.
+2025-08-24 11:28:41 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:28:41 info: Loaded 12 email templates from JSON files
+2025-08-24 11:28:41 info: BullMQ queues initialized.
+2025-08-24 11:28:41 info: BullMQ workers initialized.
+2025-08-24 11:28:42 info: Connected to Redis
+2025-08-24 11:28:49 info: Sentry initialized early.
+2025-08-24 11:28:49 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:28:49 info: Loaded 12 email templates from JSON files
+2025-08-24 11:28:50 info: BullMQ queues initialized.
+2025-08-24 11:28:50 info: BullMQ workers initialized.
+2025-08-24 11:28:50 info: Connected to Redis
+2025-08-24 11:28:55 info: Sentry initialized early.
+2025-08-24 11:28:56 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:28:56 info: Loaded 12 email templates from JSON files
+2025-08-24 11:28:56 info: BullMQ queues initialized.
+2025-08-24 11:28:56 info: BullMQ workers initialized.
+2025-08-24 11:28:56 info: Connected to Redis
+2025-08-24 11:30:00 info: Sentry initialized early.
+2025-08-24 11:30:01 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:30:01 info: Loaded 12 email templates from JSON files
+2025-08-24 11:30:01 info: BullMQ queues initialized.
+2025-08-24 11:30:01 info: BullMQ workers initialized.
+2025-08-24 11:30:01 info: Connected to Redis
+2025-08-24 11:30:28 info: Sentry initialized early.
+2025-08-24 11:30:29 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:30:29 info: Loaded 12 email templates from JSON files
+2025-08-24 11:30:29 info: BullMQ queues initialized.
+2025-08-24 11:30:29 info: BullMQ workers initialized.
+2025-08-24 11:30:29 info: Connected to Redis
+2025-08-24 11:30:52 info: Sentry initialized early.
+2025-08-24 11:30:53 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:30:53 info: Loaded 12 email templates from JSON files
+2025-08-24 11:30:53 info: BullMQ queues initialized.
+2025-08-24 11:30:53 info: BullMQ workers initialized.
+2025-08-24 11:30:53 info: Connected to Redis
+2025-08-24 11:31:09 info: Sentry initialized early.
+2025-08-24 11:31:09 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:31:10 info: Loaded 12 email templates from JSON files
+2025-08-24 11:31:10 info: BullMQ queues initialized.
+2025-08-24 11:31:10 info: BullMQ workers initialized.
+2025-08-24 11:31:10 info: Connected to Redis
+2025-08-24 11:31:20 info: Sentry initialized early.
+2025-08-24 11:31:21 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:31:21 info: Loaded 12 email templates from JSON files
+2025-08-24 11:31:21 info: BullMQ queues initialized.
+2025-08-24 11:31:21 info: BullMQ workers initialized.
+2025-08-24 11:31:21 info: Connected to Redis
+2025-08-24 11:31:30 info: Sentry initialized early.
+2025-08-24 11:31:30 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:31:30 info: Loaded 12 email templates from JSON files
+2025-08-24 11:31:30 info: BullMQ queues initialized.
+2025-08-24 11:31:30 info: BullMQ workers initialized.
+2025-08-24 11:31:31 info: Connected to Redis
+2025-08-24 11:31:48 info: Sentry initialized early.
+2025-08-24 11:31:48 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:31:48 info: Loaded 12 email templates from JSON files
+2025-08-24 11:31:49 info: BullMQ queues initialized.
+2025-08-24 11:31:49 info: BullMQ workers initialized.
+2025-08-24 11:31:49 info: Connected to Redis
+2025-08-24 11:32:23 info: Sentry initialized early.
+2025-08-24 11:32:23 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:32:23 info: Loaded 12 email templates from JSON files
+2025-08-24 11:32:23 info: BullMQ queues initialized.
+2025-08-24 11:32:23 info: BullMQ workers initialized.
+2025-08-24 11:32:24 info: Connected to Redis
+2025-08-24 11:32:50 info: Sentry initialized early.
+2025-08-24 11:32:50 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:32:50 info: Loaded 12 email templates from JSON files
+2025-08-24 11:32:50 info: BullMQ queues initialized.
+2025-08-24 11:32:50 info: BullMQ workers initialized.
+2025-08-24 11:32:50 info: Connected to Redis
+2025-08-24 11:33:08 info: Sentry initialized early.
+2025-08-24 11:33:08 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:33:08 info: Loaded 12 email templates from JSON files
+2025-08-24 11:33:08 info: BullMQ queues initialized.
+2025-08-24 11:33:08 info: BullMQ workers initialized.
+2025-08-24 11:33:08 info: Prometheus metrics initialized.
+2025-08-24 11:33:10 info: Connected to Redis
+2025-08-24 11:33:32 info: Sentry initialized early.
+2025-08-24 11:33:32 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:33:32 info: Loaded 12 email templates from JSON files
+2025-08-24 11:33:32 info: BullMQ queues initialized.
+2025-08-24 11:33:32 info: BullMQ workers initialized.
+2025-08-24 11:33:33 info: Prometheus metrics initialized.
+2025-08-24 11:33:34 info: Connected to Redis
+2025-08-24 11:34:19 info: Sentry initialized early.
+2025-08-24 11:34:19 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:34:19 info: Loaded 12 email templates from JSON files
+2025-08-24 11:34:19 info: BullMQ queues initialized.
+2025-08-24 11:34:19 info: BullMQ workers initialized.
+2025-08-24 11:34:20 info: Prometheus metrics initialized.
+2025-08-24 11:34:21 info: Connected to Redis
+2025-08-24 11:34:32 info: Sentry initialized early.
+2025-08-24 11:34:32 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:34:32 info: Loaded 12 email templates from JSON files
+2025-08-24 11:34:32 info: BullMQ queues initialized.
+2025-08-24 11:34:32 info: BullMQ workers initialized.
+2025-08-24 11:34:33 info: Prometheus metrics initialized.
+2025-08-24 11:34:34 info: Connected to Redis
+2025-08-24 11:34:41 info: Sentry initialized early.
+2025-08-24 11:34:42 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:34:42 info: Loaded 12 email templates from JSON files
+2025-08-24 11:34:42 info: BullMQ queues initialized.
+2025-08-24 11:34:42 info: BullMQ workers initialized.
+2025-08-24 11:34:42 info: Prometheus metrics initialized.
+2025-08-24 11:34:44 info: Using storage type: LOCAL
+2025-08-24 11:34:44 info: Sentry Express error handler setup complete.
+2025-08-24 11:34:44 info: Google OAuth strategy initialized.
+2025-08-24 11:34:44 info: Using storage type: LOCAL
+2025-08-24 11:34:44 info: Swagger UI is available at /api-docs
+2025-08-24 11:34:44 info: Connected to Redis
+2025-08-24 11:34:45 info: Email service is ready
+2025-08-24 11:34:48 info: Database connected successfully
+2025-08-24 11:34:48 info: Server running on port 5000 in development mode
+2025-08-24 11:34:48 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:34:48 info: Health check available at http://localhost:5000/health
+2025-08-24 11:35:44 info: Sentry initialized early.
+2025-08-24 11:35:44 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:35:45 info: Loaded 12 email templates from JSON files
+2025-08-24 11:35:45 info: BullMQ queues initialized.
+2025-08-24 11:35:45 info: BullMQ workers initialized.
+2025-08-24 11:35:45 info: Prometheus metrics initialized.
+2025-08-24 11:35:47 info: Using storage type: LOCAL
+2025-08-24 11:35:47 info: Sentry Express error handler setup complete.
+2025-08-24 11:35:47 info: Google OAuth strategy initialized.
+2025-08-24 11:35:47 info: Using storage type: LOCAL
+2025-08-24 11:35:47 info: Swagger UI is available at /api-docs
+2025-08-24 11:35:47 info: Connected to Redis
+2025-08-24 11:35:48 info: Email service is ready
+2025-08-24 11:35:50 info: Database connected successfully
+2025-08-24 11:35:50 info: Server running on port 5000 in development mode
+2025-08-24 11:35:50 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:35:50 info: Health check available at http://localhost:5000/health
+2025-08-24 11:35:55 info: Sentry initialized early.
+2025-08-24 11:35:55 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:35:55 info: Loaded 12 email templates from JSON files
+2025-08-24 11:35:55 info: BullMQ queues initialized.
+2025-08-24 11:35:55 info: BullMQ workers initialized.
+2025-08-24 11:35:56 info: Prometheus metrics initialized.
+2025-08-24 11:35:58 info: Using storage type: LOCAL
+2025-08-24 11:35:58 info: Sentry Express error handler setup complete.
+2025-08-24 11:35:58 info: Google OAuth strategy initialized.
+2025-08-24 11:35:58 info: Using storage type: LOCAL
+2025-08-24 11:35:58 info: Swagger UI is available at /api-docs
+2025-08-24 11:35:58 info: Connected to Redis
+2025-08-24 11:35:59 info: Email service is ready
+2025-08-24 11:36:01 info: Database connected successfully
+2025-08-24 11:36:01 info: Server running on port 5000 in development mode
+2025-08-24 11:36:01 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:36:01 info: Health check available at http://localhost:5000/health
+2025-08-24 11:36:25 info: Sentry initialized early.
+2025-08-24 11:36:26 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:36:26 info: Loaded 12 email templates from JSON files
+2025-08-24 11:36:26 info: BullMQ queues initialized.
+2025-08-24 11:36:26 info: BullMQ workers initialized.
+2025-08-24 11:36:26 info: Prometheus metrics initialized.
+2025-08-24 11:36:28 info: Using storage type: LOCAL
+2025-08-24 11:36:28 info: Sentry Express error handler setup complete.
+2025-08-24 11:36:28 info: Google OAuth strategy initialized.
+2025-08-24 11:36:28 info: Using storage type: LOCAL
+2025-08-24 11:36:28 info: Swagger UI is available at /api-docs
+2025-08-24 11:36:28 info: Connected to Redis
+2025-08-24 11:36:29 info: Email service is ready
+2025-08-24 11:36:31 info: Database connected successfully
+2025-08-24 11:36:31 info: Server running on port 5000 in development mode
+2025-08-24 11:36:31 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:36:31 info: Health check available at http://localhost:5000/health
+2025-08-24 11:36:43 info: Sentry initialized early.
+2025-08-24 11:36:43 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:36:43 info: Loaded 12 email templates from JSON files
+2025-08-24 11:36:44 info: BullMQ queues initialized.
+2025-08-24 11:36:44 info: BullMQ workers initialized.
+2025-08-24 11:36:44 info: Prometheus metrics initialized.
+2025-08-24 11:36:45 info: Connected to Redis
+2025-08-24 11:37:06 info: Sentry initialized early.
+2025-08-24 11:37:07 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:37:07 info: Loaded 12 email templates from JSON files
+2025-08-24 11:37:07 info: BullMQ queues initialized.
+2025-08-24 11:37:07 info: BullMQ workers initialized.
+2025-08-24 11:37:07 info: Prometheus metrics initialized.
+2025-08-24 11:37:09 info: Using storage type: LOCAL
+2025-08-24 11:37:09 info: Sentry Express error handler setup complete.
+2025-08-24 11:37:09 info: Google OAuth strategy initialized.
+2025-08-24 11:37:09 info: Using storage type: LOCAL
+2025-08-24 11:37:09 info: Swagger UI is available at /api-docs
+2025-08-24 11:37:09 info: Connected to Redis
+2025-08-24 11:37:12 info: Sentry initialized early.
+2025-08-24 11:37:13 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:37:13 info: Loaded 12 email templates from JSON files
+2025-08-24 11:37:13 info: BullMQ queues initialized.
+2025-08-24 11:37:13 info: BullMQ workers initialized.
+2025-08-24 11:37:13 info: Prometheus metrics initialized.
+2025-08-24 11:37:15 info: Using storage type: LOCAL
+2025-08-24 11:37:15 info: Sentry Express error handler setup complete.
+2025-08-24 11:37:15 info: Google OAuth strategy initialized.
+2025-08-24 11:37:15 info: Using storage type: LOCAL
+2025-08-24 11:37:15 info: Swagger UI is available at /api-docs
+2025-08-24 11:37:15 info: Connected to Redis
+2025-08-24 11:37:16 info: Email service is ready
+2025-08-24 11:37:19 info: Database connected successfully
+2025-08-24 11:37:19 info: Server running on port 5000 in development mode
+2025-08-24 11:37:19 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:37:19 info: Health check available at http://localhost:5000/health
+2025-08-24 11:37:33 warn: Operational Error: errors.validation_failed [ReqId: 35c49fd7-91c6-4417-b275-a28ad06a8436]
+Error: errors.validation_failed
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:50:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:37:33 info: [35c49fd7-91c6-4417-b275-a28ad06a8436] POST /api/v1/auth/register - 400 - 450.57ms from ::1
+2025-08-24 11:44:53 info: Sentry initialized early.
+2025-08-24 11:44:53 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:44:53 info: Loaded 12 email templates from JSON files
+2025-08-24 11:44:53 info: BullMQ queues initialized.
+2025-08-24 11:44:53 info: BullMQ workers initialized.
+2025-08-24 11:44:54 info: Prometheus metrics initialized.
+2025-08-24 11:44:55 info: Using storage type: LOCAL
+2025-08-24 11:44:55 info: Sentry Express error handler setup complete.
+2025-08-24 11:44:55 info: Google OAuth strategy initialized.
+2025-08-24 11:44:55 info: Using storage type: LOCAL
+2025-08-24 11:44:55 info: Swagger UI is available at /api-docs
+2025-08-24 11:44:55 info: Connected to Redis
+2025-08-24 11:44:57 info: Email service is ready
+2025-08-24 11:44:59 info: Database connected successfully
+2025-08-24 11:44:59 info: Server running on port 5000 in development mode
+2025-08-24 11:44:59 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:44:59 info: Health check available at http://localhost:5000/health
+2025-08-24 11:45:25 warn: Operational Error: errors.validation_failed [ReqId: 1bd96528-d924-412a-9266-5ffeda4176c5]
+Error: errors.validation_failed
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:50:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:45:25 info: [1bd96528-d924-412a-9266-5ffeda4176c5] POST /api/v1/auth/register - 400 - 392.23ms from ::1
+2025-08-24 11:45:55 info: Sentry initialized early.
+2025-08-24 11:45:56 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:45:56 info: Loaded 12 email templates from JSON files
+2025-08-24 11:45:56 info: BullMQ queues initialized.
+2025-08-24 11:45:56 info: BullMQ workers initialized.
+2025-08-24 11:45:56 info: Prometheus metrics initialized.
+2025-08-24 11:45:58 info: Using storage type: LOCAL
+2025-08-24 11:45:58 info: Sentry Express error handler setup complete.
+2025-08-24 11:45:58 info: Google OAuth strategy initialized.
+2025-08-24 11:45:58 info: Using storage type: LOCAL
+2025-08-24 11:45:58 info: Swagger UI is available at /api-docs
+2025-08-24 11:45:58 info: Connected to Redis
+2025-08-24 11:45:59 info: Email service is ready
+2025-08-24 11:46:01 info: Database connected successfully
+2025-08-24 11:46:01 info: Server running on port 5000 in development mode
+2025-08-24 11:46:01 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:46:01 info: Health check available at http://localhost:5000/health
+2025-08-24 11:46:05 warn: Operational Error: errors.validation_failed [ReqId: 7738910b-9370-454f-b7e3-2dac5c61f2f5]
+Error: errors.validation_failed
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:50:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:46:05 info: [7738910b-9370-454f-b7e3-2dac5c61f2f5] POST /api/v1/auth/register - 400 - 405.43ms from ::1
+2025-08-24 11:47:13 info: Sentry initialized early.
+2025-08-24 11:47:13 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:47:13 info: Loaded 12 email templates from JSON files
+2025-08-24 11:47:14 info: BullMQ queues initialized.
+2025-08-24 11:47:14 info: BullMQ workers initialized.
+2025-08-24 11:47:14 info: Prometheus metrics initialized.
+2025-08-24 11:47:16 info: Using storage type: LOCAL
+2025-08-24 11:47:16 info: Sentry Express error handler setup complete.
+2025-08-24 11:47:16 info: Google OAuth strategy initialized.
+2025-08-24 11:47:16 info: Using storage type: LOCAL
+2025-08-24 11:47:16 info: Swagger UI is available at /api-docs
+2025-08-24 11:47:16 info: Connected to Redis
+2025-08-24 11:47:17 info: Email service is ready
+2025-08-24 11:47:19 info: Database connected successfully
+2025-08-24 11:47:19 info: Server running on port 5000 in development mode
+2025-08-24 11:47:19 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:47:19 info: Health check available at http://localhost:5000/health
+2025-08-24 11:47:20 warn: Operational Error: errors.validation_failed [ReqId: 26128417-aeee-4ff6-aba1-5334d6d7801e]
+Error: errors.validation_failed
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:50:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:47:20 info: [26128417-aeee-4ff6-aba1-5334d6d7801e] POST /api/v1/auth/register - 400 - 1048.11ms from ::1
+2025-08-24 11:48:49 info: Sentry initialized early.
+2025-08-24 11:48:49 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:48:49 info: Loaded 12 email templates from JSON files
+2025-08-24 11:48:50 info: BullMQ queues initialized.
+2025-08-24 11:48:50 info: BullMQ workers initialized.
+2025-08-24 11:48:50 info: Prometheus metrics initialized.
+2025-08-24 11:48:52 info: Using storage type: LOCAL
+2025-08-24 11:48:52 info: Sentry Express error handler setup complete.
+2025-08-24 11:48:52 info: Google OAuth strategy initialized.
+2025-08-24 11:48:52 info: Using storage type: LOCAL
+2025-08-24 11:48:52 info: Swagger UI is available at /api-docs
+2025-08-24 11:48:52 info: Connected to Redis
+2025-08-24 11:48:53 info: Email service is ready
+2025-08-24 11:48:55 info: Database connected successfully
+2025-08-24 11:48:55 info: Server running on port 5000 in development mode
+2025-08-24 11:48:55 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:48:55 info: Health check available at http://localhost:5000/health
+2025-08-24 11:48:58 warn: Operational Error: errors.validation_failed [ReqId: db123cb8-9e29-4ca0-8647-1ad18134d2e5]
+Error: errors.validation_failed
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:50:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:48:58 info: [db123cb8-9e29-4ca0-8647-1ad18134d2e5] POST /api/v1/auth/register - 400 - 395.19ms from ::1
+2025-08-24 11:50:49 info: Sentry initialized early.
+2025-08-24 11:50:49 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:50:49 info: Loaded 12 email templates from JSON files
+2025-08-24 11:50:49 info: BullMQ queues initialized.
+2025-08-24 11:50:49 info: BullMQ workers initialized.
+2025-08-24 11:50:50 info: Prometheus metrics initialized.
+2025-08-24 11:50:51 info: Using storage type: LOCAL
+2025-08-24 11:50:51 info: Sentry Express error handler setup complete.
+2025-08-24 11:50:51 info: Google OAuth strategy initialized.
+2025-08-24 11:50:51 info: Using storage type: LOCAL
+2025-08-24 11:50:51 info: Swagger UI is available at /api-docs
+2025-08-24 11:50:51 info: Connected to Redis
+2025-08-24 11:50:52 info: Email service is ready
+2025-08-24 11:50:55 info: Database connected successfully
+2025-08-24 11:50:55 info: Server running on port 5000 in development mode
+2025-08-24 11:50:55 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:50:55 info: Health check available at http://localhost:5000/health
+2025-08-24 11:51:13 info: Sentry initialized early.
+2025-08-24 11:51:13 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:51:13 info: Loaded 12 email templates from JSON files
+2025-08-24 11:51:13 info: BullMQ queues initialized.
+2025-08-24 11:51:13 info: BullMQ workers initialized.
+2025-08-24 11:51:14 info: Prometheus metrics initialized.
+2025-08-24 11:51:15 info: Using storage type: LOCAL
+2025-08-24 11:51:15 info: Sentry Express error handler setup complete.
+2025-08-24 11:51:15 info: Google OAuth strategy initialized.
+2025-08-24 11:51:15 info: Using storage type: LOCAL
+2025-08-24 11:51:15 info: Swagger UI is available at /api-docs
+2025-08-24 11:51:16 info: Connected to Redis
+2025-08-24 11:51:17 info: Email service is ready
+2025-08-24 11:51:19 info: Database connected successfully
+2025-08-24 11:51:19 info: Server running on port 5000 in development mode
+2025-08-24 11:51:19 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:51:19 info: Health check available at http://localhost:5000/health
+2025-08-24 11:51:27 info: [0fe0ca35-9860-4081-a233-71b1896738a1] POST /api/v1/auth/register - 201 - 847.39ms from ::1
+2025-08-24 11:51:27 info: Processing email job 1: mohammad.98482@gmail.com
+2025-08-24 11:51:30 info: Email sent successfully to mohammad.98482@gmail.com: <766a0cca-d459-e0cf-4fba-afc691123f3f@gmail.com>
+2025-08-24 11:51:30 info: Email sent successfully to mohammad.98482@gmail.com
+2025-08-24 11:51:30 info: Job 1 completed for queue emailQueue
+2025-08-24 11:51:30 info: Email job 1 completed.
+2025-08-24 11:52:10 info: Sentry initialized early.
+2025-08-24 11:52:11 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:52:11 info: Loaded 12 email templates from JSON files
+2025-08-24 11:52:11 info: BullMQ queues initialized.
+2025-08-24 11:52:11 info: BullMQ workers initialized.
+2025-08-24 11:52:11 info: Prometheus metrics initialized.
+2025-08-24 11:52:13 info: Using storage type: LOCAL
+2025-08-24 11:52:13 info: Sentry Express error handler setup complete.
+2025-08-24 11:52:13 info: Google OAuth strategy initialized.
+2025-08-24 11:52:13 info: Using storage type: LOCAL
+2025-08-24 11:52:13 info: Swagger UI is available at /api-docs
+2025-08-24 11:52:13 info: Connected to Redis
+2025-08-24 11:52:14 info: Email service is ready
+2025-08-24 11:52:16 info: Database connected successfully
+2025-08-24 11:52:16 info: Server running on port 5000 in development mode
+2025-08-24 11:52:16 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:52:16 info: Health check available at http://localhost:5000/health
+2025-08-24 11:53:30 warn: Operational Error: Validation failed. [ReqId: d5674e71-68cb-4515-9fb5-682661b9f6f2]
+Error: Validation failed.
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\validation.middleware.ts:13:12
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express-rate-limit@7.5.1_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:807:7
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express-rate-limit@7.5.1_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:691:5
+2025-08-24 11:53:30 info: [d5674e71-68cb-4515-9fb5-682661b9f6f2] POST /api/v1/auth/register - 400 - 17.22ms from ::1
+2025-08-24 11:53:52 info: [61b381df-a6b6-4f5e-a683-11d9da42b2a7] POST /api/v1/auth/login - 200 - 507.55ms from ::1
+2025-08-24 11:53:52 info: Processing email job 2: mohammad.98482@gmail.com
+2025-08-24 11:53:56 info: Email sent successfully to mohammad.98482@gmail.com: <ad7c6b2f-0a57-704d-f6e3-6f751014cdba@gmail.com>
+2025-08-24 11:53:56 info: Email sent successfully to mohammad.98482@gmail.com
+2025-08-24 11:53:56 info: Job 2 completed for queue emailQueue
+2025-08-24 11:53:56 info: Email job 2 completed.
+2025-08-24 11:54:09 info: Sentry initialized early.
+2025-08-24 11:54:09 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:54:09 info: Loaded 12 email templates from JSON files
+2025-08-24 11:54:09 info: BullMQ queues initialized.
+2025-08-24 11:54:09 info: BullMQ workers initialized.
+2025-08-24 11:54:10 info: Prometheus metrics initialized.
+2025-08-24 11:54:11 info: Using storage type: LOCAL
+2025-08-24 11:54:11 info: Sentry Express error handler setup complete.
+2025-08-24 11:54:11 info: Google OAuth strategy initialized.
+2025-08-24 11:54:11 info: Using storage type: LOCAL
+2025-08-24 11:54:11 info: Swagger UI is available at /api-docs
+2025-08-24 11:54:11 info: Connected to Redis
+2025-08-24 11:54:13 info: Email service is ready
+2025-08-24 11:54:16 info: Sentry initialized early.
+2025-08-24 11:54:17 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:54:17 info: Loaded 12 email templates from JSON files
+2025-08-24 11:54:17 info: BullMQ queues initialized.
+2025-08-24 11:54:17 info: BullMQ workers initialized.
+2025-08-24 11:54:17 info: Prometheus metrics initialized.
+2025-08-24 11:54:19 info: Using storage type: LOCAL
+2025-08-24 11:54:19 info: Sentry Express error handler setup complete.
+2025-08-24 11:54:19 info: Google OAuth strategy initialized.
+2025-08-24 11:54:19 info: Using storage type: LOCAL
+2025-08-24 11:54:19 info: Swagger UI is available at /api-docs
+2025-08-24 11:54:19 info: Connected to Redis
+2025-08-24 11:54:20 info: Email service is ready
+2025-08-24 11:54:22 info: Database connected successfully
+2025-08-24 11:54:22 info: Server running on port 5000 in development mode
+2025-08-24 11:54:22 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:54:22 info: Health check available at http://localhost:5000/health
+2025-08-24 11:54:26 info: Sentry initialized early.
+2025-08-24 11:54:26 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:54:26 info: Loaded 12 email templates from JSON files
+2025-08-24 11:54:26 info: BullMQ queues initialized.
+2025-08-24 11:54:26 info: BullMQ workers initialized.
+2025-08-24 11:54:27 info: Prometheus metrics initialized.
+2025-08-24 11:54:28 info: Using storage type: LOCAL
+2025-08-24 11:54:28 info: Sentry Express error handler setup complete.
+2025-08-24 11:54:28 info: Google OAuth strategy initialized.
+2025-08-24 11:54:28 info: Using storage type: LOCAL
+2025-08-24 11:54:28 info: Swagger UI is available at /api-docs
+2025-08-24 11:54:28 info: Connected to Redis
+2025-08-24 11:54:30 info: Email service is ready
+2025-08-24 11:54:32 info: Database connected successfully
+2025-08-24 11:54:32 info: Server running on port 5000 in development mode
+2025-08-24 11:54:32 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:54:32 info: Health check available at http://localhost:5000/health
+2025-08-24 11:54:35 info: [561934b7-c701-4902-8176-a7fc484294f1] POST /api/v1/auth/login - 200 - 534.15ms from ::1
+2025-08-24 11:54:35 info: Processing email job 3: mohammad.98482@gmail.com
+2025-08-24 11:54:37 info: Email sent successfully to mohammad.98482@gmail.com: <ad6f67d3-3981-75aa-a051-5ed1b713840e@gmail.com>
+2025-08-24 11:54:37 info: Email sent successfully to mohammad.98482@gmail.com
+2025-08-24 11:54:37 info: Job 3 completed for queue emailQueue
+2025-08-24 11:54:37 info: Email job 3 completed.
+2025-08-24 11:57:08 info: Sentry initialized early.
+2025-08-24 11:57:08 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:57:08 info: Loaded 12 email templates from JSON files
+2025-08-24 11:57:08 info: BullMQ queues initialized.
+2025-08-24 11:57:08 info: BullMQ workers initialized.
+2025-08-24 11:57:08 info: Prometheus metrics initialized.
+2025-08-24 11:57:10 info: Using storage type: LOCAL
+2025-08-24 11:57:10 info: Sentry Express error handler setup complete.
+2025-08-24 11:57:10 info: Google OAuth strategy initialized.
+2025-08-24 11:57:10 info: Using storage type: LOCAL
+2025-08-24 11:57:10 info: Swagger UI is available at /api-docs
+2025-08-24 11:57:10 info: Connected to Redis
+2025-08-24 11:57:12 info: Email service is ready
+2025-08-24 11:57:14 info: Database connected successfully
+2025-08-24 11:57:14 info: Server running on port 5000 in development mode
+2025-08-24 11:57:14 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:57:14 info: Health check available at http://localhost:5000/health
+2025-08-24 11:58:27 info: Sentry initialized early.
+2025-08-24 11:58:27 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:58:27 info: Loaded 12 email templates from JSON files
+2025-08-24 11:58:27 info: BullMQ queues initialized.
+2025-08-24 11:58:27 info: BullMQ workers initialized.
+2025-08-24 11:58:28 info: Prometheus metrics initialized.
+2025-08-24 11:58:30 info: Using storage type: LOCAL
+2025-08-24 11:58:30 info: Sentry Express error handler setup complete.
+2025-08-24 11:58:30 info: Google OAuth strategy initialized.
+2025-08-24 11:58:30 info: Using storage type: LOCAL
+2025-08-24 11:58:30 info: Swagger UI is available at /api-docs
+2025-08-24 11:58:30 info: Connected to Redis
+2025-08-24 11:58:32 info: Sentry initialized early.
+2025-08-24 11:58:32 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 11:58:32 info: Loaded 12 email templates from JSON files
+2025-08-24 11:58:32 info: BullMQ queues initialized.
+2025-08-24 11:58:32 info: BullMQ workers initialized.
+2025-08-24 11:58:33 info: Prometheus metrics initialized.
+2025-08-24 11:58:34 info: Using storage type: LOCAL
+2025-08-24 11:58:34 info: Sentry Express error handler setup complete.
+2025-08-24 11:58:34 info: Google OAuth strategy initialized.
+2025-08-24 11:58:34 info: Using storage type: LOCAL
+2025-08-24 11:58:34 info: Swagger UI is available at /api-docs
+2025-08-24 11:58:35 info: Connected to Redis
+2025-08-24 11:58:36 info: Email service is ready
+2025-08-24 11:58:38 info: Database connected successfully
+2025-08-24 11:58:38 info: Server running on port 5000 in development mode
+2025-08-24 11:58:38 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 11:58:38 info: Health check available at http://localhost:5000/health
+2025-08-24 11:59:32 error: Non-Operational Error: Expected double-quoted property name in JSON at position 46 (line 3 column 1)
+Error: Expected double-quoted property name in JSON at position 46 (line 3 column 1)
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 11:59:39 info: Email sent successfully to mohammad.98482@gmail.com: <c00562a1-c6be-a033-cc97-d15eb4340c66@gmail.com> [ReqId: c03b0ea5-da04-4871-ae21-2cd119444ed1]
+2025-08-24 11:59:40 info: [c03b0ea5-da04-4871-ae21-2cd119444ed1] POST /api/v1/auth/forgot-password - 200 - 4476.46ms from ::1
+2025-08-24 12:01:43 warn: Operational Error: Validation failed. [ReqId: 08087561-5b31-4e9c-9613-6235dae49fa5]
+Error: Validation failed.
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\validation.middleware.ts:13:12
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express-rate-limit@7.5.1_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:807:7
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express-rate-limit@7.5.1_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:691:5
+2025-08-24 12:01:43 info: [08087561-5b31-4e9c-9613-6235dae49fa5] POST /api/v1/auth/reset-password - 400 - 3.44ms from ::1
+2025-08-24 12:01:49 info: [33fbbbc2-a31e-4f6a-99e6-d15b1b2aa012] POST /api/v1/auth/reset-password - 200 - 1373.78ms from ::1
+2025-08-24 12:03:00 info: Sentry initialized early.
+2025-08-24 12:03:00 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 12:03:00 info: Loaded 12 email templates from JSON files
+2025-08-24 12:03:00 info: BullMQ queues initialized.
+2025-08-24 12:03:00 info: BullMQ workers initialized.
+2025-08-24 12:03:01 info: Prometheus metrics initialized.
+2025-08-24 12:03:03 info: Using storage type: LOCAL
+2025-08-24 12:03:03 info: Sentry Express error handler setup complete.
+2025-08-24 12:03:03 info: Google OAuth strategy initialized.
+2025-08-24 12:03:03 info: Using storage type: LOCAL
+2025-08-24 12:03:03 info: Swagger UI is available at /api-docs
+2025-08-24 12:03:03 info: Connected to Redis
+2025-08-24 12:03:04 info: Email service is ready
+2025-08-24 12:03:06 info: Database connected successfully
+2025-08-24 12:03:06 info: Server running on port 5000 in development mode
+2025-08-24 12:03:06 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 12:03:06 info: Health check available at http://localhost:5000/health
+2025-08-24 14:00:19 info: Image processing worker is ready and listening for jobs.
+2025-08-24 14:00:24 info: Email worker is ready and listening for jobs.
+2025-08-24 14:00:25 info: Image processing worker is ready and listening for jobs.
+2025-08-24 14:00:31 info: Email worker is ready and listening for jobs.
+2025-08-24 14:00:47 info: Email worker is ready and listening for jobs.
+2025-08-24 14:00:48 info: Image processing worker is ready and listening for jobs.
+2025-08-24 14:00:54 info: Email worker is ready and listening for jobs.
+2025-08-24 14:00:55 info: Image processing worker is ready and listening for jobs.
+2025-08-24 14:27:16 error: Email QueueEvents error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:16 error: Redis connection error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:16 error: Image Processing QueueEvents error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:17 error: Post Publishing QueueEvents error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:17 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Post Publishing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Image Processing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Email QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:18 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Image Processing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Post Publishing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Email QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:19 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Post Publishing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Image Processing QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Email QueueEvents error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:20 error: Redis connection error: connect EHOSTUNREACH 145.223.18.22:6379
+Error: connect EHOSTUNREACH 145.223.18.22:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)
+2025-08-24 14:27:21 info: Connected to Redis
+2025-08-24 14:27:21 info: Email worker is ready and listening for jobs.
+2025-08-24 14:27:21 info: Image processing worker is ready and listening for jobs.
+2025-08-24 16:38:02 info: Email worker is ready and listening for jobs.
+2025-08-24 16:38:09 info: Email worker is ready and listening for jobs.
+2025-08-24 16:38:24 info: Email worker is ready and listening for jobs.
+2025-08-24 17:17:03 info: Image processing worker is ready and listening for jobs.
+2025-08-24 17:17:03 info: Email worker is ready and listening for jobs.
+2025-08-24 17:17:54 error: Redis connection error: read ECONNRESET
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+2025-08-24 17:17:54 info: Connected to Redis
+2025-08-24 17:39:51 info: Sentry initialized early.
+2025-08-24 17:39:51 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:39:51 info: Loaded 12 email templates from JSON files
+2025-08-24 17:39:51 info: BullMQ queues initialized.
+2025-08-24 17:39:51 info: BullMQ workers initialized.
+2025-08-24 17:39:52 info: Prometheus metrics initialized.
+2025-08-24 17:39:54 info: Using storage type: LOCAL
+2025-08-24 17:39:54 info: Sentry Express error handler setup complete.
+2025-08-24 17:39:54 info: Google OAuth strategy initialized.
+2025-08-24 17:39:54 info: Using storage type: LOCAL
+2025-08-24 17:39:54 info: Swagger UI is available at /api-docs
+2025-08-24 17:39:54 info: Connected to Redis
+2025-08-24 17:39:55 info: Email service is ready
+2025-08-24 17:39:58 info: Database connected successfully
+2025-08-24 17:39:58 info: Server running on port 5000 in development mode
+2025-08-24 17:39:58 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:39:58 info: Health check available at http://localhost:5000/health
+2025-08-24 17:40:05 info: Sentry initialized early.
+2025-08-24 17:40:05 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:40:05 info: Loaded 12 email templates from JSON files
+2025-08-24 17:40:06 info: BullMQ queues initialized.
+2025-08-24 17:40:06 info: BullMQ workers initialized.
+2025-08-24 17:40:06 info: Prometheus metrics initialized.
+2025-08-24 17:40:08 info: Using storage type: LOCAL
+2025-08-24 17:40:08 info: Sentry Express error handler setup complete.
+2025-08-24 17:40:08 info: Google OAuth strategy initialized.
+2025-08-24 17:40:08 info: Using storage type: LOCAL
+2025-08-24 17:40:08 info: Swagger UI is available at /api-docs
+2025-08-24 17:40:08 info: Connected to Redis
+2025-08-24 17:40:09 info: Email service is ready
+2025-08-24 17:40:13 info: Sentry initialized early.
+2025-08-24 17:40:14 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:40:14 info: Loaded 12 email templates from JSON files
+2025-08-24 17:40:14 info: BullMQ queues initialized.
+2025-08-24 17:40:14 info: BullMQ workers initialized.
+2025-08-24 17:40:15 info: Prometheus metrics initialized.
+2025-08-24 17:40:17 info: Using storage type: LOCAL
+2025-08-24 17:40:17 info: Sentry Express error handler setup complete.
+2025-08-24 17:40:17 info: Google OAuth strategy initialized.
+2025-08-24 17:40:17 info: Using storage type: LOCAL
+2025-08-24 17:40:17 info: Swagger UI is available at /api-docs
+2025-08-24 17:40:17 info: Connected to Redis
+2025-08-24 17:40:18 info: Email service is ready
+2025-08-24 17:40:20 info: Database connected successfully
+2025-08-24 17:40:20 info: Server running on port 5000 in development mode
+2025-08-24 17:40:20 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:40:20 info: Health check available at http://localhost:5000/health
+2025-08-24 17:40:38 info: Sentry initialized early.
+2025-08-24 17:40:39 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:40:39 info: Loaded 12 email templates from JSON files
+2025-08-24 17:40:39 info: BullMQ queues initialized.
+2025-08-24 17:40:39 info: BullMQ workers initialized.
+2025-08-24 17:40:39 info: Prometheus metrics initialized.
+2025-08-24 17:40:41 info: Using storage type: LOCAL
+2025-08-24 17:40:41 info: Sentry Express error handler setup complete.
+2025-08-24 17:40:41 info: Google OAuth strategy initialized.
+2025-08-24 17:40:41 info: Using storage type: LOCAL
+2025-08-24 17:40:41 info: Swagger UI is available at /api-docs
+2025-08-24 17:40:41 info: Connected to Redis
+2025-08-24 17:40:43 info: Email service is ready
+2025-08-24 17:40:45 info: Database connected successfully
+2025-08-24 17:40:45 info: Server running on port 5000 in development mode
+2025-08-24 17:40:45 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:40:45 info: Health check available at http://localhost:5000/health
+2025-08-24 17:41:05 info: Sentry initialized early.
+2025-08-24 17:41:05 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:41:05 info: Loaded 12 email templates from JSON files
+2025-08-24 17:41:06 info: BullMQ queues initialized.
+2025-08-24 17:41:06 info: BullMQ workers initialized.
+2025-08-24 17:41:06 info: Prometheus metrics initialized.
+2025-08-24 17:41:08 info: Using storage type: LOCAL
+2025-08-24 17:41:08 info: Sentry Express error handler setup complete.
+2025-08-24 17:41:08 info: Google OAuth strategy initialized.
+2025-08-24 17:41:08 info: Using storage type: LOCAL
+2025-08-24 17:41:08 info: Swagger UI is available at /api-docs
+2025-08-24 17:41:08 info: Connected to Redis
+2025-08-24 17:41:09 info: Email service is ready
+2025-08-24 17:41:18 info: Sentry initialized early.
+2025-08-24 17:41:18 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:41:18 info: Loaded 12 email templates from JSON files
+2025-08-24 17:41:18 info: BullMQ queues initialized.
+2025-08-24 17:41:18 info: BullMQ workers initialized.
+2025-08-24 17:41:19 info: Prometheus metrics initialized.
+2025-08-24 17:41:21 info: Using storage type: LOCAL
+2025-08-24 17:41:21 info: Sentry Express error handler setup complete.
+2025-08-24 17:41:21 info: Google OAuth strategy initialized.
+2025-08-24 17:41:21 info: Using storage type: LOCAL
+2025-08-24 17:41:21 info: Swagger UI is available at /api-docs
+2025-08-24 17:41:21 info: Connected to Redis
+2025-08-24 17:41:22 info: Email service is ready
+2025-08-24 17:41:25 info: Database connected successfully
+2025-08-24 17:41:25 info: Server running on port 5000 in development mode
+2025-08-24 17:41:25 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:41:25 info: Health check available at http://localhost:5000/health
+2025-08-24 17:48:33 info: Sentry initialized early.
+2025-08-24 17:48:33 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:48:33 info: Loaded 12 email templates from JSON files
+2025-08-24 17:48:33 info: BullMQ queues initialized.
+2025-08-24 17:48:33 info: BullMQ workers initialized.
+2025-08-24 17:48:34 info: Prometheus metrics initialized.
+2025-08-24 17:48:36 info: Using storage type: LOCAL
+2025-08-24 17:48:36 info: Sentry Express error handler setup complete.
+2025-08-24 17:48:36 info: Google OAuth strategy initialized.
+2025-08-24 17:48:36 info: Using storage type: LOCAL
+2025-08-24 17:48:36 info: Swagger UI is available at /api-docs
+2025-08-24 17:48:36 info: Connected to Redis
+2025-08-24 17:48:37 info: Email service is ready
+2025-08-24 17:48:39 info: Database connected successfully
+2025-08-24 17:48:39 info: Server running on port 5000 in development mode
+2025-08-24 17:48:39 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:48:39 info: Health check available at http://localhost:5000/health
+2025-08-24 17:49:14 info: Sentry initialized early.
+2025-08-24 17:49:14 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:49:14 info: Loaded 12 email templates from JSON files
+2025-08-24 17:49:14 info: BullMQ queues initialized.
+2025-08-24 17:49:14 info: BullMQ workers initialized.
+2025-08-24 17:49:15 info: Prometheus metrics initialized.
+2025-08-24 17:49:16 info: Using storage type: LOCAL
+2025-08-24 17:49:16 info: Sentry Express error handler setup complete.
+2025-08-24 17:49:16 info: Google OAuth strategy initialized.
+2025-08-24 17:49:16 info: Using storage type: LOCAL
+2025-08-24 17:49:16 info: Swagger UI is available at /api-docs
+2025-08-24 17:49:16 info: Connected to Redis
+2025-08-24 17:49:17 info: Email service is ready
+2025-08-24 17:49:23 info: Sentry initialized early.
+2025-08-24 17:49:23 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:49:24 info: Loaded 12 email templates from JSON files
+2025-08-24 17:49:24 info: BullMQ queues initialized.
+2025-08-24 17:49:24 info: BullMQ workers initialized.
+2025-08-24 17:49:24 info: Prometheus metrics initialized.
+2025-08-24 17:49:26 info: Using storage type: LOCAL
+2025-08-24 17:49:26 info: Sentry Express error handler setup complete.
+2025-08-24 17:49:26 info: Google OAuth strategy initialized.
+2025-08-24 17:49:26 info: Using storage type: LOCAL
+2025-08-24 17:49:26 info: Swagger UI is available at /api-docs
+2025-08-24 17:49:26 info: Connected to Redis
+2025-08-24 17:49:28 info: Email service is ready
+2025-08-24 17:49:30 info: Database connected successfully
+2025-08-24 17:49:30 info: Server running on port 5000 in development mode
+2025-08-24 17:49:30 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:49:30 info: Health check available at http://localhost:5000/health
+2025-08-24 17:49:44 info: Sentry initialized early.
+2025-08-24 17:49:45 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:49:45 info: Loaded 12 email templates from JSON files
+2025-08-24 17:49:45 info: BullMQ queues initialized.
+2025-08-24 17:49:45 info: BullMQ workers initialized.
+2025-08-24 17:49:46 info: Prometheus metrics initialized.
+2025-08-24 17:49:48 info: Using storage type: LOCAL
+2025-08-24 17:49:48 info: Sentry Express error handler setup complete.
+2025-08-24 17:49:48 info: Google OAuth strategy initialized.
+2025-08-24 17:49:48 info: Using storage type: LOCAL
+2025-08-24 17:49:48 info: Swagger UI is available at /api-docs
+2025-08-24 17:49:48 info: Connected to Redis
+2025-08-24 17:49:49 info: Email service is ready
+2025-08-24 17:49:51 info: Database connected successfully
+2025-08-24 17:49:51 info: Server running on port 5000 in development mode
+2025-08-24 17:49:51 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:49:51 info: Health check available at http://localhost:5000/health
+2025-08-24 17:50:25 info: Sentry initialized early.
+2025-08-24 17:50:26 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:50:26 info: Loaded 12 email templates from JSON files
+2025-08-24 17:50:26 info: BullMQ queues initialized.
+2025-08-24 17:50:26 info: BullMQ workers initialized.
+2025-08-24 17:50:26 info: Prometheus metrics initialized.
+2025-08-24 17:50:28 info: Using storage type: LOCAL
+2025-08-24 17:50:28 info: Sentry Express error handler setup complete.
+2025-08-24 17:50:28 info: Google OAuth strategy initialized.
+2025-08-24 17:50:28 info: Using storage type: LOCAL
+2025-08-24 17:50:28 info: Swagger UI is available at /api-docs
+2025-08-24 17:50:28 info: Connected to Redis
+2025-08-24 17:50:32 info: Sentry initialized early.
+2025-08-24 17:50:32 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:50:32 info: Loaded 12 email templates from JSON files
+2025-08-24 17:50:33 info: BullMQ queues initialized.
+2025-08-24 17:50:33 info: BullMQ workers initialized.
+2025-08-24 17:50:33 info: Prometheus metrics initialized.
+2025-08-24 17:50:35 info: Using storage type: LOCAL
+2025-08-24 17:50:35 info: Sentry Express error handler setup complete.
+2025-08-24 17:50:35 info: Google OAuth strategy initialized.
+2025-08-24 17:50:35 info: Using storage type: LOCAL
+2025-08-24 17:50:35 info: Swagger UI is available at /api-docs
+2025-08-24 17:50:35 info: Connected to Redis
+2025-08-24 17:50:36 info: Email service is ready
+2025-08-24 17:50:38 info: Database connected successfully
+2025-08-24 17:50:38 info: Server running on port 5000 in development mode
+2025-08-24 17:50:38 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:50:38 info: Health check available at http://localhost:5000/health
+2025-08-24 17:52:35 info: Sentry initialized early.
+2025-08-24 17:52:36 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:52:36 info: Loaded 12 email templates from JSON files
+2025-08-24 17:52:36 info: BullMQ queues initialized.
+2025-08-24 17:52:36 info: BullMQ workers initialized.
+2025-08-24 17:52:36 info: Prometheus metrics initialized.
+2025-08-24 17:52:38 info: Using storage type: LOCAL
+2025-08-24 17:52:38 info: Sentry Express error handler setup complete.
+2025-08-24 17:52:38 info: Google OAuth strategy initialized.
+2025-08-24 17:52:38 info: Using storage type: LOCAL
+2025-08-24 17:52:38 info: Swagger UI is available at /api-docs
+2025-08-24 17:52:38 info: Connected to Redis
+2025-08-24 17:52:39 info: Email service is ready
+2025-08-24 17:52:42 info: Database connected successfully
+2025-08-24 17:52:42 info: Server running on port 5000 in development mode
+2025-08-24 17:52:42 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:52:42 info: Health check available at http://localhost:5000/health
+2025-08-24 17:52:45 info: Sentry initialized early.
+2025-08-24 17:52:45 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:52:45 info: Loaded 12 email templates from JSON files
+2025-08-24 17:52:45 info: BullMQ queues initialized.
+2025-08-24 17:52:45 info: BullMQ workers initialized.
+2025-08-24 17:52:46 info: Prometheus metrics initialized.
+2025-08-24 17:52:48 info: Using storage type: LOCAL
+2025-08-24 17:52:48 info: Sentry Express error handler setup complete.
+2025-08-24 17:52:48 info: Google OAuth strategy initialized.
+2025-08-24 17:52:48 info: Using storage type: LOCAL
+2025-08-24 17:52:48 info: Swagger UI is available at /api-docs
+2025-08-24 17:52:48 info: Connected to Redis
+2025-08-24 17:52:49 info: Email service is ready
+2025-08-24 17:52:51 info: Database connected successfully
+2025-08-24 17:52:51 info: Server running on port 5000 in development mode
+2025-08-24 17:52:51 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:52:51 info: Health check available at http://localhost:5000/health
+2025-08-24 17:54:23 info: Sentry initialized early.
+2025-08-24 17:54:23 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:54:23 info: Loaded 12 email templates from JSON files
+2025-08-24 17:54:23 info: BullMQ queues initialized.
+2025-08-24 17:54:23 info: BullMQ workers initialized.
+2025-08-24 17:54:24 info: Prometheus metrics initialized.
+2025-08-24 17:54:25 info: Using storage type: LOCAL
+2025-08-24 17:54:25 info: Sentry Express error handler setup complete.
+2025-08-24 17:54:25 info: Google OAuth strategy initialized.
+2025-08-24 17:54:25 info: Using storage type: LOCAL
+2025-08-24 17:54:25 info: Swagger UI is available at /api-docs
+2025-08-24 17:54:25 info: Connected to Redis
+2025-08-24 17:54:27 info: Email service is ready
+2025-08-24 17:54:29 info: Database connected successfully
+2025-08-24 17:54:29 info: Server running on port 5000 in development mode
+2025-08-24 17:54:29 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:54:29 info: Health check available at http://localhost:5000/health
+2025-08-24 17:54:38 info: Sentry initialized early.
+2025-08-24 17:54:39 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:54:39 info: Loaded 12 email templates from JSON files
+2025-08-24 17:54:39 info: BullMQ queues initialized.
+2025-08-24 17:54:39 info: BullMQ workers initialized.
+2025-08-24 17:54:39 info: Prometheus metrics initialized.
+2025-08-24 17:54:41 info: Using storage type: LOCAL
+2025-08-24 17:54:41 info: Sentry Express error handler setup complete.
+2025-08-24 17:54:41 info: Google OAuth strategy initialized.
+2025-08-24 17:54:41 info: Using storage type: LOCAL
+2025-08-24 17:54:41 info: Swagger UI is available at /api-docs
+2025-08-24 17:54:41 info: Connected to Redis
+2025-08-24 17:54:43 info: Email service is ready
+2025-08-24 17:54:45 info: Database connected successfully
+2025-08-24 17:54:45 info: Server running on port 5000 in development mode
+2025-08-24 17:54:45 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:54:45 info: Health check available at http://localhost:5000/health
+2025-08-24 17:56:01 info: Sentry initialized early.
+2025-08-24 17:56:01 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:56:01 info: Loaded 12 email templates from JSON files
+2025-08-24 17:56:01 info: BullMQ queues initialized.
+2025-08-24 17:56:01 info: BullMQ workers initialized.
+2025-08-24 17:56:02 info: Prometheus metrics initialized.
+2025-08-24 17:56:03 info: Using storage type: LOCAL
+2025-08-24 17:56:03 info: Sentry Express error handler setup complete.
+2025-08-24 17:56:04 info: Google OAuth strategy initialized.
+2025-08-24 17:56:04 info: Using storage type: LOCAL
+2025-08-24 17:56:04 info: Swagger UI is available at /api-docs
+2025-08-24 17:56:05 info: Connected to Redis
+2025-08-24 17:56:05 info: Email service is ready
+2025-08-24 17:56:10 info: Database connected successfully
+2025-08-24 17:56:10 info: Server running on port 5000 in development mode
+2025-08-24 17:56:10 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:56:10 info: Health check available at http://localhost:5000/health
+2025-08-24 17:57:25 info: Sentry initialized early.
+2025-08-24 17:57:25 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 17:57:25 info: Loaded 12 email templates from JSON files
+2025-08-24 17:57:25 info: BullMQ queues initialized.
+2025-08-24 17:57:25 info: BullMQ workers initialized.
+2025-08-24 17:57:26 info: Prometheus metrics initialized.
+2025-08-24 17:57:28 info: Using storage type: LOCAL
+2025-08-24 17:57:28 info: Sentry Express error handler setup complete.
+2025-08-24 17:57:28 info: Google OAuth strategy initialized.
+2025-08-24 17:57:28 info: Using storage type: LOCAL
+2025-08-24 17:57:28 info: Swagger UI is available at /api-docs
+2025-08-24 17:57:28 info: Connected to Redis
+2025-08-24 17:57:29 info: Email service is ready
+2025-08-24 17:57:31 info: Database connected successfully
+2025-08-24 17:57:31 info: Server running on port 5000 in development mode
+2025-08-24 17:57:31 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 17:57:31 info: Health check available at http://localhost:5000/health
+2025-08-24 18:00:37 info: Sentry initialized early.
+2025-08-24 18:00:38 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:00:38 info: Loaded 12 email templates from JSON files
+2025-08-24 18:00:38 info: BullMQ queues initialized.
+2025-08-24 18:00:38 info: BullMQ workers initialized.
+2025-08-24 18:00:39 info: Prometheus metrics initialized.
+2025-08-24 18:00:41 info: Using storage type: LOCAL
+2025-08-24 18:00:41 info: Sentry Express error handler setup complete.
+2025-08-24 18:00:41 info: Google OAuth strategy initialized.
+2025-08-24 18:00:41 info: Using storage type: LOCAL
+2025-08-24 18:00:41 info: Swagger UI is available at /api-docs
+2025-08-24 18:00:41 info: Connected to Redis
+2025-08-24 18:00:42 info: Email service is ready
+2025-08-24 18:00:44 info: Database connected successfully
+2025-08-24 18:00:44 info: Server running on port 5000 in development mode
+2025-08-24 18:00:44 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:00:44 info: Health check available at http://localhost:5000/health
+2025-08-24 18:02:24 info: Sentry initialized early.
+2025-08-24 18:02:24 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:02:25 info: Loaded 12 email templates from JSON files
+2025-08-24 18:02:25 info: BullMQ queues initialized.
+2025-08-24 18:02:25 info: BullMQ workers initialized.
+2025-08-24 18:02:25 info: Prometheus metrics initialized.
+2025-08-24 18:02:27 info: Using storage type: LOCAL
+2025-08-24 18:02:27 info: Sentry Express error handler setup complete.
+2025-08-24 18:02:27 info: Google OAuth strategy initialized.
+2025-08-24 18:02:27 info: Using storage type: LOCAL
+2025-08-24 18:02:27 info: Swagger UI is available at /api-docs
+2025-08-24 18:02:27 info: Connected to Redis
+2025-08-24 18:02:29 info: Email service is ready
+2025-08-24 18:02:30 info: Database connected successfully
+2025-08-24 18:02:30 info: Server running on port 5000 in development mode
+2025-08-24 18:02:30 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:02:30 info: Health check available at http://localhost:5000/health
+2025-08-24 18:04:33 info: Sentry initialized early.
+2025-08-24 18:04:33 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:04:33 info: Loaded 12 email templates from JSON files
+2025-08-24 18:04:33 info: BullMQ queues initialized.
+2025-08-24 18:04:33 info: BullMQ workers initialized.
+2025-08-24 18:04:34 info: Prometheus metrics initialized.
+2025-08-24 18:04:35 info: Using storage type: LOCAL
+2025-08-24 18:04:35 info: Sentry Express error handler setup complete.
+2025-08-24 18:04:35 info: Google OAuth strategy initialized.
+2025-08-24 18:04:35 info: Using storage type: LOCAL
+2025-08-24 18:04:35 info: Swagger UI is available at /api-docs
+2025-08-24 18:04:35 info: Connected to Redis
+2025-08-24 18:04:37 info: Email service is ready
+2025-08-24 18:04:39 info: Database connected successfully
+2025-08-24 18:04:39 info: Server running on port 5000 in development mode
+2025-08-24 18:04:39 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:04:39 info: Health check available at http://localhost:5000/health
+2025-08-24 18:04:48 info: Sentry initialized early.
+2025-08-24 18:04:49 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:04:49 info: Loaded 12 email templates from JSON files
+2025-08-24 18:04:49 info: BullMQ queues initialized.
+2025-08-24 18:04:49 info: BullMQ workers initialized.
+2025-08-24 18:04:50 info: Prometheus metrics initialized.
+2025-08-24 18:04:52 info: Using storage type: LOCAL
+2025-08-24 18:04:52 info: Sentry Express error handler setup complete.
+2025-08-24 18:04:52 info: Google OAuth strategy initialized.
+2025-08-24 18:04:52 info: Using storage type: LOCAL
+2025-08-24 18:04:52 info: Swagger UI is available at /api-docs
+2025-08-24 18:04:52 info: Connected to Redis
+2025-08-24 18:04:53 info: Email service is ready
+2025-08-24 18:04:55 info: Database connected successfully
+2025-08-24 18:04:55 info: Server running on port 5000 in development mode
+2025-08-24 18:04:55 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:04:55 info: Health check available at http://localhost:5000/health
+2025-08-24 18:04:59 info: Sentry initialized early.
+2025-08-24 18:05:00 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:05:00 info: Loaded 12 email templates from JSON files
+2025-08-24 18:05:00 info: BullMQ queues initialized.
+2025-08-24 18:05:00 info: BullMQ workers initialized.
+2025-08-24 18:05:00 info: Prometheus metrics initialized.
+2025-08-24 18:05:02 info: Using storage type: LOCAL
+2025-08-24 18:05:02 info: Sentry Express error handler setup complete.
+2025-08-24 18:05:02 info: Google OAuth strategy initialized.
+2025-08-24 18:05:02 info: Using storage type: LOCAL
+2025-08-24 18:05:02 info: Swagger UI is available at /api-docs
+2025-08-24 18:05:02 info: Connected to Redis
+2025-08-24 18:05:04 info: Email service is ready
+2025-08-24 18:05:06 info: Database connected successfully
+2025-08-24 18:05:06 info: Server running on port 5000 in development mode
+2025-08-24 18:05:06 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:05:06 info: Health check available at http://localhost:5000/health
+2025-08-24 18:05:14 info: Sentry initialized early.
+2025-08-24 18:05:14 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:05:14 info: Loaded 12 email templates from JSON files
+2025-08-24 18:05:14 info: BullMQ queues initialized.
+2025-08-24 18:05:14 info: BullMQ workers initialized.
+2025-08-24 18:05:15 info: Prometheus metrics initialized.
+2025-08-24 18:05:17 info: Using storage type: LOCAL
+2025-08-24 18:05:17 info: Sentry Express error handler setup complete.
+2025-08-24 18:05:17 info: Google OAuth strategy initialized.
+2025-08-24 18:05:17 info: Using storage type: LOCAL
+2025-08-24 18:05:17 info: Swagger UI is available at /api-docs
+2025-08-24 18:05:17 info: Connected to Redis
+2025-08-24 18:05:19 info: Email service is ready
+2025-08-24 18:05:20 info: Database connected successfully
+2025-08-24 18:05:20 info: Server running on port 5000 in development mode
+2025-08-24 18:05:20 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:05:20 info: Health check available at http://localhost:5000/health
+2025-08-24 18:05:53 info: Sentry initialized early.
+2025-08-24 18:05:54 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:05:54 info: Loaded 12 email templates from JSON files
+2025-08-24 18:05:54 info: BullMQ queues initialized.
+2025-08-24 18:05:54 info: BullMQ workers initialized.
+2025-08-24 18:05:54 info: Prometheus metrics initialized.
+2025-08-24 18:05:56 info: Using storage type: LOCAL
+2025-08-24 18:05:56 info: Sentry Express error handler setup complete.
+2025-08-24 18:05:56 info: Google OAuth strategy initialized.
+2025-08-24 18:05:56 info: Using storage type: LOCAL
+2025-08-24 18:05:56 info: Swagger UI is available at /api-docs
+2025-08-24 18:05:57 info: Connected to Redis
+2025-08-24 18:05:58 info: Email service is ready
+2025-08-24 18:06:00 info: Database connected successfully
+2025-08-24 18:06:00 info: Server running on port 5000 in development mode
+2025-08-24 18:06:00 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:06:00 info: Health check available at http://localhost:5000/health
+2025-08-24 18:06:12 info: Sentry initialized early.
+2025-08-24 18:06:12 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:06:13 info: Loaded 12 email templates from JSON files
+2025-08-24 18:06:13 info: BullMQ queues initialized.
+2025-08-24 18:06:13 info: BullMQ workers initialized.
+2025-08-24 18:06:13 info: Prometheus metrics initialized.
+2025-08-24 18:06:15 info: Connected to Redis
+2025-08-24 18:07:00 info: Sentry initialized early.
+2025-08-24 18:07:00 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:07:00 info: Loaded 12 email templates from JSON files
+2025-08-24 18:07:00 info: BullMQ queues initialized.
+2025-08-24 18:07:00 info: BullMQ workers initialized.
+2025-08-24 18:07:01 info: Prometheus metrics initialized.
+2025-08-24 18:07:02 info: Connected to Redis
+2025-08-24 18:07:59 info: Sentry initialized early.
+2025-08-24 18:07:59 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:07:59 info: Loaded 12 email templates from JSON files
+2025-08-24 18:07:59 info: BullMQ queues initialized.
+2025-08-24 18:07:59 info: BullMQ workers initialized.
+2025-08-24 18:08:00 info: Prometheus metrics initialized.
+2025-08-24 18:08:02 info: Using storage type: LOCAL
+2025-08-24 18:08:02 info: Sentry Express error handler setup complete.
+2025-08-24 18:08:02 info: Google OAuth strategy initialized.
+2025-08-24 18:08:02 info: Using storage type: LOCAL
+2025-08-24 18:08:02 info: Swagger UI is available at /api-docs
+2025-08-24 18:08:02 info: Connected to Redis
+2025-08-24 18:08:03 info: Email service is ready
+2025-08-24 18:08:05 info: Database connected successfully
+2025-08-24 18:08:05 info: Server running on port 5000 in development mode
+2025-08-24 18:08:05 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:08:05 info: Health check available at http://localhost:5000/health
+2025-08-24 18:09:16 info: Sentry initialized early.
+2025-08-24 18:09:17 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:09:17 info: Loaded 12 email templates from JSON files
+2025-08-24 18:09:17 info: BullMQ queues initialized.
+2025-08-24 18:09:17 info: BullMQ workers initialized.
+2025-08-24 18:09:17 info: Prometheus metrics initialized.
+2025-08-24 18:09:20 info: Using storage type: LOCAL
+2025-08-24 18:09:20 info: Sentry Express error handler setup complete.
+2025-08-24 18:09:20 info: Google OAuth strategy initialized.
+2025-08-24 18:09:20 info: Using storage type: LOCAL
+2025-08-24 18:09:20 info: Swagger UI is available at /api-docs
+2025-08-24 18:09:20 info: Connected to Redis
+2025-08-24 18:09:21 info: Email service is ready
+2025-08-24 18:09:23 info: Database connected successfully
+2025-08-24 18:09:23 info: Server running on port 5000 in development mode
+2025-08-24 18:09:23 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:09:23 info: Health check available at http://localhost:5000/health
+2025-08-24 18:09:27 info: Sentry initialized early.
+2025-08-24 18:09:27 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:09:27 info: Loaded 12 email templates from JSON files
+2025-08-24 18:09:27 info: BullMQ queues initialized.
+2025-08-24 18:09:27 info: BullMQ workers initialized.
+2025-08-24 18:09:28 info: Prometheus metrics initialized.
+2025-08-24 18:09:30 info: Using storage type: LOCAL
+2025-08-24 18:09:30 info: Sentry Express error handler setup complete.
+2025-08-24 18:09:30 info: Google OAuth strategy initialized.
+2025-08-24 18:09:30 info: Using storage type: LOCAL
+2025-08-24 18:09:30 info: Swagger UI is available at /api-docs
+2025-08-24 18:09:30 info: Connected to Redis
+2025-08-24 18:09:40 info: Sentry initialized early.
+2025-08-24 18:09:41 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 18:09:41 info: Loaded 12 email templates from JSON files
+2025-08-24 18:09:41 info: BullMQ queues initialized.
+2025-08-24 18:09:41 info: BullMQ workers initialized.
+2025-08-24 18:09:41 info: Prometheus metrics initialized.
+2025-08-24 18:09:44 info: Using storage type: LOCAL
+2025-08-24 18:09:44 info: Sentry Express error handler setup complete.
+2025-08-24 18:09:44 info: Google OAuth strategy initialized.
+2025-08-24 18:09:44 info: Using storage type: LOCAL
+2025-08-24 18:09:44 info: Swagger UI is available at /api-docs
+2025-08-24 18:09:44 info: Connected to Redis
+2025-08-24 18:09:45 info: Email service is ready
+2025-08-24 18:09:47 info: Database connected successfully
+2025-08-24 18:09:47 info: Server running on port 5000 in development mode
+2025-08-24 18:09:47 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 18:09:47 info: Health check available at http://localhost:5000/health
+2025-08-24 18:18:22 info: SIGINT received. Shutting down gracefully...
+2025-08-24 18:18:22 info: Sentry closed.
+2025-08-24 18:18:23 info: Email worker closed.

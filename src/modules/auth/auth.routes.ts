@@ -106,11 +106,6 @@ export class AuthRoutes {
     // Apply global rate limiter to all auth routes
     this.router.use(globalRateLimiter)
 
-    // Routes that require CSRF protection
-  //  this.router.use(csrfProtection as unknown as RequestHandler)
-  //   this.router.use(setCsrfToken) // Set CSRF token in cookie for client-side
-  //   this.router.use(csrfErrorHandler) // Handle CSRF errors
-
     this.router.post("/register", authRateLimiter, validate(registerSchema, "body"), this.authController.register)
     this.router.post("/login", authRateLimiter, validate(loginSchema, "body"), this.authController.login)
     this.router.post("/logout", this.authController.logout)

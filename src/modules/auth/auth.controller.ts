@@ -136,7 +136,6 @@ export class AuthController {
         req.user.id,
         req.user.email,
         req.user.role,
-        req.user.permissions
       );
 
       res.cookie("accessToken", accessToken, {

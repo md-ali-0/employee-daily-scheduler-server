@@ -15,8 +15,10 @@ export const createUserSchema = z.object({
     .string()
     .min(8, i18n.__('validation.password_min_length', { min: '8' }))
     .max(100, i18n.__('validation.password_max_length', { max: '100' })),
-  name: z.string().min(1, i18n.__('validation.name_required')).optional(),
-  role: z.nativeEnum(Role).default(Role.USER),
+  first_name: z.string().min(1, i18n.__('validation.first_name_required')),
+  last_name: z.string().min(1, i18n.__('validation.last_name_required')),
+  username: z.string().min(1, i18n.__('validation.name_required')),
+  role: z.nativeEnum(Role).default(Role.EMPLOYEE),
 });
 
 export const updateUserSchema = z.object({
@@ -26,7 +28,9 @@ export const updateUserSchema = z.object({
     .min(8, i18n.__('validation.password_min_length', { min: '8' }))
     .max(100, i18n.__('validation.password_max_length', { max: '100' }))
     .optional(),
-  name: z.string().min(1, i18n.__('validation.name_required')).optional(),
+  first_name: z.string().min(1, i18n.__('validation.first_name_required')).optional(),
+  last_name: z.string().min(1, i18n.__('validation.last_name_required')).optional(),
+  username: z.string().min(1, i18n.__('validation.name_required')).optional(),
   role: z.nativeEnum(Role).optional(),
   failedLoginAttempts: z.number().int().min(0).optional(),
   lockUntil: z.string().datetime().nullable().optional(),

@@ -48,7 +48,6 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
       id: user._id.toString(),
       email: user.email,
       role: user.role,
-      permissions: user.userPermissions.map((up: any) => up.name),
     };
 
     next()
