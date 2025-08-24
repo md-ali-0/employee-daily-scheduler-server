@@ -30,6 +30,9 @@ const format = winston.format.combine(
   )
 );
 
+// Check if we're in a serverless environment
+const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.FUNCTIONS_EMULATOR;
+
 const transports = [
   new winston.transports.Console({
     format: winston.format.combine(
@@ -37,24 +40,30 @@ const transports = [
       format
     ),
   }),
-  new DailyRotateFile({
-    filename: "logs/error-%DATE%.log",
-    level: "error",
-    datePattern: "YYYY-MM-DD",
-    zippedArchive: true,
-    maxSize: "20m",
-    maxFiles: "14d",
-    format: winston.format.uncolorize(),
-  }),
-  new DailyRotateFile({
-    filename: "logs/combined-%DATE%.log",
-    datePattern: "YYYY-MM-DD",
-    zippedArchive: true,
-    maxSize: "20m",
-    maxFiles: "14d",
-    format: winston.format.uncolorize(),
-  }),
 ];
+
+// Only add file transports if not in serverless environment
+if (!isServerless) {
+  transports.push(
+    new DailyRotateFile({
+      filename: "logs/error-%DATE%.log",
+      level: "error",
+      datePattern: "YYYY-MM-DD",
+      zippedArchive: true,
+      maxSize: "20m",
+      maxFiles: "14d",
+      format: winston.format.uncolorize(),
+    }),
+    new DailyRotateFile({
+      filename: "logs/combined-%DATE%.log",
+      datePattern: "YYYY-MM-DD",
+      zippedArchive: true,
+      maxSize: "20m",
+      maxFiles: "14d",
+      format: winston.format.uncolorize(),
+    })
+  );
+}
 
 const logger = winston.createLogger({
   level: env.NODE_ENV === "development" ? "debug" : "info",

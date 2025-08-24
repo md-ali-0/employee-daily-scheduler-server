@@ -56,24 +56,32 @@ export class EmailService {
     const templatesDir = path.join(__dirname, '../templates/emails')
     
     try {
-      if (!fs.existsSync(templatesDir)) {
+      // Check if we're in a serverless environment
+      const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.FUNCTIONS_EMULATOR;
+      
+      if (!isServerless && !fs.existsSync(templatesDir)) {
         fs.mkdirSync(templatesDir, { recursive: true })
       }
 
-      const templateFiles = fs.readdirSync(templatesDir)
-      
-      templateFiles.forEach(file => {
-        if (file.endsWith('.json')) {
-          const templateName = path.basename(file, '.json')
-          const templatePath = path.join(templatesDir, file)
-          const templateContent = fs.readFileSync(templatePath, 'utf-8')
-          const template = JSON.parse(templateContent)
-          
-          this.templates.set(templateName, template)
-        }
-      })
-      
-      logger.info(`Loaded ${this.templates.size} email templates from JSON files`)
+      // Only try to read templates if directory exists
+      if (fs.existsSync(templatesDir)) {
+        const templateFiles = fs.readdirSync(templatesDir)
+        
+        templateFiles.forEach(file => {
+          if (file.endsWith('.json')) {
+            const templateName = path.basename(file, '.json')
+            const templatePath = path.join(templatesDir, file)
+            const templateContent = fs.readFileSync(templatePath, 'utf-8')
+            const template = JSON.parse(templateContent)
+            
+            this.templates.set(templateName, template)
+          }
+        })
+        
+        logger.info(`Loaded ${this.templates.size} email templates from JSON files`)
+      } else {
+        logger.warn('Email templates directory not found, using default templates')
+      }
     } catch (error) {
       logger.error('Error loading email templates:', error)
     }
