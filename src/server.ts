@@ -2,6 +2,7 @@
 import { initSentryEarly } from "@config/sentry";
 initSentryEarly()
 
+import { connectDB } from "@config/db";
 import env from "@config/env";
 import { closeSentry } from "@config/sentry";
 import logger from "@config/winston";
@@ -10,7 +11,11 @@ import app from "./app";
 
 const PORT = env.PORT || 3000
 
-const startServer = () => {
+const startServer = async () => {
+
+    // Connect to MongoDB
+    await connectDB();
+
   app.listen(PORT, () => {
     logger.info(`Server running on port ${PORT} in ${env.NODE_ENV} mode`)
     logger.info(`API Docs available at http://localhost:${PORT}/api-docs`)

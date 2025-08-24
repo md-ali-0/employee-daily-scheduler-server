@@ -1,0 +1,360 @@
+2025-08-24 09:18:46 info: Sentry initialized early.
+2025-08-24 09:18:47 info: Loaded 12 email templates from JSON files
+2025-08-24 09:18:50 info: BullMQ queues initialized.
+2025-08-24 09:18:50 info: BullMQ workers initialized.
+2025-08-24 09:18:53 info: Prometheus metrics initialized.
+2025-08-24 09:19:07 info: Using storage type: LOCAL
+2025-08-24 09:19:07 info: Sentry Express error handler setup complete.
+2025-08-24 09:19:07 info: Google OAuth strategy initialized.
+2025-08-24 09:19:07 info: Using storage type: LOCAL
+2025-08-24 09:19:07 info: Swagger UI is available at /api-docs
+2025-08-24 09:19:07 info: Server running on port 5000 in development mode
+2025-08-24 09:19:07 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:19:07 info: Health check available at http://localhost:5000/health
+2025-08-24 09:19:07 info: Connected to Redis
+2025-08-24 09:19:08 info: Email worker is ready and listening for jobs.
+2025-08-24 09:19:08 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:19:09 info: Email service is ready
+2025-08-24 09:19:37 info: [3685ca12-5c33-4bc7-8f2f-dff50af6fe95] GET /health - 200 - 13.17ms from ::1
+2025-08-24 09:19:37 warn: Operational Error: error.route_not_found [ReqId: 2f17e91c-0cf4-4d8c-8162-7d7f4dd091d0]
+Error: error.route_not_found
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\app.ts:102:12
+    at patched (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 09:19:37 info: [2f17e91c-0cf4-4d8c-8162-7d7f4dd091d0] GET /favicon.ico - 404 - 27.49ms from ::1
+2025-08-24 09:21:58 info: [523b43e8-0ac7-48d6-8816-d5920f56edb5] GET /health - 200 - 1.33ms from ::1
+2025-08-24 09:21:58 warn: Operational Error: error.route_not_found [ReqId: 03265845-47bd-463e-837d-4c3764b645bb]
+Error: error.route_not_found
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\app.ts:102:12
+    at patched (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 09:21:58 info: [03265845-47bd-463e-837d-4c3764b645bb] GET /favicon.ico - 404 - 2.73ms from ::1
+2025-08-24 09:22:01 info: SIGINT received. Shutting down gracefully...
+2025-08-24 09:22:01 info: Email worker closed.
+2025-08-24 09:22:01 info: Image processing worker closed.
+2025-08-24 09:22:01 info: Sentry closed.
+2025-08-24 09:32:21 info: Sentry initialized early.
+2025-08-24 09:32:22 info: Loaded 12 email templates from JSON files
+2025-08-24 09:32:25 info: BullMQ queues initialized.
+2025-08-24 09:32:25 info: BullMQ workers initialized.
+2025-08-24 09:32:28 info: Prometheus metrics initialized.
+2025-08-24 09:32:41 info: Using storage type: LOCAL
+2025-08-24 09:32:41 info: Sentry Express error handler setup complete.
+2025-08-24 09:32:41 info: Google OAuth strategy initialized.
+2025-08-24 09:32:41 info: Using storage type: LOCAL
+2025-08-24 09:32:41 info: Swagger UI is available at /api-docs
+2025-08-24 09:32:41 info: Server running on port 5000 in development mode
+2025-08-24 09:32:41 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:32:41 info: Health check available at http://localhost:5000/health
+2025-08-24 09:32:41 info: Connected to Redis
+2025-08-24 09:32:41 info: Email worker is ready and listening for jobs.
+2025-08-24 09:32:41 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:32:42 info: Email service is ready
+2025-08-24 09:33:29 info: [87c3a588-105f-41b0-96d4-1023678e12a7] GET /api-docs - 301 - 14.38ms from ::1
+2025-08-24 09:33:29 info: [a1b4aba6-d16b-4cb6-b9a3-32cbb75bd159] GET /api-docs/ - 200 - 5.94ms from ::1
+2025-08-24 09:33:29 info: [d2955b99-9660-4f95-a87b-4f95dea28680] GET /api-docs/swagger-ui-init.js - 200 - 4.56ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:33:29 info: [ebf699e4-47d7-4b3e-a664-2b1366288b26] GET /api-docs/swagger-ui.css - 200 - 64.09ms from ::1
+2025-08-24 09:33:29 info: [4b6a2940-b2b1-428c-a0af-a1a161908cb7] GET /api-docs/swagger-ui-standalone-preset.js - 200 - 105.55ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:33:29 info: [7a800e25-5c97-47d2-9b43-f1d9a71f4e13] GET /api-docs/swagger-ui-bundle.js - 200 - 125.28ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:33:35 info: [4c820e4f-cc1b-40c5-8caa-390311379eb7] GET /health - 200 - 1.78ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:33:40 info: [28640472-817a-4542-8fdd-deec65b99df4] GET /health - 200 - 1.43ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:33:44 warn: Operational Error: error.route_not_found [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+Error: error.route_not_found
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\app.ts:102:12
+    at patched (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 09:33:44 info: [af75ac00-c2d6-4009-9dbf-18a4a2f88ed0] GET /.well-known/appspecific/com.chrome.devtools.json - 404 - 27.65ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:34:00 info: [bcf57d6c-d977-444a-ab24-3978f6dadb85] GET /health - 200 - 1.26ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:34:00 warn: Operational Error: error.route_not_found [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+Error: error.route_not_found
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\app.ts:102:12
+    at patched (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 09:34:00 info: [04c30dea-d351-459e-8091-6e7dc8bb94db] GET /favicon.ico - 404 - 2.39ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:34:23 info: [e0a4816c-c22a-47c8-b6f1-296a226a48f9] GET /health - 200 - 1.77ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:34:23 warn: Operational Error: error.route_not_found [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+Error: error.route_not_found
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\app.ts:102:12
+    at patched (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 09:34:23 info: [aee43dcc-894c-4254-9ed0-c4b675cb43a2] GET /favicon.ico - 404 - 2.74ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:34:31 info: [6cc256c8-40ae-4ad5-9f66-12e0c9232235] GET /health - 200 - 1.07ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:34:31 warn: Operational Error: error.route_not_found [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+Error: error.route_not_found
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\app.ts:102:12
+    at patched (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 09:34:31 info: [1d380c94-da8e-4e61-aa77-4a832910e499] GET /favicon.ico - 404 - 2.24ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:41:02 info: [018a635c-2075-4592-8a97-2d6d88ab3a0a] GET /health - 200 - 1.92ms from ::1 [ReqId: ebf699e4-47d7-4b3e-a664-2b1366288b26]
+2025-08-24 09:42:32 info: Sentry initialized early.
+2025-08-24 09:42:32 info: Loaded 12 email templates from JSON files
+2025-08-24 09:42:33 info: BullMQ queues initialized.
+2025-08-24 09:42:33 info: BullMQ workers initialized.
+2025-08-24 09:42:33 info: Prometheus metrics initialized.
+2025-08-24 09:42:35 info: Connected to Redis
+2025-08-24 09:45:08 info: Sentry initialized early.
+2025-08-24 09:45:08 info: Loaded 12 email templates from JSON files
+2025-08-24 09:45:08 info: BullMQ queues initialized.
+2025-08-24 09:45:08 info: BullMQ workers initialized.
+2025-08-24 09:45:09 info: Prometheus metrics initialized.
+2025-08-24 09:45:11 info: Using storage type: LOCAL
+2025-08-24 09:45:11 info: Sentry Express error handler setup complete.
+2025-08-24 09:45:11 info: Google OAuth strategy initialized.
+2025-08-24 09:45:11 info: Using storage type: LOCAL
+2025-08-24 09:45:11 info: Swagger UI is available at /api-docs
+2025-08-24 09:45:11 info: Server running on port 5000 in development mode
+2025-08-24 09:45:11 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:45:11 info: Health check available at http://localhost:5000/health
+2025-08-24 09:45:11 info: Connected to Redis
+2025-08-24 09:45:11 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:45:11 info: Email worker is ready and listening for jobs.
+2025-08-24 09:45:12 info: Email service is ready
+2025-08-24 09:46:23 info: Sentry initialized early.
+2025-08-24 09:46:23 info: Loaded 12 email templates from JSON files
+2025-08-24 09:46:23 info: BullMQ queues initialized.
+2025-08-24 09:46:23 info: BullMQ workers initialized.
+2025-08-24 09:46:23 info: Prometheus metrics initialized.
+2025-08-24 09:46:25 info: Using storage type: LOCAL
+2025-08-24 09:46:25 info: Sentry Express error handler setup complete.
+2025-08-24 09:46:25 info: Google OAuth strategy initialized.
+2025-08-24 09:46:25 info: Using storage type: LOCAL
+2025-08-24 09:46:25 info: Swagger UI is available at /api-docs
+2025-08-24 09:46:25 info: Server running on port 5000 in development mode
+2025-08-24 09:46:25 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:46:25 info: Health check available at http://localhost:5000/health
+2025-08-24 09:46:25 info: Connected to Redis
+2025-08-24 09:46:25 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:46:25 info: Email worker is ready and listening for jobs.
+2025-08-24 09:46:26 info: Email service is ready
+2025-08-24 09:46:54 info: Sentry initialized early.
+2025-08-24 09:46:54 info: Loaded 12 email templates from JSON files
+2025-08-24 09:46:54 info: BullMQ queues initialized.
+2025-08-24 09:46:54 info: BullMQ workers initialized.
+2025-08-24 09:46:55 info: Prometheus metrics initialized.
+2025-08-24 09:46:57 info: Using storage type: LOCAL
+2025-08-24 09:46:57 info: Sentry Express error handler setup complete.
+2025-08-24 09:46:57 info: Google OAuth strategy initialized.
+2025-08-24 09:46:57 info: Using storage type: LOCAL
+2025-08-24 09:46:57 info: Swagger UI is available at /api-docs
+2025-08-24 09:46:57 info: Server running on port 5000 in development mode
+2025-08-24 09:46:57 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:46:57 info: Health check available at http://localhost:5000/health
+2025-08-24 09:46:57 info: Connected to Redis
+2025-08-24 09:46:57 info: Email worker is ready and listening for jobs.
+2025-08-24 09:46:57 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:46:58 info: Email service is ready
+2025-08-24 09:47:25 info: Sentry initialized early.
+2025-08-24 09:47:25 info: Loaded 12 email templates from JSON files
+2025-08-24 09:47:25 info: BullMQ queues initialized.
+2025-08-24 09:47:25 info: BullMQ workers initialized.
+2025-08-24 09:47:25 info: Prometheus metrics initialized.
+2025-08-24 09:47:27 info: Using storage type: LOCAL
+2025-08-24 09:47:27 info: Sentry Express error handler setup complete.
+2025-08-24 09:47:27 info: Google OAuth strategy initialized.
+2025-08-24 09:47:27 info: Using storage type: LOCAL
+2025-08-24 09:47:27 info: Swagger UI is available at /api-docs
+2025-08-24 09:47:27 info: Server running on port 5000 in development mode
+2025-08-24 09:47:27 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:47:27 info: Health check available at http://localhost:5000/health
+2025-08-24 09:47:28 info: Connected to Redis
+2025-08-24 09:47:28 info: Email worker is ready and listening for jobs.
+2025-08-24 09:47:28 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:47:29 info: Email service is ready
+2025-08-24 09:48:10 info: Sentry initialized early.
+2025-08-24 09:48:10 info: Loaded 12 email templates from JSON files
+2025-08-24 09:48:10 info: BullMQ queues initialized.
+2025-08-24 09:48:10 info: BullMQ workers initialized.
+2025-08-24 09:48:10 info: Prometheus metrics initialized.
+2025-08-24 09:48:13 info: Using storage type: LOCAL
+2025-08-24 09:48:13 info: Sentry Express error handler setup complete.
+2025-08-24 09:48:13 info: Google OAuth strategy initialized.
+2025-08-24 09:48:13 info: Using storage type: LOCAL
+2025-08-24 09:48:13 info: Swagger UI is available at /api-docs
+2025-08-24 09:48:13 info: Server running on port 5000 in development mode
+2025-08-24 09:48:13 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:48:13 info: Health check available at http://localhost:5000/health
+2025-08-24 09:48:13 info: Connected to Redis
+2025-08-24 09:48:13 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:48:13 info: Email worker is ready and listening for jobs.
+2025-08-24 09:48:14 info: Email service is ready
+2025-08-24 09:48:26 info: Sentry initialized early.
+2025-08-24 09:48:27 info: Loaded 12 email templates from JSON files
+2025-08-24 09:48:27 info: BullMQ queues initialized.
+2025-08-24 09:48:27 info: BullMQ workers initialized.
+2025-08-24 09:48:27 info: Prometheus metrics initialized.
+2025-08-24 09:48:29 info: Using storage type: LOCAL
+2025-08-24 09:48:29 info: Sentry Express error handler setup complete.
+2025-08-24 09:48:29 info: Google OAuth strategy initialized.
+2025-08-24 09:48:29 info: Using storage type: LOCAL
+2025-08-24 09:48:29 info: Swagger UI is available at /api-docs
+2025-08-24 09:48:29 info: Server running on port 5000 in development mode
+2025-08-24 09:48:29 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:48:29 info: Health check available at http://localhost:5000/health
+2025-08-24 09:48:29 info: Connected to Redis
+2025-08-24 09:48:29 info: Email worker is ready and listening for jobs.
+2025-08-24 09:48:29 info: Image processing worker is ready and listening for jobs.
+2025-08-24 09:48:30 info: Email service is ready
+2025-08-24 09:50:24 info: [0d608b9a-00e5-453e-89c1-4b40c8fded4a] GET /api-docs/ - 304 - 7.04ms from ::1
+2025-08-24 09:50:24 info: [60f13b14-0038-48b8-a831-a27c4c107fa1] GET /api-docs/swagger-ui.css - 304 - 2.04ms from ::1
+2025-08-24 09:50:24 info: [9afde391-7e0f-4e7e-aae5-fd066dcbe5f4] GET /api-docs/swagger-ui-init.js - 304 - 2.24ms from ::1 [ReqId: 47f07cda-048f-4192-b594-a9325aae5b2b]
+2025-08-24 09:50:24 info: [47f07cda-048f-4192-b594-a9325aae5b2b] GET /api-docs/swagger-ui-bundle.js - 304 - 11.58ms from ::1
+2025-08-24 09:50:24 info: [519d2cf3-5769-464f-83f2-2af916ef95b8] GET /api-docs/swagger-ui-standalone-preset.js - 304 - 7.63ms from ::1 [ReqId: 47f07cda-048f-4192-b594-a9325aae5b2b]
+2025-08-24 09:53:19 error: Non-Operational Error: Operation `users.findOne()` buffering timed out after 10000ms [ReqId: 47f07cda-048f-4192-b594-a9325aae5b2b]
+Error: Operation `users.findOne()` buffering timed out after 10000ms
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 09:53:19 info: [b88dc318-20c7-49bd-84a0-4b06aa8b281c] POST /api/v1/auth/register - 500 - 10034.18ms from ::1 [ReqId: 47f07cda-048f-4192-b594-a9325aae5b2b]
+2025-08-24 09:54:51 error: Non-Operational Error: Operation `users.findOne()` buffering timed out after 10000ms [ReqId: 47f07cda-048f-4192-b594-a9325aae5b2b]
+Error: Operation `users.findOne()` buffering timed out after 10000ms
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 09:54:51 info: [e990a35f-be23-4296-9cc3-6907cb9d4fdb] POST /api/v1/auth/register - 500 - 10015.36ms from ::1 [ReqId: 47f07cda-048f-4192-b594-a9325aae5b2b]
+2025-08-24 09:58:03 info: Sentry initialized early.
+2025-08-24 09:58:04 info: Loaded 12 email templates from JSON files
+2025-08-24 09:58:04 info: BullMQ queues initialized.
+2025-08-24 09:58:04 info: BullMQ workers initialized.
+2025-08-24 09:58:04 info: Prometheus metrics initialized.
+2025-08-24 09:58:06 info: Using storage type: LOCAL
+2025-08-24 09:58:06 info: Sentry Express error handler setup complete.
+2025-08-24 09:58:06 info: Google OAuth strategy initialized.
+2025-08-24 09:58:06 info: Using storage type: LOCAL
+2025-08-24 09:58:06 info: Swagger UI is available at /api-docs
+2025-08-24 09:58:06 info: Connected to Redis
+2025-08-24 09:58:06 info: ✅ MongoDB connected successfully
+2025-08-24 09:58:06 info: Server running on port 5000 in development mode
+2025-08-24 09:58:06 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:58:06 info: Health check available at http://localhost:5000/health
+2025-08-24 09:58:07 info: Email service is ready
+2025-08-24 09:58:28 info: Sentry initialized early.
+2025-08-24 09:58:28 info: Loaded 12 email templates from JSON files
+2025-08-24 09:58:28 info: BullMQ queues initialized.
+2025-08-24 09:58:28 info: BullMQ workers initialized.
+2025-08-24 09:58:29 info: Prometheus metrics initialized.
+2025-08-24 09:58:30 info: Using storage type: LOCAL
+2025-08-24 09:58:30 info: Sentry Express error handler setup complete.
+2025-08-24 09:58:30 info: Google OAuth strategy initialized.
+2025-08-24 09:58:30 info: Using storage type: LOCAL
+2025-08-24 09:58:30 info: Swagger UI is available at /api-docs
+2025-08-24 09:58:31 info: Connected to Redis
+2025-08-24 09:58:31 info: Database connected successfully
+2025-08-24 09:58:31 info: Server running on port 5000 in development mode
+2025-08-24 09:58:31 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:58:31 info: Health check available at http://localhost:5000/health
+2025-08-24 09:58:32 info: Email service is ready
+2025-08-24 09:58:38 error: Non-Operational Error: not authorized on employee_scheduler to execute command { find: "users", filter: { email: "mohammad.98482@gmail.com" }, limit: 1, singleBatch: true, batchSize: 1, lsid: { id: UUID("663cb954-4dd4-4a7a-9996-0f0fc85b9608") }, $clusterTime: { clusterTime: Timestamp(1756007907, 1), signature: { hash: BinData(0, 6D52E3D562C1B5CE81341DBE2B76A3C63029CDBD), keyId: 7536214251971543043 } }, $db: "employee_scheduler" } [ReqId: cc5fb6fb-1b96-4507-9d4a-ddf786e37406]
+Error: not authorized on employee_scheduler to execute command { find: "users", filter: { email: "mohammad.98482@gmail.com" }, limit: 1, singleBatch: true, batchSize: 1, lsid: { id: UUID("663cb954-4dd4-4a7a-9996-0f0fc85b9608") }, $clusterTime: { clusterTime: Timestamp(1756007907, 1), signature: { hash: BinData(0, 6D52E3D562C1B5CE81341DBE2B76A3C63029CDBD), keyId: 7536214251971543043 } }, $db: "employee_scheduler" }
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 09:58:38 info: [cc5fb6fb-1b96-4507-9d4a-ddf786e37406] POST /api/v1/auth/register - 500 - 71.32ms from ::1
+2025-08-24 09:59:28 info: Sentry initialized early.
+2025-08-24 09:59:28 info: mongodb://employee_manager_User:p0dMv7qXQebSru@145.223.18.22:27017/employee_manager?authSource=employee_manager
+2025-08-24 09:59:28 info: Loaded 12 email templates from JSON files
+2025-08-24 09:59:28 info: BullMQ queues initialized.
+2025-08-24 09:59:28 info: BullMQ workers initialized.
+2025-08-24 09:59:29 info: Prometheus metrics initialized.
+2025-08-24 09:59:30 info: Using storage type: LOCAL
+2025-08-24 09:59:30 info: Sentry Express error handler setup complete.
+2025-08-24 09:59:30 info: Google OAuth strategy initialized.
+2025-08-24 09:59:30 info: Using storage type: LOCAL
+2025-08-24 09:59:30 info: Swagger UI is available at /api-docs
+2025-08-24 09:59:30 info: Connected to Redis
+2025-08-24 09:59:31 info: Database connected successfully
+2025-08-24 09:59:31 info: Server running on port 5000 in development mode
+2025-08-24 09:59:31 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 09:59:31 info: Health check available at http://localhost:5000/health
+2025-08-24 09:59:31 info: Email service is ready
+2025-08-24 09:59:43 error: Non-Operational Error: not authorized on employee_scheduler to execute command { find: "users", filter: { email: "mohammad.98482@gmail.com" }, limit: 1, singleBatch: true, batchSize: 1, lsid: { id: UUID("d9f6dc9a-43ca-44b3-946f-0adf1d06eaef") }, $clusterTime: { clusterTime: Timestamp(1756007967, 1), signature: { hash: BinData(0, 576B4F9E89C1294FBD6D64CEB7F0E1E077CB5330), keyId: 7536214251971543043 } }, $db: "employee_scheduler" } [ReqId: 8092a0c9-a70f-489a-b465-de1238cf7b85]
+Error: not authorized on employee_scheduler to execute command { find: "users", filter: { email: "mohammad.98482@gmail.com" }, limit: 1, singleBatch: true, batchSize: 1, lsid: { id: UUID("d9f6dc9a-43ca-44b3-946f-0adf1d06eaef") }, $clusterTime: { clusterTime: Timestamp(1756007967, 1), signature: { hash: BinData(0, 576B4F9E89C1294FBD6D64CEB7F0E1E077CB5330), keyId: 7536214251971543043 } }, $db: "employee_scheduler" }
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 09:59:43 info: [8092a0c9-a70f-489a-b465-de1238cf7b85] POST /api/v1/auth/register - 500 - 63.65ms from ::1
+2025-08-24 10:00:09 error: Non-Operational Error: not authorized on employee_scheduler to execute command { find: "users", filter: { email: "mohammad.98482@gmail.com" }, limit: 1, singleBatch: true, batchSize: 1, lsid: { id: UUID("d9f6dc9a-43ca-44b3-946f-0adf1d06eaef") }, $clusterTime: { clusterTime: Timestamp(1756007977, 1), signature: { hash: BinData(0, 87778E30DD48BAC511D64161D127A9130BE2ABC6), keyId: 7536214251971543043 } }, $db: "employee_scheduler" } [ReqId: dbdcd098-22d4-4dd3-8f2f-0f41293147da]
+Error: not authorized on employee_scheduler to execute command { find: "users", filter: { email: "mohammad.98482@gmail.com" }, limit: 1, singleBatch: true, batchSize: 1, lsid: { id: UUID("d9f6dc9a-43ca-44b3-946f-0adf1d06eaef") }, $clusterTime: { clusterTime: Timestamp(1756007977, 1), signature: { hash: BinData(0, 87778E30DD48BAC511D64161D127A9130BE2ABC6), keyId: 7536214251971543043 } }, $db: "employee_scheduler" }
+    at errorHandler (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\src\middlewares\error.handler.ts:60:15)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:71:5)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle_error (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:67:12)
+    at trim_prefix (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:326:13)
+    at C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\moham\Desktop\Project\XE\employee-daily-scheduler\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+2025-08-24 10:00:09 info: [dbdcd098-22d4-4dd3-8f2f-0f41293147da] POST /api/v1/auth/register - 500 - 55.73ms from ::1
+2025-08-24 10:09:25 info: SIGINT received. Shutting down gracefully...
+2025-08-24 10:09:25 info: Sentry closed.
+2025-08-24 10:09:25 info: Image processing worker closed.

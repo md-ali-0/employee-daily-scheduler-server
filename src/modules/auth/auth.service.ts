@@ -35,7 +35,9 @@ export class AuthService {
     // Create user
     const user = await UserModel.create({
       email: userData.email,
-      name: userData.name,
+      first_name: userData.first_name,
+      last_name: userData.last_name,
+      username: userData.username,
       password: hashedPassword,
       // Other necessary fields
     });
