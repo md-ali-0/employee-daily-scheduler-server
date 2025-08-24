@@ -16,6 +16,7 @@
     "format": "prettier --write \"{src,apps,libs,tests}/**/*.ts\"",
     "generate:module": "node scripts/generate-module.js",
     "generate:module:interactive": "node scripts/generate-module.js",
+    "seed": "node scripts/seed-scheduler.js",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -48,6 +49,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongodb": "^6.18.0",
+    "mongodb-memory-server": "^10.2.0",
     "mongoose": "^8.18.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",

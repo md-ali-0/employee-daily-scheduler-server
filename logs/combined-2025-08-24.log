@@ -1539,3 +1539,98 @@ Error: read ECONNRESET
 2025-08-24 18:18:22 info: SIGINT received. Shutting down gracefully...
 2025-08-24 18:18:22 info: Sentry closed.
 2025-08-24 18:18:23 info: Email worker closed.
+2025-08-24 22:42:35 info: Sentry initialized early.
+2025-08-24 22:42:38 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 22:42:39 info: Loaded 12 email templates from JSON files
+2025-08-24 22:42:40 info: BullMQ queues initialized.
+2025-08-24 22:42:40 info: BullMQ workers initialized.
+2025-08-24 22:42:41 info: Connected to Redis
+2025-08-24 22:43:26 info: Sentry initialized early.
+2025-08-24 22:43:29 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 22:43:30 info: Loaded 12 email templates from JSON files
+2025-08-24 22:43:31 info: BullMQ queues initialized.
+2025-08-24 22:43:31 info: BullMQ workers initialized.
+2025-08-24 22:43:34 info: Prometheus metrics initialized.
+2025-08-24 22:43:39 info: Created uploads directory at: C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\uploads
+2025-08-24 22:43:50 info: Connected to Redis
+2025-08-24 22:45:19 info: Sentry initialized early.
+2025-08-24 22:45:22 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 22:45:23 info: Loaded 12 email templates from JSON files
+2025-08-24 22:45:24 info: BullMQ queues initialized.
+2025-08-24 22:45:24 info: BullMQ workers initialized.
+2025-08-24 22:45:27 info: Prometheus metrics initialized.
+2025-08-24 22:45:41 info: Connected to Redis
+2025-08-24 22:57:52 info: Sentry initialized early.
+2025-08-24 22:57:56 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 22:57:57 info: Loaded 12 email templates from JSON files
+2025-08-24 22:57:59 info: BullMQ queues initialized.
+2025-08-24 22:57:59 info: BullMQ workers initialized.
+2025-08-24 22:58:04 info: Prometheus metrics initialized.
+2025-08-24 22:58:29 info: Connected to Redis
+2025-08-24 23:02:11 info: Sentry initialized early.
+2025-08-24 23:02:16 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 23:02:17 info: Loaded 12 email templates from JSON files
+2025-08-24 23:02:19 info: BullMQ queues initialized.
+2025-08-24 23:02:19 info: BullMQ workers initialized.
+2025-08-24 23:02:24 info: Prometheus metrics initialized.
+2025-08-24 23:11:35 info: Sentry initialized early.
+2025-08-24 23:11:37 info: mongodb+srv://employee_manager_User:p0dMv7qXQebSru@cluster0.daanzm4.mongodb.net/employee_manager?retryWrites=true&w=majority&appName=Cluster0
+2025-08-24 23:11:38 info: Loaded 12 email templates from JSON files
+2025-08-24 23:11:39 info: BullMQ queues initialized.
+2025-08-24 23:11:39 info: BullMQ workers initialized.
+2025-08-24 23:11:42 info: Prometheus metrics initialized.
+2025-08-24 23:11:56 info: Using storage type: LOCAL
+2025-08-24 23:11:56 info: Sentry Express error handler setup complete.
+2025-08-24 23:11:56 info: Google OAuth strategy initialized.
+2025-08-24 23:11:56 info: Using storage type: LOCAL
+2025-08-24 23:11:56 info: Swagger UI is available at /api-docs
+2025-08-24 23:11:57 info: Connected to Redis
+2025-08-24 23:11:58 info: Email service is ready
+2025-08-24 23:12:01 info: Database connected successfully
+2025-08-24 23:12:01 info: Server running on port 5000 in development mode
+2025-08-24 23:12:01 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 23:12:01 info: Health check available at http://localhost:5000/health
+2025-08-24 23:12:12 info: [c692125f-c1b2-49ec-9e9c-9883bf45467c] GET /health - 200 - 279.76ms from ::1
+2025-08-24 23:12:13 warn: Operational Error: error.route_not_found [ReqId: a93fe77e-16c2-40e6-a364-a93d70e8104f]
+Error: error.route_not_found
+    at C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\src\app.ts:102:12
+    at patched (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:286:27)
+    at Layer.handle [as handle_request] (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:286:9
+    at param (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\express@4.21.2\node_modules\express\lib\router\index.js:280:10)
+    at arguments.<computed> (C:\Users\Ali\Desktop\Projects\employee-daily-scheduler-server\node_modules\.pnpm\@opentelemetry+instrumentat_0db45d04a326400d1a0eff1ca45f7095\node_modules\@opentelemetry\instrumentation-express\src\instrumentation.ts:281:29)
+2025-08-24 23:12:13 info: [a93fe77e-16c2-40e6-a364-a93d70e8104f] GET /favicon.ico - 404 - 41.94ms from ::1
+2025-08-24 23:12:33 info: Email worker is ready and listening for jobs.
+2025-08-24 23:12:34 info: Image processing worker is ready and listening for jobs.
+2025-08-24 23:16:18 info: Sentry initialized early.
+2025-08-24 23:16:23 info: Loaded 12 email templates from JSON files
+2025-08-24 23:16:25 info: BullMQ queues initialized.
+2025-08-24 23:16:25 info: BullMQ workers initialized.
+2025-08-24 23:16:29 info: Prometheus metrics initialized.
+2025-08-24 23:16:54 info: Using storage type: LOCAL
+2025-08-24 23:16:54 info: Sentry Express error handler setup complete.
+2025-08-24 23:16:54 info: Google OAuth strategy initialized.
+2025-08-24 23:16:54 info: Using storage type: LOCAL
+2025-08-24 23:16:54 info: Swagger UI is available at /api-docs
+2025-08-24 23:16:55 info: Connected to Redis
+2025-08-24 23:16:58 info: Email service is ready
+2025-08-24 23:17:01 info: Database connected successfully
+2025-08-24 23:17:01 info: Server running on port 5000 in development mode
+2025-08-24 23:17:01 info: API Docs available at http://localhost:5000/api-docs
+2025-08-24 23:17:01 info: Health check available at http://localhost:5000/health
+2025-08-24 23:17:08 info: [2bdc2133-0e74-4a6e-8422-dd6a2c753878] GET /health - 200 - 174.21ms from ::1
+2025-08-24 23:18:05 info: [40965be0-1091-4775-8b68-30d968bc6faa] GET /api-docs - 301 - 26.41ms from ::1
+2025-08-24 23:18:05 info: [9074bbf7-d1a4-4006-b9f9-310040bb4741] GET /api-docs/ - 200 - 29.12ms from ::1
+2025-08-24 23:18:06 info: [dd52cf01-49f2-441e-8eac-b55b7bf9328e] GET /api-docs/swagger-ui-init.js - 200 - 54.96ms from ::1 [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:06 info: [10bc6ec4-75f8-459d-a5f3-4410efc773c6] GET /api-docs/swagger-ui.css - 200 - 204.22ms from ::1
+2025-08-24 23:18:06 info: [ed623dc2-ac94-4fb4-a23e-d4cba8387b9d] GET /api-docs/swagger-ui-standalone-preset.js - 200 - 189.06ms from ::1 [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:06 info: [7056d437-078b-4ae2-bd65-a1c0046d5e06] GET /api-docs/swagger-ui-bundle.js - 200 - 341.99ms from ::1 [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:08 info: [585e677d-5766-41fb-9adb-5bb78138d263] GET /api-docs/favicon-32x32.png - 200 - 18.98ms from ::1 [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:40 info: SIGINT received. Shutting down gracefully... [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:40 info: Sentry closed. [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:40 info: Image processing worker closed. [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]
+2025-08-24 23:18:40 info: Email worker closed. [ReqId: 10bc6ec4-75f8-459d-a5f3-4410efc773c6]

@@ -435,6 +435,100 @@ const createTestApp = () => {
       statusCode: 200
     })
   })
+
+  // Mock schedule routes for testing auth integration
+  app.get('/api/v1/schedule/shifts', (req, res) => {
+    const authHeader = req.headers.authorization
+    
+    if (!authHeader || authHeader === 'Bearer invalid-token') {
+      return res.status(401).json({
+        success: false,
+        message: 'Unauthorized',
+        statusCode: 401
+      })
+    }
+    
+    return res.status(200).json({
+      success: true,
+      message: 'Shifts retrieved successfully',
+      data: [
+        {
+          id: 'shift-1',
+          date: '2024-01-15',
+          startTime: '09:00',
+          endTime: '17:00',
+          role: 'EMPLOYEE',
+          location: 'Downtown Store'
+        }
+      ],
+      statusCode: 200
+    })
+  })
+
+  app.post('/api/v1/schedule/shifts', (req, res) => {
+    const authHeader = req.headers.authorization
+    
+    if (!authHeader || authHeader === 'Bearer invalid-token') {
+      return res.status(401).json({
+        success: false,
+        message: 'Unauthorized',
+        statusCode: 401
+      })
+    }
+    
+    const { date, startTime, endTime, role, location } = req.body
+    
+    if (!date || !startTime || !endTime || !role || !location) {
+      return res.status(422).json({
+        success: false,
+        message: 'validation_failed',
+        statusCode: 422
+      })
+    }
+    
+    return res.status(201).json({
+      success: true,
+      message: 'Shift created successfully',
+      data: {
+        id: 'new-shift-id',
+        date,
+        startTime,
+        endTime,
+        role,
+        location
+      },
+      statusCode: 201
+    })
+  })
+
+  app.get('/api/v1/schedule/daily-schedule', (req, res) => {
+    const authHeader = req.headers.authorization
+    
+    if (!authHeader || authHeader === 'Bearer invalid-token') {
+      return res.status(401).json({
+        success: false,
+        message: 'Unauthorized',
+        statusCode: 401
+      })
+    }
+    
+    return res.status(200).json({
+      success: true,
+      message: 'Daily schedule retrieved successfully',
+      data: [
+        {
+          id: 'shift-1',
+          date: '2024-01-15',
+          startTime: '09:00',
+          endTime: '17:00',
+          role: 'EMPLOYEE',
+          location: 'Downtown Store',
+          assignedEmployees: []
+        }
+      ],
+      statusCode: 200
+    })
+  })
   
   return app
 }
@@ -778,6 +872,117 @@ describe('Auth API Integration Tests', () => {
 
       expect(response.body.success).toBe(false)
       expect(response.body.message).toContain('Invalid authorization code')
+    })
+  })
+
+  describe('Schedule API with Authentication', () => {
+    it('should access schedule endpoints with valid token', async () => {
+      // First login to get access token
+      const loginResponse = await request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'admin@example.com',
+          password: 'password123',
+        })
+        .expect(200)
+
+      const accessToken = loginResponse.body.data.accessToken
+
+      // Test accessing schedule endpoints with valid token
+      const shiftsResponse = await request(app)
+        .get('/api/v1/schedule/shifts')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .expect(200)
+
+      expect(shiftsResponse.body.success).toBe(true)
+      expect(shiftsResponse.body.data).toBeDefined()
+      expect(Array.isArray(shiftsResponse.body.data)).toBe(true)
+
+      const dailyScheduleResponse = await request(app)
+        .get('/api/v1/schedule/daily-schedule')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .expect(200)
+
+      expect(dailyScheduleResponse.body.success).toBe(true)
+      expect(dailyScheduleResponse.body.data).toBeDefined()
+    })
+
+    it('should reject schedule endpoints with invalid token', async () => {
+      const response = await request(app)
+        .get('/api/v1/schedule/shifts')
+        .set('Authorization', 'Bearer invalid-token')
+        .expect(401)
+
+      expect(response.body.success).toBe(false)
+      expect(response.body.message).toBe('Unauthorized')
+    })
+
+    it('should reject schedule endpoints without token', async () => {
+      const response = await request(app)
+        .get('/api/v1/schedule/shifts')
+        .expect(401)
+
+      expect(response.body.success).toBe(false)
+      expect(response.body.message).toBe('Unauthorized')
+    })
+
+    it('should create shift with valid token and data', async () => {
+      // First login to get access token
+      const loginResponse = await request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'admin@example.com',
+          password: 'password123',
+        })
+        .expect(200)
+
+      const accessToken = loginResponse.body.data.accessToken
+
+      const shiftData = {
+        date: '2024-01-15T00:00:00.000Z',
+        startTime: '09:00',
+        endTime: '17:00',
+        role: 'EMPLOYEE',
+        skills: ['Customer Service'],
+        location: 'Downtown Store'
+      }
+
+      const response = await request(app)
+        .post('/api/v1/schedule/shifts')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .send(shiftData)
+        .expect(201)
+
+      expect(response.body.success).toBe(true)
+      expect(response.body.message).toBe('Shift created successfully')
+      expect(response.body.data).toMatchObject(shiftData)
+    })
+
+    it('should reject shift creation with invalid data', async () => {
+      // First login to get access token
+      const loginResponse = await request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'admin@example.com',
+          password: 'password123',
+        })
+        .expect(200)
+
+      const accessToken = loginResponse.body.data.accessToken
+
+      const invalidShiftData = {
+        date: '2024-01-15T00:00:00.000Z',
+        // Missing required fields
+      }
+
+      const response = await request(app)
+        .post('/api/v1/schedule/shifts')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .send(invalidShiftData)
+        .expect(422)
+
+      expect(response.body.success).toBe(false)
+      expect(response.body.message).toBe('validation_failed')
     })
   })
 }) 

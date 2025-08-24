@@ -85,11 +85,14 @@ class App {
   }
 
   private initializeRoutes() {
-  // Serve static files for local storage (if using LOCAL provider)
-
-     if (env.STORAGE_TYPE === "LOCAL") {
+    // Serve static files for local storage (if using LOCAL provider)
+    if (env.STORAGE_TYPE === "LOCAL") {
       this.app.use("/uploads", express.static("uploads"))
     }
+    
+    // Serve static files from public directory
+    this.app.use(express.static("public"))
+    
     // API Routes
     const mainRouter = new MainRouter()
     this.app.use("/", mainRouter.router)

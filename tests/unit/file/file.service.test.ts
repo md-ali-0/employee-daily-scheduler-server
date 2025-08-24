@@ -1,109 +1,21 @@
-import { FileService } from '@modules/file/file.service'
+import mongoose from 'mongoose';
+import { BadRequestError, NotFoundError } from '../../../src/core/error.classes';
+import { FileService } from '../../../src/modules/file/file.service';
+import { utils } from '../../setup';
 
-// Mock PrismaClient constructor
-jest.mock('@prisma/client', () => ({
-  PrismaClient: jest.fn().mockImplementation(() => ({
-    file: {
-      findUnique: jest.fn(),
-      findMany: jest.fn(),
-      create: jest.fn(),
-      delete: jest.fn(),
-      count: jest.fn(),
-    },
-  })),
-}))
+// Mock storage providers
+jest.mock('../../../src/utils/storage/cloudinary.storage');
+jest.mock('../../../src/utils/storage/local.storage');
+jest.mock('../../../src/utils/storage/s3.storage');
 
-// Mock the prisma instance directly
-jest.mock('@config/db', () => ({
-  __esModule: true,
-  default: {
-    file: {
-      findUnique: jest.fn(),
-      findMany: jest.fn(),
-      create: jest.fn(),
-      delete: jest.fn(),
-      count: jest.fn(),
-    },
-  },
-}))
+describe('FileService', () => {
+  let fileService: FileService;
+  let testUser: any;
 
-// Mock storage services
-jest.mock('@utils/storage/local.storage', () => ({
-  LocalStorageService: jest.fn().mockImplementation(() => ({
-    uploadFile: jest.fn(),
-    getFileStream: jest.fn(),
-    deleteFile: jest.fn(),
-  })),
-}))
-
-jest.mock('@utils/storage/cloudinary.storage', () => ({
-  CloudinaryStorageService: jest.fn().mockImplementation(() => ({
-    uploadFile: jest.fn(),
-    getFileStream: jest.fn(),
-    deleteFile: jest.fn(),
-  })),
-}))
-
-jest.mock('@utils/storage/s3.storage', () => ({
-  S3StorageService: jest.fn().mockImplementation(() => ({
-    uploadFile: jest.fn(),
-    getFileStream: jest.fn(),
-    deleteFile: jest.fn(),
-  })),
-}))
-
-// Mock environment config
-jest.mock('@config/env', () => ({
-  __esModule: true,
-  default: {
-    STORAGE_TYPE: 'LOCAL',
-  },
-}))
-
-// Mock winston logger
-jest.mock('@config/winston', () => ({
-  __esModule: true,
-  default: {
-    info: jest.fn(),
-    error: jest.fn(),
-    warn: jest.fn(),
-    debug: jest.fn(),
-  },
-}))
-
-// Mock constants to avoid Role enum issues
-jest.mock('@config/constants', () => ({
-  __esModule: true,
-  ROLE_PERMISSIONS: {
-    ADMIN: ['file:upload', 'file:read', 'file:delete'],
-    EDITOR: ['file:upload', 'file:read', 'file:delete'],
-    AUTHOR: ['file:upload', 'file:read'],
-    USER: ['file:read'],
-  },
-  HTTP_STATUS: {
-    BAD_REQUEST: 400,
-    UNAUTHORIZED: 401,
-    FORBIDDEN: 403,
-    NOT_FOUND: 404,
-    CONFLICT: 409,
-    UNPROCESSABLE_ENTITY: 422,
-    TOO_MANY_REQUESTS: 429,
-    INTERNAL_SERVER_ERROR: 500,
-    SERVICE_UNAVAILABLE: 503,
-  },
-}))
-
-describe('File Service', () => {
-  let fileService: FileService
-  let mockPrisma: any
-  let mockStorageService: any
-
-  beforeEach(() => {
-    fileService = new FileService()
-    mockPrisma = require('@config/db').default
-    mockStorageService = require('@utils/storage/local.storage').LocalStorageService.mock.results[0].value
-    jest.clearAllMocks()
-  })
+  beforeEach(async () => {
+    fileService = new FileService();
+    testUser = await utils.createTestUser();
+  });
 
   describe('uploadFile', () => {
     it('should upload file successfully', async () => {
@@ -111,277 +23,315 @@ describe('File Service', () => {
         originalname: 'test.jpg',
         mimetype: 'image/jpeg',
         size: 1024,
-        buffer: Buffer.from('test'),
-      } as Express.Multer.File
+        buffer: Buffer.from('test file content')
+      };
 
-      const userId = 'test-user-id'
-      const uploadedFileData = {
+      const mockUploadResult = {
         url: 'https://example.com/test.jpg',
-        filename: 'test.jpg',
-        mimeType: 'image/jpeg',
+        publicId: 'test-public-id',
+        filename: 'test.jpg'
+      };
+
+      // Mock the storage upload method
+      (fileService as any).storage.upload = jest.fn().mockResolvedValue(mockUploadResult);
+
+      const result = await fileService.uploadFile(mockFile, testUser._id.toString());
+
+      expect(result).toBeDefined();
+      expect(result.url).toBe(mockUploadResult.url);
+      expect(result.filename).toBe(mockFile.originalname);
+      expect(result.uploadedBy.toString()).toBe(testUser._id.toString());
+    });
+
+    it('should throw error for unsupported file type', async () => {
+      const mockFile = {
+        originalname: 'test.exe',
+        mimetype: 'application/x-executable',
         size: 1024,
-        provider: 'LOCAL',
-      }
+        buffer: Buffer.from('test file content')
+      };
 
-      const createdFile = {
-        id: 'file-id',
-        ...uploadedFileData,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      }
+      await expect(fileService.uploadFile(mockFile, testUser._id.toString())).rejects.toThrow(BadRequestError);
+    });
 
-      mockStorageService.uploadFile.mockResolvedValue(uploadedFileData)
-      mockPrisma.file.create.mockResolvedValue(createdFile)
+    it('should throw error for file too large', async () => {
+      const mockFile = {
+        originalname: 'test.jpg',
+        mimetype: 'image/jpeg',
+        size: 50 * 1024 * 1024, // 50MB
+        buffer: Buffer.from('test file content')
+      };
 
-      const result = await fileService.uploadFile(mockFile, userId)
-
-      expect(mockStorageService.uploadFile).toHaveBeenCalledWith(mockFile, userId)
-      expect(mockPrisma.file.create).toHaveBeenCalledWith({
-        data: uploadedFileData,
-      })
-      expect(result).toEqual(createdFile)
-    })
-
-    it('should throw error if no file provided', async () => {
-      const userId = 'test-user-id'
-
-      await expect(fileService.uploadFile(null as any, userId)).rejects.toThrow('No file provided for upload.')
-    })
-  })
+      await expect(fileService.uploadFile(mockFile, testUser._id.toString())).rejects.toThrow(BadRequestError);
+    });
+  });
 
   describe('getFileById', () => {
-    it('should return file by ID successfully', async () => {
-      const fileId = 'test-file-id'
+    it('should get file by id', async () => {
       const mockFile = {
-        id: fileId,
+        _id: new mongoose.Types.ObjectId(),
+        filename: 'test.jpg',
         url: 'https://example.com/test.jpg',
-        filename: 'test.jpg',
-        mimeType: 'image/jpeg',
-        size: 1024,
-        provider: 'LOCAL',
-      }
+        uploadedBy: testUser._id
+      };
 
-      mockPrisma.file.findUnique.mockResolvedValue(mockFile)
+      // Mock the findById method
+      (fileService as any).model.findById = jest.fn().mockResolvedValue(mockFile);
 
-      const result = await fileService.getFileById(fileId)
+      const file = await fileService.getFileById(mockFile._id.toString());
 
-      expect(mockPrisma.file.findUnique).toHaveBeenCalledWith({
-        where: { id: fileId },
-      })
-      expect(result).toEqual(mockFile)
-    })
+      expect(file).toBeDefined();
+      expect(file._id.toString()).toBe(mockFile._id.toString());
+      expect(file.filename).toBe(mockFile.filename);
+    });
 
-    it('should throw error if file not found', async () => {
-      const fileId = 'non-existent-id'
+    it('should throw error when file not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
 
-      mockPrisma.file.findUnique.mockResolvedValue(null)
+      // Mock the findById method to return null
+      (fileService as any).model.findById = jest.fn().mockResolvedValue(null);
 
-      await expect(fileService.getFileById(fileId)).rejects.toThrow('File not found.')
-    })
-  })
+      await expect(fileService.getFileById(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
 
-  describe('getFileStream', () => {
-    it('should return file stream successfully', async () => {
-      const fileId = 'test-file-id'
-      const mockFile = {
-        id: fileId,
-        url: 'https://example.com/test.jpg',
-        filename: 'test.jpg',
-        mimeType: 'image/jpeg',
-        size: 1024,
-        provider: 'LOCAL',
-      }
+  describe('getAllFiles', () => {
+    it('should return paginated files', async () => {
+      const mockFiles = [
+        { _id: new mongoose.Types.ObjectId(), filename: 'file1.jpg' },
+        { _id: new mongoose.Types.ObjectId(), filename: 'file2.jpg' }
+      ];
 
-      const mockStream = {
-        stream: {} as NodeJS.ReadableStream,
-        mimeType: 'image/jpeg',
-        filename: 'test.jpg',
-      }
+      const mockResult = {
+        data: mockFiles,
+        pagination: {
+          page: 1,
+          limit: 10,
+          total: 2,
+          totalPages: 1
+        }
+      };
 
-      mockPrisma.file.findUnique.mockResolvedValue(mockFile)
-      mockStorageService.getFileStream.mockResolvedValue(mockStream)
+      // Mock the getAll method
+      (fileService as any).getAll = jest.fn().mockResolvedValue(mockResult);
 
-      const result = await fileService.getFileStream(fileId)
+      const result = await fileService.getAllFiles({ page: 1, limit: 10 });
 
-      expect(mockPrisma.file.findUnique).toHaveBeenCalledWith({
-        where: { id: fileId },
-      })
-      expect(mockStorageService.getFileStream).toHaveBeenCalledWith(fileId)
-      expect(result).toEqual(mockStream)
-    })
-
-    it('should throw error if file not found', async () => {
-      const fileId = 'non-existent-id'
-
-      mockPrisma.file.findUnique.mockResolvedValue(null)
-
-      await expect(fileService.getFileStream(fileId)).rejects.toThrow('File not found.')
-    })
-  })
+      expect(result).toBeDefined();
+      expect(result.data).toBeDefined();
+      expect(result.pagination).toBeDefined();
+      expect(Array.isArray(result.data)).toBe(true);
+      expect(result.data.length).toBe(2);
+    });
+  });
 
   describe('deleteFile', () => {
     it('should delete file successfully', async () => {
-      const fileId = 'test-file-id'
       const mockFile = {
-        id: fileId,
-        url: 'https://example.com/test.jpg',
+        _id: new mongoose.Types.ObjectId(),
         filename: 'test.jpg',
-        mimeType: 'image/jpeg',
-        size: 1024,
-        provider: 'LOCAL',
-      }
+        url: 'https://example.com/test.jpg',
+        publicId: 'test-public-id'
+      };
 
-      mockPrisma.file.findUnique.mockResolvedValue(mockFile)
-      mockStorageService.deleteFile.mockResolvedValue(undefined)
-      mockPrisma.file.delete.mockResolvedValue(mockFile)
+      // Mock the findById method
+      (fileService as any).model.findById = jest.fn().mockResolvedValue(mockFile);
+      
+      // Mock the storage delete method
+      (fileService as any).storage.delete = jest.fn().mockResolvedValue(true);
+      
+      // Mock the model delete method
+      (fileService as any).model.findByIdAndDelete = jest.fn().mockResolvedValue(mockFile);
 
-      await fileService.deleteFile(fileId)
+      await expect(fileService.deleteFile(mockFile._id.toString())).resolves.not.toThrow();
+    });
 
-      expect(mockPrisma.file.findUnique).toHaveBeenCalledWith({
-        where: { id: fileId },
-      })
-      expect(mockStorageService.deleteFile).toHaveBeenCalledWith(fileId)
-      expect(mockPrisma.file.delete).toHaveBeenCalledWith({
-        where: { id: fileId },
-      })
-    })
+    it('should throw error when file not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
 
-    it('should throw error if file not found', async () => {
-      const fileId = 'non-existent-id'
+      // Mock the findById method to return null
+      (fileService as any).model.findById = jest.fn().mockResolvedValue(null);
 
-      mockPrisma.file.findUnique.mockResolvedValue(null)
+      await expect(fileService.deleteFile(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
 
-      await expect(fileService.deleteFile(fileId)).rejects.toThrow('File not found.')
-    })
-  })
+  describe('updateFile', () => {
+    it('should update file metadata successfully', async () => {
+      const mockFile = {
+        _id: new mongoose.Types.ObjectId(),
+        filename: 'test.jpg',
+        url: 'https://example.com/test.jpg'
+      };
 
-  describe('getUserFiles', () => {
-    it('should return user files successfully', async () => {
-      const userId = 'test-user-id'
+      const updateData = {
+        description: 'Updated description',
+        tags: ['image', 'test']
+      };
+
+      // Mock the findById method
+      (fileService as any).model.findById = jest.fn().mockResolvedValue(mockFile);
+      
+      // Mock the update method
+      (fileService as any).update = jest.fn().mockResolvedValue({
+        ...mockFile,
+        ...updateData
+      });
+
+      const updatedFile = await fileService.updateFile(mockFile._id.toString(), updateData);
+
+      expect(updatedFile).toBeDefined();
+      expect(updatedFile.description).toBe(updateData.description);
+      expect(updatedFile.tags).toEqual(updateData.tags);
+    });
+
+    it('should throw error when file not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+      const updateData = { description: 'Updated' };
+
+      // Mock the findById method to return null
+      (fileService as any).model.findById = jest.fn().mockResolvedValue(null);
+
+      await expect(fileService.updateFile(fakeId, updateData)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('getFilesByUser', () => {
+    it('should return files uploaded by specific user', async () => {
       const mockFiles = [
-        {
-          id: 'file-1',
-          url: 'https://example.com/file1.jpg',
-          filename: 'file1.jpg',
-          mimeType: 'image/jpeg',
-          size: 1024,
-          provider: 'LOCAL',
-        },
-        {
-          id: 'file-2',
-          url: 'https://example.com/file2.jpg',
-          filename: 'file2.jpg',
-          mimeType: 'image/jpeg',
-          size: 2048,
-          provider: 'LOCAL',
-        },
-      ]
+        { _id: new mongoose.Types.ObjectId(), filename: 'file1.jpg', uploadedBy: testUser._id },
+        { _id: new mongoose.Types.ObjectId(), filename: 'file2.jpg', uploadedBy: testUser._id }
+      ];
 
-      mockPrisma.file.findMany.mockResolvedValue(mockFiles)
+      // Mock the find method
+      (fileService as any).model.find = jest.fn().mockReturnValue({
+        sort: jest.fn().mockReturnValue({
+          skip: jest.fn().mockReturnValue({
+            limit: jest.fn().mockResolvedValue(mockFiles)
+          })
+        })
+      });
 
-      const result = await fileService.getUserFiles(userId)
+      const files = await fileService.getFilesByUser(testUser._id.toString(), { page: 1, limit: 10 });
 
-      expect(mockPrisma.file.findMany).toHaveBeenCalledWith({
-        where: { uploadedById: userId },
-        orderBy: { createdAt: 'desc' },
-      })
-      expect(result).toEqual(mockFiles)
-    })
-  })
+      expect(files).toBeDefined();
+      expect(Array.isArray(files)).toBe(true);
+      expect(files.length).toBe(2);
+    });
+  });
 
-  describe('getAll', () => {
-    it('should return all files with pagination', async () => {
+  describe('searchFiles', () => {
+    it('should search files by filename', async () => {
       const mockFiles = [
-        {
-          id: 'file-1',
-          url: 'https://example.com/file1.jpg',
-          filename: 'file1.jpg',
-          mimeType: 'image/jpeg',
-          size: 1024,
-          provider: 'LOCAL',
-          uploadedBy: { id: 'user-1', name: 'User 1', email: 'user1@example.com' },
-        },
-      ]
-      const totalItems = 1
+        { _id: new mongoose.Types.ObjectId(), filename: 'test-image.jpg' }
+      ];
 
-      mockPrisma.file.findMany.mockResolvedValue(mockFiles)
-      mockPrisma.file.count.mockResolvedValue(totalItems)
+      // Mock the find method
+      (fileService as any).model.find = jest.fn().mockReturnValue({
+        sort: jest.fn().mockReturnValue({
+          skip: jest.fn().mockReturnValue({
+            limit: jest.fn().mockResolvedValue(mockFiles)
+          })
+        })
+      });
 
-      const result = await fileService.getAll()
+      const files = await fileService.searchFiles('test', { page: 1, limit: 10 });
 
-      expect(mockPrisma.file.findMany).toHaveBeenCalledWith({
-        where: { AND: [{ deletedAt: null }] },
-        include: {
-          uploadedBy: { select: { id: true, name: true, email: true } },
-        },
-        orderBy: { createdAt: 'desc' },
-        skip: 0,
-        take: 10,
-      })
-      expect(result.data).toEqual(mockFiles)
-      expect(result.pagination.total).toBe(totalItems)
-      expect(result.pagination.page).toBe(1)
-      expect(result.pagination.limit).toBe(10)
-    })
+      expect(files).toBeDefined();
+      expect(Array.isArray(files)).toBe(true);
+      expect(files.length).toBe(1);
+    });
+  });
 
-    it('should apply search filters correctly', async () => {
-      const mockFiles: any[] = []
-      const totalItems = 0
+  describe('getFileStats', () => {
+    it('should return file statistics', async () => {
+      const mockStats = {
+        totalFiles: 10,
+        totalSize: 1024000,
+        fileTypes: {
+          'image/jpeg': 5,
+          'image/png': 3,
+          'application/pdf': 2
+        }
+      };
 
-      mockPrisma.file.findMany.mockResolvedValue(mockFiles)
-      mockPrisma.file.count.mockResolvedValue(totalItems)
+      // Mock the aggregate method
+      (fileService as any).model.aggregate = jest.fn().mockResolvedValue([mockStats]);
 
-      const result = await fileService.getAll({
-        searchTerm: 'test',
-        mimeType: 'image/jpeg',
-        provider: 'LOCAL',
-        page: 2,
-        limit: 5,
-      })
+      const stats = await fileService.getFileStats();
 
-      expect(mockPrisma.file.findMany).toHaveBeenCalledWith({
-        where: {
-          AND: [
-            {
-              OR: [
-                { filename: { contains: 'test', mode: 'insensitive' } },
-                { mimeType: { contains: 'test', mode: 'insensitive' } },
-                { url: { contains: 'test', mode: 'insensitive' } },
-              ],
-            },
-            { AND: [{ mimeType: 'image/jpeg' }, { provider: 'LOCAL' }] },
-            { deletedAt: null },
-          ],
-        },
-        include: {
-          uploadedBy: { select: { id: true, name: true, email: true } },
-        },
-        orderBy: { createdAt: 'desc' },
-        skip: 5,
-        take: 5,
-      })
-      expect(result.pagination.page).toBe(2)
-      expect(result.pagination.limit).toBe(5)
-    })
+      expect(stats).toBeDefined();
+      expect(stats.totalFiles).toBe(mockStats.totalFiles);
+      expect(stats.totalSize).toBe(mockStats.totalSize);
+      expect(stats.fileTypes).toBeDefined();
+    });
+  });
 
-    it('should include deleted files when delete filter is YES', async () => {
-      const mockFiles: any[] = []
-      const totalItems = 0
+  describe('validateFileType', () => {
+    it('should validate allowed file types', () => {
+      const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+      
+      allowedTypes.forEach(type => {
+        expect(() => fileService.validateFileType(type)).not.toThrow();
+      });
+    });
 
-      mockPrisma.file.findMany.mockResolvedValue(mockFiles)
-      mockPrisma.file.count.mockResolvedValue(totalItems)
+    it('should throw error for disallowed file types', () => {
+      const disallowedTypes = ['application/x-executable', 'text/html'];
+      
+      disallowedTypes.forEach(type => {
+        expect(() => fileService.validateFileType(type)).toThrow(BadRequestError);
+      });
+    });
+  });
 
-      await fileService.getAll({ delete: 'YES' })
+  describe('validateFileSize', () => {
+    it('should validate file size within limit', () => {
+      const validSizes = [1024, 1024 * 1024, 5 * 1024 * 1024]; // 1KB, 1MB, 5MB
+      
+      validSizes.forEach(size => {
+        expect(() => fileService.validateFileSize(size)).not.toThrow();
+      });
+    });
 
-      expect(mockPrisma.file.findMany).toHaveBeenCalledWith({
-        where: {},
-        include: {
-          uploadedBy: { select: { id: true, name: true, email: true } },
-        },
-        orderBy: { createdAt: 'desc' },
-        skip: 0,
-        take: 10,
-      })
-    })
-  })
-}) 
+    it('should throw error for files too large', () => {
+      const invalidSizes = [50 * 1024 * 1024, 100 * 1024 * 1024]; // 50MB, 100MB
+      
+      invalidSizes.forEach(size => {
+        expect(() => fileService.validateFileSize(size)).toThrow(BadRequestError);
+      });
+    });
+  });
+
+  describe('generateThumbnail', () => {
+    it('should generate thumbnail for image files', async () => {
+      const mockThumbnailUrl = 'https://example.com/thumb.jpg';
+      
+      // Mock the storage generateThumbnail method
+      (fileService as any).storage.generateThumbnail = jest.fn().mockResolvedValue(mockThumbnailUrl);
+
+      const thumbnailUrl = await fileService.generateThumbnail('test.jpg', 'image/jpeg');
+
+      expect(thumbnailUrl).toBe(mockThumbnailUrl);
+    });
+
+    it('should return null for non-image files', async () => {
+      const thumbnailUrl = await fileService.generateThumbnail('test.pdf', 'application/pdf');
+
+      expect(thumbnailUrl).toBeNull();
+    });
+  });
+
+  describe('getFileDownloadUrl', () => {
+    it('should generate download URL for file', async () => {
+      const mockDownloadUrl = 'https://example.com/download/test.jpg';
+      
+      // Mock the storage getDownloadUrl method
+      (fileService as any).storage.getDownloadUrl = jest.fn().mockResolvedValue(mockDownloadUrl);
+
+      const downloadUrl = await fileService.getFileDownloadUrl('test.jpg');
+
+      expect(downloadUrl).toBe(mockDownloadUrl);
+    });
+  });
+}); 

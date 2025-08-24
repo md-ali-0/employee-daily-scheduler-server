@@ -3,6 +3,7 @@ import { Router } from "express"
 // Import all routes
 import { AuthRoutes } from "@modules/auth/auth.routes"
 import { FileRoutes } from "@modules/file/file.routes"
+import { ScheduleRoutes } from "@modules/schedule/schedule.routes"
 import { UserRoutes } from "@modules/user/user.routes"
 import { HealthRoutes } from "@routes/health.routes"
 import { SystemRoutes } from "@routes/system.routes"
@@ -25,6 +26,7 @@ export class MainRouter {
       { path: "/auth", handler: new AuthRoutes().router },
       { path: "/users", handler: new UserRoutes().router },
       { path: "/files", handler: new FileRoutes().router },
+      { path: "/schedule", handler: new ScheduleRoutes().router },
       { path: "/system", handler: new SystemRoutes().router },
     ]
 

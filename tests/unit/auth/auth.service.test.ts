@@ -1,231 +1,298 @@
-import { UnauthorizedError } from '@core/error.classes'
-import { AuthService } from '@modules/auth/auth.service'
-import { testUtils } from '../../setup'
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
+import { BadRequestError, NotFoundError } from '../../../src/core/error.classes';
+import { AuthService } from '../../../src/modules/auth/auth.service';
+import { utils } from '../../setup';
 
-// Mock dependencies
-jest.mock('bcryptjs', () => ({
-  hash: jest.fn(),
-  compare: jest.fn(),
-}))
-jest.mock('jsonwebtoken', () => ({
-  sign: jest.fn(),
-  verify: jest.fn(),
-}))
-jest.mock('@config/db', () => ({
-  user: {
-    findUnique: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-  },
-  auditLog: {
-    create: jest.fn(),
-  },
-}))
+describe('AuthService', () => {
+  let authService: AuthService;
+  let testUser: any;
 
-describe('Auth Service', () => {
-  let authService: AuthService
-  let mockPrisma: any
-  let mockBcrypt: any
-  let mockJwt: any
-
-  beforeEach(() => {
-    authService = new AuthService()
-    mockPrisma = require('@config/db')
-    mockBcrypt = require('bcryptjs')
-    mockJwt = require('jsonwebtoken')
-    jest.clearAllMocks()
-  })
+  beforeEach(async () => {
+    authService = new AuthService();
+    testUser = await utils.createTestUser();
+  });
 
   describe('register', () => {
     it('should register a new user successfully', async () => {
-      const registerInput = {
+      const userData = {
+        email: 'newuser@example.com',
+        password: 'password123',
+        firstName: 'New',
+        lastName: 'User',
+        role: 'USER'
+      };
+
+      const user = await authService.register(userData);
+
+      expect(user).toBeDefined();
+      expect(user.email).toBe(userData.email);
+      expect(user.firstName).toBe(userData.firstName);
+      expect(user.lastName).toBe(userData.lastName);
+      expect(user.role).toBe(userData.role);
+      expect(user.password).not.toBe(userData.password); // Should be hashed
+    });
+
+    it('should throw error when email already exists', async () => {
+      const userData = {
+        email: testUser.email, // Already exists
+        password: 'password123',
+        firstName: 'New',
+        lastName: 'User'
+      };
+
+      await expect(authService.register(userData)).rejects.toThrow(BadRequestError);
+    });
+
+    it('should hash password correctly', async () => {
+      const userData = {
         email: 'test@example.com',
-        name: 'Test User',
-        password: 'password123'
-      }
-      const ipAddress = '127.0.0.1'
-      const userAgent = 'Mozilla/5.0'
+        password: 'password123',
+        firstName: 'Test',
+        lastName: 'User'
+      };
 
-      // Mock that user doesn't exist
-      mockPrisma.user.findUnique.mockResolvedValue(null)
-      
-      // Mock password hashing
-      mockBcrypt.hash.mockResolvedValue('hashedPassword')
-      
-      // Mock user creation
-      mockPrisma.user.create.mockResolvedValue(testUtils.mockUser)
+      const user = await authService.register(userData);
+      const isPasswordValid = await bcrypt.compare(userData.password, user.password);
 
-      const result = await authService.register(registerInput, ipAddress, userAgent)
-
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { email: registerInput.email } 
-      })
-      expect(mockBcrypt.hash).toHaveBeenCalledWith(registerInput.password, 10)
-      expect(mockPrisma.user.create).toHaveBeenCalledWith({
-        data: {
-          email: registerInput.email,
-          name: registerInput.name,
-          password: 'hashedPassword',
-        },
-      })
-      expect(result).toEqual(testUtils.mockUser)
-    })
-
-    it('should throw BadRequestError if user already exists', async () => {
-      const registerInput = {
-        email: 'existing@example.com',
-        name: 'Existing User',
-        password: 'password123'
-      }
-      const ipAddress = '127.0.0.1'
-      const userAgent = 'Mozilla/5.0'
-
-      // Mock that user already exists
-      mockPrisma.user.findUnique.mockResolvedValue(testUtils.mockUser)
-
-      await expect(authService.register(registerInput, ipAddress, userAgent))
-        .rejects.toThrow('User already exists')
-
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { email: registerInput.email } 
-      })
-      expect(mockPrisma.user.create).not.toHaveBeenCalled()
-    })
-  })
+      expect(isPasswordValid).toBe(true);
+    });
+  });
 
   describe('login', () => {
     it('should login user successfully with valid credentials', async () => {
-      const loginInput = {
-        email: 'test@example.com',
+      const loginData = {
+        email: testUser.email,
         password: 'password123'
-      }
-      const ipAddress = '127.0.0.1'
-      const userAgent = 'Mozilla/5.0'
+      };
 
-      const mockUser = { ...testUtils.mockUser, password: 'hashedPassword' }
-      
-      // Mock user lookup
-      mockPrisma.user.findUnique.mockResolvedValue(mockUser)
-      
-      // Mock password comparison
-      mockBcrypt.compare.mockResolvedValue(true)
-      
-      // Mock JWT token generation
-      mockJwt.sign.mockReturnValue('accessToken')
+      const result = await authService.login(loginData);
 
-      const result = await authService.login(loginInput.email, loginInput.password, ipAddress, userAgent)
+      expect(result).toBeDefined();
+      expect(result.user).toBeDefined();
+      expect(result.token).toBeDefined();
+      expect(result.user.email).toBe(testUser.email);
+    });
 
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { email: loginInput.email } 
-      })
-      expect(mockBcrypt.compare).toHaveBeenCalledWith(loginInput.password, mockUser.password)
-      expect(result).toHaveProperty('user', mockUser)
-      expect(result).toHaveProperty('accessToken')
-      expect(result).toHaveProperty('refreshToken')
-    })
-
-    it('should throw UnauthorizedError if user not found', async () => {
-      const loginInput = {
+    it('should throw error with invalid email', async () => {
+      const loginData = {
         email: 'nonexistent@example.com',
         password: 'password123'
-      }
-      const ipAddress = '127.0.0.1'
-      const userAgent = 'Mozilla/5.0'
+      };
 
-      // Mock that user doesn't exist
-      mockPrisma.user.findUnique.mockResolvedValue(null)
+      await expect(authService.login(loginData)).rejects.toThrow(BadRequestError);
+    });
 
-      await expect(authService.login(loginInput.email, loginInput.password, ipAddress, userAgent))
-        .rejects.toThrow(UnauthorizedError)
-
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { email: loginInput.email } 
-      })
-      expect(mockBcrypt.compare).not.toHaveBeenCalled()
-    })
-
-    it('should throw UnauthorizedError if password is incorrect', async () => {
-      const loginInput = {
-        email: 'test@example.com',
+    it('should throw error with invalid password', async () => {
+      const loginData = {
+        email: testUser.email,
         password: 'wrongpassword'
-      }
-      const ipAddress = '127.0.0.1'
-      const userAgent = 'Mozilla/5.0'
+      };
 
-      const mockUser = { ...testUtils.mockUser, password: 'hashedPassword' }
+      await expect(authService.login(loginData)).rejects.toThrow(BadRequestError);
+    });
+  });
+
+  describe('generateToken', () => {
+    it('should generate valid JWT token', async () => {
+      const token = await authService.generateToken(testUser);
+
+      expect(token).toBeDefined();
+      expect(typeof token).toBe('string');
+
+      // Verify token
+      const decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
+      expect(decoded.id).toBe(testUser._id.toString());
+      expect(decoded.email).toBe(testUser.email);
+    });
+  });
+
+  describe('verifyToken', () => {
+    it('should verify valid token', async () => {
+      const token = await authService.generateToken(testUser);
+      const decoded = await authService.verifyToken(token);
+
+      expect(decoded).toBeDefined();
+      expect(decoded.id).toBe(testUser._id.toString());
+      expect(decoded.email).toBe(testUser.email);
+    });
+
+    it('should throw error with invalid token', async () => {
+      const invalidToken = 'invalid.token.here';
+
+      await expect(authService.verifyToken(invalidToken)).rejects.toThrow();
+    });
+  });
+
+  describe('refreshToken', () => {
+    it('should refresh token successfully', async () => {
+      const oldToken = await authService.generateToken(testUser);
+      const newToken = await authService.refreshToken(oldToken);
+
+      expect(newToken).toBeDefined();
+      expect(typeof newToken).toBe('string');
+      expect(newToken).not.toBe(oldToken);
+
+      // Verify new token
+      const decoded = jwt.verify(newToken, process.env.JWT_SECRET!) as any;
+      expect(decoded.id).toBe(testUser._id.toString());
+    });
+  });
+
+  describe('forgotPassword', () => {
+    it('should generate reset token for existing user', async () => {
+      const email = testUser.email;
+      const result = await authService.forgotPassword(email);
+
+      expect(result).toBeDefined();
+      expect(result.resetToken).toBeDefined();
+      expect(result.user.email).toBe(email);
+    });
+
+    it('should throw error for non-existent user', async () => {
+      const email = 'nonexistent@example.com';
+
+      await expect(authService.forgotPassword(email)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('resetPassword', () => {
+    it('should reset password with valid token', async () => {
+      // First generate reset token
+      const { resetToken } = await authService.forgotPassword(testUser.email);
       
-      // Mock user lookup
-      mockPrisma.user.findUnique.mockResolvedValue(mockUser)
-      
-      // Mock password comparison fails
-      mockBcrypt.compare.mockResolvedValue(false)
+      const newPassword = 'newpassword123';
+      const result = await authService.resetPassword(resetToken, newPassword);
 
-      await expect(authService.login(loginInput.email, loginInput.password, ipAddress, userAgent))
-        .rejects.toThrow(UnauthorizedError)
+      expect(result).toBeDefined();
+      expect(result.user.email).toBe(testUser.email);
 
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { email: loginInput.email } 
-      })
-      expect(mockBcrypt.compare).toHaveBeenCalledWith(loginInput.password, mockUser.password)
-    })
-  })
+      // Verify password was changed
+      const updatedUser = await authService.findById(testUser._id.toString());
+      const isPasswordValid = await bcrypt.compare(newPassword, updatedUser.password);
+      expect(isPasswordValid).toBe(true);
+    });
 
-  describe('refreshAccessToken', () => {
-    it('should refresh access token successfully', async () => {
-      const mockRefreshToken = 'valid-refresh-token'
-      const mockUser = testUtils.mockUser
+    it('should throw error with invalid token', async () => {
+      const invalidToken = 'invalid-token';
+      const newPassword = 'newpassword123';
 
-      // Mock JWT verification
-      mockJwt.verify.mockReturnValue({ userId: mockUser.id } as any)
-      
-      // Mock user lookup
-      mockPrisma.user.findUnique.mockResolvedValue(mockUser)
-      
-      // Mock JWT token generation
-      mockJwt.sign.mockReturnValue('newAccessToken')
+      await expect(authService.resetPassword(invalidToken, newPassword)).rejects.toThrow();
+    });
+  });
 
-      const result = await authService.refreshAccessToken(mockRefreshToken)
+  describe('changePassword', () => {
+    it('should change password successfully', async () => {
+      const oldPassword = 'password123';
+      const newPassword = 'newpassword123';
 
-      expect(mockJwt.verify).toHaveBeenCalledWith(mockRefreshToken, expect.any(String))
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { id: mockUser.id } 
-      })
-      expect(result).toHaveProperty('accessToken')
-      expect(result).toHaveProperty('newRefreshToken')
-    })
+      const result = await authService.changePassword(
+        testUser._id.toString(),
+        oldPassword,
+        newPassword
+      );
 
-    it('should throw UnauthorizedError if refresh token is invalid', async () => {
-      const mockRefreshToken = 'invalid-refresh-token'
+      expect(result).toBeDefined();
+      expect(result.user.email).toBe(testUser.email);
 
-      // Mock JWT verification fails
-      mockJwt.verify.mockImplementation(() => {
-        throw new Error('Invalid token')
-      })
+      // Verify password was changed
+      const updatedUser = await authService.findById(testUser._id.toString());
+      const isPasswordValid = await bcrypt.compare(newPassword, updatedUser.password);
+      expect(isPasswordValid).toBe(true);
+    });
 
-      await expect(authService.refreshAccessToken(mockRefreshToken))
-        .rejects.toThrow(UnauthorizedError)
+    it('should throw error with wrong old password', async () => {
+      const wrongOldPassword = 'wrongpassword';
+      const newPassword = 'newpassword123';
 
-      expect(mockJwt.verify).toHaveBeenCalledWith(mockRefreshToken, expect.any(String))
-      expect(mockPrisma.user.findUnique).not.toHaveBeenCalled()
-    })
+      await expect(
+        authService.changePassword(testUser._id.toString(), wrongOldPassword, newPassword)
+      ).rejects.toThrow(BadRequestError);
+    });
+  });
 
-    it('should throw UnauthorizedError if user not found', async () => {
-      const mockRefreshToken = 'valid-refresh-token'
-      const mockUserId = 'non-existent-user-id'
+  describe('findById', () => {
+    it('should find user by id', async () => {
+      const user = await authService.findById(testUser._id.toString());
 
-      // Mock JWT verification
-      mockJwt.verify.mockReturnValue({ userId: mockUserId } as any)
-      
-      // Mock user lookup returns null
-      mockPrisma.user.findUnique.mockResolvedValue(null)
+      expect(user).toBeDefined();
+      expect(user._id.toString()).toBe(testUser._id.toString());
+      expect(user.email).toBe(testUser.email);
+    });
 
-      await expect(authService.refreshAccessToken(mockRefreshToken))
-        .rejects.toThrow(UnauthorizedError)
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
 
-      expect(mockJwt.verify).toHaveBeenCalledWith(mockRefreshToken, expect.any(String))
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({ 
-        where: { id: mockUserId } 
-      })
-    })
-  })
-})
+      await expect(authService.findById(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('findByEmail', () => {
+    it('should find user by email', async () => {
+      const user = await authService.findByEmail(testUser.email);
+
+      expect(user).toBeDefined();
+      expect(user.email).toBe(testUser.email);
+    });
+
+    it('should return null when user not found', async () => {
+      const user = await authService.findByEmail('nonexistent@example.com');
+
+      expect(user).toBeNull();
+    });
+  });
+
+  describe('updateProfile', () => {
+    it('should update user profile successfully', async () => {
+      const updateData = {
+        firstName: 'Updated',
+        lastName: 'Name',
+        phone: '1234567890'
+      };
+
+      const updatedUser = await authService.updateProfile(testUser._id.toString(), updateData);
+
+      expect(updatedUser).toBeDefined();
+      expect(updatedUser.firstName).toBe(updateData.firstName);
+      expect(updatedUser.lastName).toBe(updateData.lastName);
+      expect(updatedUser.phone).toBe(updateData.phone);
+    });
+
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+      const updateData = { firstName: 'Updated' };
+
+      await expect(authService.updateProfile(fakeId, updateData)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('deleteAccount', () => {
+    it('should delete user account successfully', async () => {
+      await expect(authService.deleteAccount(testUser._id.toString())).resolves.not.toThrow();
+
+      // Verify user is deleted
+      await expect(authService.findById(testUser._id.toString())).rejects.toThrow(NotFoundError);
+    });
+
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+
+      await expect(authService.deleteAccount(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('validatePassword', () => {
+    it('should validate correct password', async () => {
+      const isValid = await authService.validatePassword(testUser, 'password123');
+
+      expect(isValid).toBe(true);
+    });
+
+    it('should reject incorrect password', async () => {
+      const isValid = await authService.validatePassword(testUser, 'wrongpassword');
+
+      expect(isValid).toBe(false);
+    });
+  });
+});

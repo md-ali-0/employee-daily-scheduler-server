@@ -1,240 +1,337 @@
-# Node.js Enterprise Server Boilerplate
+# Employee Daily Scheduler
 
-A robust Node.js enterprise server boilerplate built with Express, TypeScript, Prisma, PostgreSQL, Redis, and more. Designed for scalability, maintainability, and best practices.
+A comprehensive backend service for managing employee schedules, shifts, and coverage built with Node.js, Express, TypeScript, and MongoDB.
 
 ## Features
 
-*   **TypeScript**: Strongly typed code for better maintainability and fewer bugs.
-*   **Express.js**: Fast, unopinionated, minimalist web framework.
-*   **Prisma ORM**: Next-generation ORM for Node.js and TypeScript.
-*   **PostgreSQL**: Robust relational database.
-*   **Redis**: In-memory data structure store, used for caching and job queues.
-*   **BullMQ**: Robust, performant, and battle-tested queueing system for Node.js.
-*   **JWT Authentication**: Secure user authentication with JSON Web Tokens.
-*   **Role-Based Access Control (RBAC)**: Granular permissions for different user roles.
-*   **Password Hashing**: Secure password storage with `bcryptjs`.
-*   **Validation**: Request validation using `zod`.
-*   **Error Handling**: Centralized and robust error handling.
-*   **Logging**: Structured logging with `Winston`.
-*   **API Documentation**: Swagger/OpenAPI for interactive API docs.
-*   **Rate Limiting**: Protect against brute-force attacks and abuse.
-*   **Security Middlewares**: `Helmet` for setting various HTTP headers.
-*   **CORS**: Configurable Cross-Origin Resource Sharing.
-*   **CSRF Protection**: Cross-Site Request Forgery protection.
-*   **Internationalization (i18n)**: Support for multiple languages.
-*   **File Uploads**: Handling file uploads with `Multer` and various storage options (Local, S3, Cloudinary).
-*   **Feature Flags**: Dynamically enable/disable features.
-*   **Health Checks**: Endpoints for monitoring application health.
-*   **Metrics**: Prometheus metrics for monitoring.
-*   **Sentry Integration**: Error tracking and performance monitoring.
-*   **Docker & Docker Compose**: Containerization for easy deployment and local development.
-*   **CI/CD**: GitHub Actions workflow for automated testing.
-*   **Project Structure**: Modular and scalable architecture.
-*   **Unit & Integration Tests**: Comprehensive test suite with `Jest` and `Supertest`.
-*   **Pre-commit Hooks**: `Husky` and `lint-staged` for code quality.
-*   **Environment Variables**: `dotenv` for managing configurations.
-*   **Alias Paths**: Simplified imports with `tsconfig-paths`.
+- **Employee Management**: Roles, skills, availability windows
+- **Shift Management**: Create, assign, and manage shifts with conflict detection
+- **Time-off Requests**: Request, approve, and track leave
+- **Coverage Analytics**: Real-time coverage calculations and gap analysis
+- **Recurring Templates**: Create and manage recurring shift patterns
+- **Conflict Detection**: Automatic detection of overlaps and double-bookings
+- **Workload Analytics**: Employee workload tracking and utilization metrics
+- **Authentication & Authorization**: JWT-based auth with role-based access
+- **API Documentation**: Swagger/OpenAPI documentation
 
-## Getting Started
+## Tech Stack
+
+- **Runtime**: Node.js with TypeScript
+- **Framework**: Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT with Passport.js
+- **Validation**: Zod schema validation
+- **Documentation**: Swagger/OpenAPI
+- **Testing**: Jest
+- **Logging**: Winston
+- **Internationalization**: i18next
+
+## Quick Start
 
 ### Prerequisites
 
-*   Node.js (v20 or higher)
-*   pnpm (recommended package manager)
-*   Docker & Docker Compose (recommended for local development)
-*   PostgreSQL database
-*   Redis instance
+- Node.js (v18 or higher)
+- MongoDB (v5 or higher)
+- Redis (for session storage)
+- pnpm (recommended) or npm
 
 ### Installation
 
-1.  **Clone the repository:**
-    \`\`\`bash
-    git clone <repository-url>
-    cd node-enterprise-server
-    \`\`\`
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd employee-daily-scheduler-server
+   ```
 
-2.  **Install dependencies:**
-    \`\`\`bash
-    pnpm install
-    \`\`\`
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
 
-3.  **Set up environment variables:**
-    Create a `.env` file in the project root based on `.env.example`.
+3. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Configure your `.env` file:
+   ```env
+   NODE_ENV=development
+   PORT=3000
+   MONGODB_URI=mongodb://localhost:27017/employee-scheduler
+   REDIS_URL=redis://localhost:6379
+   JWT_SECRET=your-super-secret-jwt-key
+   SESSION_SECRET=your-session-secret
+   ```
 
-    \`\`\`dotenv
-    # Application
-    PORT=3000
-    NODE_ENV=development # development, production, test
+4. **Database Setup**
+   ```bash
+   # Start MongoDB (if not running)
+   mongod
+   
+   # Seed the database with sample data
+   pnpm run seed
+   ```
 
-    # Database (PostgreSQL)
-    DATABASE_URL="postgresql://user:password@localhost:5432/blog_db?schema=public"
+5. **Start the server**
+   ```bash
+   # Development
+   pnpm run dev
+   
+   # Production
+   pnpm run build
+   pnpm start
+   ```
 
-    # Redis
-    REDIS_URL="redis://localhost:6379"
+The server will be available at `http://localhost:3000`
 
-    # JWT
-    JWT_SECRET="your_super_secret_jwt_key"
-    JWT_EXPIRES_IN="1h" # e.g., 1h, 7d, 30m
+## API Documentation
 
-    # Sentry (Optional)
-    SENTRY_DSN="" # Your Sentry DSN
+Once the server is running, visit `http://localhost:3000/api-docs` for interactive API documentation.
 
-    # CORS
-    ALLOWED_ORIGINS="http://localhost:3000,http://localhost:5173" # Comma-separated URLs
+### Authentication
 
-    # File Storage
-    # Options: 'local', 's3', 'cloudinary'
-    FILE_STORAGE_PROVIDER="local"
-    # If using S3:
-    AWS_ACCESS_KEY_ID=""
-    AWS_SECRET_ACCESS_KEY=""
-    AWS_REGION=""
-    AWS_S3_BUCKET_NAME=""
-    # If using Cloudinary:
-    CLOUDINARY_CLOUD_NAME=""
-    CLOUDINARY_API_KEY=""
-    CLOUDINARY_API_SECRET=""
+All API endpoints require authentication. Include the JWT token in the Authorization header:
 
-    # Default Admin User (for seeding)
-    DEFAULT_ADMIN_EMAIL="admin@example.com"
-    DEFAULT_ADMIN_PASSWORD="password123"
+```
+Authorization: Bearer <your-jwt-token>
+```
 
-    # Feature Flags (JSON string)
-    FEATURE_FLAGS='{"newDashboard": true, "betaSearch": false}'
-    \`\`\`
+### Core Endpoints
 
-4.  **Generate Prisma client:**
-    \`\`\`bash
-    npx prisma generate
-    \`\`\`
+#### Employee Management
+- `GET /api/v1/users` - List employees
+- `POST /api/v1/users` - Create employee
+- `GET /api/v1/users/:id` - Get employee details
+- `PUT /api/v1/users/:id` - Update employee
+- `DELETE /api/v1/users/:id` - Delete employee
 
-5.  **Run database migrations:**
-    \`\`\`bash
-    npx prisma migrate dev --name init
-    \`\`\`
-    (This will create the database tables based on `prisma/schema.prisma`)
+#### Shift Management
+- `GET /api/v1/schedule/shifts` - List shifts
+- `POST /api/v1/schedule/shifts` - Create shift
+- `GET /api/v1/schedule/shifts/:id` - Get shift details
+- `PUT /api/v1/schedule/shifts/:id` - Update shift
+- `DELETE /api/v1/schedule/shifts/:id` - Delete shift
 
-6.  **Seed the database (optional):**
-    \`\`\`bash
-    npm run prisma:seed
-    \`\`\`
-    (This will create a default admin user and some sample data)
+#### Shift Assignment
+- `POST /api/v1/schedule/shifts/:shiftId/assign/:employeeId` - Assign employee to shift
+- `DELETE /api/v1/schedule/shifts/:shiftId/assign/:employeeId` - Remove employee from shift
 
-### Running the Application
+#### Time-off Management
+- `GET /api/v1/schedule/time-off` - List time-off requests
+- `POST /api/v1/schedule/time-off` - Create time-off request
+- `PUT /api/v1/schedule/time-off/:id/approve` - Approve time-off request
+- `PUT /api/v1/schedule/time-off/:id/reject` - Reject time-off request
 
-*   **Development Mode (with hot-reloading):**
-    \`\`\`bash
-    npm run dev
-    \`\`\`
-*   **Production Mode (build and start):**
-    \`\`\`bash
-    npm run build
-    npm start
-    \`\`\`
+#### Analytics
+- `GET /api/v1/schedule/daily-schedule` - Get daily schedule
+- `GET /api/v1/schedule/coverage` - Get coverage analytics
+- `GET /api/v1/schedule/workload/:employeeId` - Get employee workload
+- `GET /api/v1/schedule/conflicts/:employeeId` - Detect conflicts
 
-### Running with Docker Compose (Recommended for local development)
+#### Recurring Templates
+- `GET /api/v1/schedule/templates` - List recurring templates
+- `POST /api/v1/schedule/templates` - Create recurring template
+- `POST /api/v1/schedule/templates/:templateId/generate` - Generate shifts from template
 
-Make sure Docker and Docker Compose are installed.
+## Data Model
 
-1.  **Build and run services:**
-    \`\`\`bash
-    docker-compose up --build
-    \`\`\`
-    This will:
-    *   Build the Node.js application image.
-    *   Start PostgreSQL and Redis containers.
-    *   Run Prisma migrations and seed the database inside the app container.
-    *   Start the Node.js application.
-    *   Start an Nginx reverse proxy.
+### Employee
+```typescript
+interface IEmployee {
+  _id: ObjectId;
+  name: string;
+  email: string;
+  phone?: string;
+  role: 'ADMIN' | 'MANAGER' | 'EMPLOYEE';
+  skills: string[];
+  team?: string;
+  availability?: IAvailability[];
+  location?: string;
+}
 
-2.  **Access the application:**
-    The API will be available at `http://localhost:${PORT:-3000}/api/v1`.
-    Swagger UI will be available at `http://localhost:${PORT:-3000}/api-docs`.
+interface IAvailability {
+  day: string; // e.g., "Monday"
+  start: string; // "HH:mm" format
+  end: string;   // "HH:mm" format
+}
+```
 
-3.  **Stop services:**
-    \`\`\`bash
-    docker-compose down
-    \`\`\`
+### Shift
+```typescript
+interface IShift {
+  _id: ObjectId;
+  date: Date;
+  startTime: string; // "HH:mm" format
+  endTime: string;   // "HH:mm" format
+  role: string;
+  skills: string[];
+  location: string;
+  team?: string;
+  assignedEmployees: ObjectId[];
+  maxEmployees?: number;
+  minEmployees: number;
+  isOvernight: boolean;
+  status: 'OPEN' | 'FULL' | 'CANCELLED';
+  notes?: string;
+}
+```
+
+### Time-off Request
+```typescript
+interface ITimeOffRequest {
+  _id: ObjectId;
+  employeeId: ObjectId;
+  startDate: Date;
+  endDate: Date;
+  startTime?: string; // "HH:mm" format for partial day
+  endTime?: string;   // "HH:mm" format for partial day
+  type: 'VACATION' | 'SICK' | 'PERSONAL' | 'OTHER';
+  status: 'PENDING' | 'APPROVED' | 'REJECTED';
+  reason: string;
+  approvedBy?: ObjectId;
+  approvedAt?: Date;
+}
+```
+
+## Database Indexes
+
+The system includes optimized indexes for common query patterns:
+
+### Shifts Collection
+- `{ date: 1, location: 1 }` - Daily schedule queries
+- `{ date: 1, team: 1 }` - Team-based queries
+- `{ date: 1, role: 1 }` - Role-based queries
+- `{ assignedEmployees: 1 }` - Employee assignment queries
+- `{ status: 1, date: 1 }` - Status-based queries
+
+### Time-off Requests Collection
+- `{ employeeId: 1, startDate: 1, endDate: 1 }` - Employee time-off queries
+- `{ status: 1, startDate: 1 }` - Status-based queries
+- `{ type: 1, status: 1 }` - Type-based queries
+
+### Shift Assignments Collection
+- `{ shiftId: 1, employeeId: 1 }` - Assignment queries
+- `{ employeeId: 1, status: 1 }` - Employee status queries
+
+## Conflict Detection Rules
+
+The system automatically detects and prevents:
+
+1. **Double Booking**: Employee assigned to overlapping shifts
+2. **Time-off Conflicts**: Employee assigned during approved time-off
+3. **Availability Mismatch**: Employee assigned outside their availability
+4. **Overnight Shift Conflicts**: Proper handling of shifts spanning midnight
+
+## Coverage Logic
+
+Coverage is calculated as:
+```
+Coverage % = (Assigned Employees / Required Employees) × 100
+Gaps = max(Required Employees - Assigned Employees, 0)
+Utilization % = (Assigned Employees / Required Employees) × 100
+```
+
+## Sample Requests
+
+### Create a Shift
+```bash
+curl -X POST http://localhost:3000/api/v1/schedule/shifts \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "date": "2024-01-15T00:00:00.000Z",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "role": "EMPLOYEE",
+    "skills": ["Customer Service", "Cash Handling"],
+    "location": "Downtown Store",
+    "team": "Morning Shift",
+    "maxEmployees": 3,
+    "minEmployees": 2
+  }'
+```
+
+### Get Daily Schedule
+```bash
+curl -X GET "http://localhost:3000/api/v1/schedule/daily-schedule?date=2024-01-15&location=Downtown%20Store" \
+  -H "Authorization: Bearer <token>"
+```
+
+### Get Coverage Analytics
+```bash
+curl -X GET "http://localhost:3000/api/v1/schedule/coverage?date=2024-01-15&location=Downtown%20Store" \
+  -H "Authorization: Bearer <token>"
+```
+
+### Assign Employee to Shift
+```bash
+curl -X POST http://localhost:3000/api/v1/schedule/shifts/64f1a2b3c4d5e6f7g8h9i0j1/assign/64f1a2b3c4d5e6f7g8h9i0j2 \
+  -H "Authorization: Bearer <token>"
+```
 
 ## Testing
 
-*   **Run all tests:**
-    \`\`\`bash
-    npm test
-    \`\`\`
-*   **Run tests in watch mode:**
-    \`\`\`bash
-    npm run test:watch
-    \`\`\`
-*   **Run tests with coverage report:**
-    \`\`\`bash
-    npm run test:coverage
-    \`\`\`
+```bash
+# Run all tests
+pnpm test
 
-## Code Style
+# Run tests in watch mode
+pnpm test:watch
 
-*   **Lint and fix code:**
-    \`\`\`bash
-    npm run lint
-    \`\`\`
-*   **Format code with Prettier:**
-    \`\`\`bash
-    npm run format
-    \`\`\`
+# Run tests with coverage
+pnpm test:coverage
+```
 
-## Project Structure
+## Development
 
-\`\`\`
-.
-├── src/
-│   ├── app.ts                 # Express application setup
-│   ├── config/                # Configuration files (DB, Redis, Sentry, Winston, Swagger, Env)
-│   ├── core/                  # Core functionalities (Base classes, Error handling, Response utilities)
-│   ├── jobs/                  # BullMQ job queues and workers
-│   ├── middlewares/           # Express middlewares (Auth, Rate Limit, Error Handler, CORS, etc.)
-│   ├── modules/               # Feature-based modules (Auth, User, Post, Category, Tag, Series, Comment, Like, Bookmark, File)
-│   │   ├── auth/
-│   │   │   ├── auth.controller.ts
-│   │   │   ├── auth.repository.ts
-│   │   │   ├── auth.routes.ts
-│   │   │   └── auth.service.ts
-│   │   │   └── auth.validation.ts
-│   │   ├── user/
-│   │   │   ├── user.controller.ts
-│   │   │   ├── user.repository.ts
-│   │   │   ├── user.routes.ts
-│   │   │   └── user.service.ts
-│   │   │   └── user.validation.ts
-│   │   └── ... (other modules)
-│   ├── routes/                # Central route registration
-│   ├── services/              # Application-wide services (e.g., Feature Flag Service)
-│   ├── utils/                 # Utility functions (JWT, Password, Pagination, Slug, Audit Log, Storage)
-│   └── server.ts              # Application entry point
-├── prisma/
-│   ├── schema.prisma          # Prisma schema definition
-│   └── seed.ts                # Database seeding script
-├── generated/                 # Generated Prisma client (created by `npx prisma generate`)
-├── tests/                     # Unit and integration tests
-├── locales/                   # i18n translation files
-├── scripts/                   # Utility scripts (e.g., generate-module.js)
-├── .env.example               # Example environment variables
-├── .eslintrc.json             # ESLint configuration
-├── .prettierrc.json           # Prettier configuration
-├── .husky/                    # Git hooks configuration
-├── .github/                   # GitHub Actions CI/CD workflows
-├── Dockerfile                 # Docker build instructions
-├── docker-compose.yml         # Docker Compose configuration
-├── nginx.conf                 # Nginx reverse proxy configuration
-├── package.json               # Project dependencies and scripts
-├── tsconfig.json              # TypeScript configuration
-└── README.md                  # Project README
-\`\`\`
+### Code Generation
+```bash
+# Generate a new module
+pnpm run generate:module
+```
+
+### Linting and Formatting
+```bash
+# Lint code
+pnpm lint
+
+# Format code
+pnpm format
+```
+
+## Deployment
+
+### Docker
+```bash
+# Build image
+docker build -t employee-scheduler .
+
+# Run container
+docker run -p 3000:3000 employee-scheduler
+```
+
+### Environment Variables
+- `NODE_ENV`: Environment (development/production)
+- `PORT`: Server port
+- `MONGODB_URI`: MongoDB connection string
+- `REDIS_URL`: Redis connection string
+- `JWT_SECRET`: JWT signing secret
+- `SESSION_SECRET`: Session secret
+- `SENTRY_DSN`: Sentry error tracking (optional)
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License.
+MIT License - see LICENSE file for details.
+
+## Support
+
+For support and questions, please open an issue in the repository.
 

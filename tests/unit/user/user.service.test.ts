@@ -1,243 +1,307 @@
-import { UserService } from '@modules/user/user.service'
-import { testUtils } from '../../setup'
+import mongoose from 'mongoose';
+import { BadRequestError, NotFoundError } from '../../../src/core/error.classes';
+import { UserService } from '../../../src/modules/user/user.service';
+import { utils } from '../../setup';
 
-// Mock PrismaClient constructor
-jest.mock('@prisma/client', () => ({
-  PrismaClient: jest.fn().mockImplementation(() => ({
-    user: {
-      findUnique: jest.fn(),
-      findMany: jest.fn(),
-      create: jest.fn(),
-      update: jest.fn(),
-      delete: jest.fn(),
-      updateMany: jest.fn(),
-      deleteMany: jest.fn(),
-      count: jest.fn(),
-    },
-  })),
-}))
+describe('UserService', () => {
+  let userService: UserService;
+  let testUser: any;
 
-// Mock dependencies
-jest.mock('bcryptjs', () => ({
-  hash: jest.fn(),
-  compare: jest.fn(),
-}))
+  beforeEach(async () => {
+    userService = new UserService();
+    testUser = await utils.createTestUser();
+  });
 
-describe('User Service', () => {
-  let userService: UserService
-  let mockPrisma: any
-
-  beforeEach(() => {
-    userService = new UserService()
-    mockPrisma = require('@prisma/client').PrismaClient.mock.results[0].value
-    jest.clearAllMocks()
-  })
-
-  describe('findById', () => {
-    it('should return user by ID successfully', async () => {
-      const userId = 'test-user-id'
-      mockPrisma.user.findUnique.mockResolvedValue(testUtils.mockUser)
-
-      const result = await userService.findById(userId)
-
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({
-        where: { id: userId },
-      })
-      expect(result).toEqual(testUtils.mockUser)
-    })
-
-    it('should return null if user not found', async () => {
-      const userId = 'non-existent-id'
-      mockPrisma.user.findUnique.mockResolvedValue(null)
-
-      const result = await userService.findById(userId)
-
-      expect(mockPrisma.user.findUnique).toHaveBeenCalledWith({
-        where: { id: userId },
-      })
-      expect(result).toBeNull()
-    })
-  })
-
-  describe('findAll', () => {
-    it('should return all users', async () => {
-      const users = [testUtils.mockUser, testUtils.mockAdminUser]
-      mockPrisma.user.findMany.mockResolvedValue(users)
-
-      const result = await userService.findAll()
-
-      expect(mockPrisma.user.findMany).toHaveBeenCalledWith()
-      expect(result).toEqual(users)
-    })
-  })
-
-  describe('getAll', () => {
-    it('should return all active users by default', async () => {
-      const users = [testUtils.mockUser, testUtils.mockAdminUser]
-      mockPrisma.user.findMany.mockResolvedValue(users)
-      mockPrisma.user.count.mockResolvedValue(2)
-
-      const result = await userService.getAll()
-
-      expect(mockPrisma.user.findMany).toHaveBeenCalledWith({
-        where: { deletedAt: null },
-        orderBy: { createdAt: 'desc' },
-        skip: 0,
-        take: 10,
-      })
-      expect(result.data).toEqual(users)
-      expect(result.pagination).toBeDefined()
-    })
-
-    it('should return all users including deleted when delete filter is YES', async () => {
-      const users = [testUtils.mockUser, testUtils.mockAdminUser]
-      mockPrisma.user.findMany.mockResolvedValue(users)
-      mockPrisma.user.count.mockResolvedValue(2)
-
-      const result = await userService.getAll({ delete: 'YES' })
-
-      expect(mockPrisma.user.findMany).toHaveBeenCalledWith({
-        where: {},
-        orderBy: { createdAt: 'desc' },
-        skip: 0,
-        take: 10,
-      })
-      expect(result.data).toEqual(users)
-      expect(result.pagination).toBeDefined()
-    })
-  })
-
-  describe('createUser', () => {
+  describe('create', () => {
     it('should create a new user successfully', async () => {
       const userData = {
         email: 'newuser@example.com',
-        name: 'New User',
         password: 'password123',
-        role: 'USER' as const,
-      }
+        firstName: 'New',
+        lastName: 'User',
+        role: 'USER'
+      };
 
-      mockPrisma.user.create.mockResolvedValue(testUtils.mockUser)
+      const user = await userService.create(userData);
 
-      const result = await userService.createUser(userData)
+      expect(user).toBeDefined();
+      expect(user.email).toBe(userData.email);
+      expect(user.firstName).toBe(userData.firstName);
+      expect(user.lastName).toBe(userData.lastName);
+      expect(user.role).toBe(userData.role);
+    });
 
-      expect(mockPrisma.user.create).toHaveBeenCalledWith({
-        data: userData,
-      })
-      expect(result).toEqual(testUtils.mockUser)
-    })
-  })
+    it('should throw error when email already exists', async () => {
+      const userData = {
+        email: testUser.email, // Already exists
+        password: 'password123',
+        firstName: 'New',
+        lastName: 'User'
+      };
 
-  describe('updateUser', () => {
+      await expect(userService.create(userData)).rejects.toThrow(BadRequestError);
+    });
+  });
+
+  describe('findById', () => {
+    it('should find user by id', async () => {
+      const user = await userService.findById(testUser._id.toString());
+
+      expect(user).toBeDefined();
+      expect(user._id.toString()).toBe(testUser._id.toString());
+      expect(user.email).toBe(testUser.email);
+    });
+
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+
+      await expect(userService.findById(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('findByEmail', () => {
+    it('should find user by email', async () => {
+      const user = await userService.findByEmail(testUser.email);
+
+      expect(user).toBeDefined();
+      expect(user.email).toBe(testUser.email);
+    });
+
+    it('should return null when user not found', async () => {
+      const user = await userService.findByEmail('nonexistent@example.com');
+
+      expect(user).toBeNull();
+    });
+  });
+
+  describe('getAll', () => {
+    it('should return paginated users', async () => {
+      // Create additional users
+      await utils.createTestUser({ email: 'user2@example.com' });
+      await utils.createTestUser({ email: 'user3@example.com' });
+
+      const result = await userService.getAll({ page: 1, limit: 10 });
+
+      expect(result).toBeDefined();
+      expect(result.data).toBeDefined();
+      expect(result.pagination).toBeDefined();
+      expect(Array.isArray(result.data)).toBe(true);
+      expect(result.data.length).toBeGreaterThan(0);
+    });
+
+    it('should filter users by search term', async () => {
+      await utils.createTestUser({ email: 'developer@example.com', firstName: 'John' });
+      await utils.createTestUser({ email: 'designer@example.com', firstName: 'Jane' });
+
+      const result = await userService.getAll({ 
+        page: 1, 
+        limit: 10, 
+        searchTerm: 'developer' 
+      });
+
+      expect(result.data.length).toBeGreaterThan(0);
+      expect(result.data.some(user => user.email.includes('developer'))).toBe(true);
+    });
+  });
+
+  describe('update', () => {
     it('should update user successfully', async () => {
-      const userId = 'test-user-id'
       const updateData = {
-        name: 'Updated Name',
-        email: 'updated@example.com',
-      }
+        firstName: 'Updated',
+        lastName: 'Name',
+        phone: '1234567890'
+      };
 
-      mockPrisma.user.update.mockResolvedValue({ ...testUtils.mockUser, ...updateData })
+      const updatedUser = await userService.update(testUser._id.toString(), updateData);
 
-      const result = await userService.updateUser(userId, updateData)
+      expect(updatedUser).toBeDefined();
+      expect(updatedUser.firstName).toBe(updateData.firstName);
+      expect(updatedUser.lastName).toBe(updateData.lastName);
+      expect(updatedUser.phone).toBe(updateData.phone);
+    });
 
-      expect(mockPrisma.user.update).toHaveBeenCalledWith({
-        where: { id: userId },
-        data: updateData,
-      })
-      expect(result).toEqual({ ...testUtils.mockUser, ...updateData })
-    })
-  })
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+      const updateData = { firstName: 'Updated' };
 
-  describe('softDeleteUser', () => {
+      await expect(userService.update(fakeId, updateData)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('softDelete', () => {
     it('should soft delete user successfully', async () => {
-      const userId = 'test-user-id'
+      await userService.softDelete(testUser._id.toString());
 
-      mockPrisma.user.update.mockResolvedValue({ ...testUtils.mockUser, deletedAt: new Date() })
+      // User should still exist but with deletedAt set
+      const deletedUser = await userService.findById(testUser._id.toString());
+      expect(deletedUser.deletedAt).toBeDefined();
+    });
 
-      const result = await userService.softDeleteUser(userId)
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
 
-      expect(mockPrisma.user.update).toHaveBeenCalledWith({
-        where: { id: userId },
-        data: { deletedAt: expect.any(Date) },
-      })
-      expect(result).toEqual({ ...testUtils.mockUser, deletedAt: expect.any(Date) })
-    })
-  })
+      await expect(userService.softDelete(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
 
   describe('restore', () => {
-    it('should restore user successfully', async () => {
-      const userId = 'test-user-id'
+    it('should restore soft deleted user successfully', async () => {
+      // First soft delete
+      await userService.softDelete(testUser._id.toString());
 
-      mockPrisma.user.update.mockResolvedValue({ ...testUtils.mockUser, deletedAt: null })
+      // Then restore
+      const restoredUser = await userService.restore(testUser._id.toString());
 
-      const result = await userService.restore(userId)
+      expect(restoredUser.deletedAt).toBeNull();
+    });
 
-      expect(mockPrisma.user.update).toHaveBeenCalledWith({
-        where: { id: userId },
-        data: { deletedAt: null },
-      })
-      expect(result).toEqual({ ...testUtils.mockUser, deletedAt: null })
-    })
-  })
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+
+      await expect(userService.restore(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
 
   describe('hardDelete', () => {
     it('should hard delete user successfully', async () => {
-      const userId = 'test-user-id'
+      await userService.hardDelete(testUser._id.toString());
 
-      mockPrisma.user.delete.mockResolvedValue(testUtils.mockUser)
+      // User should be completely removed
+      await expect(userService.findById(testUser._id.toString())).rejects.toThrow(NotFoundError);
+    });
 
-      const result = await userService.hardDelete(userId)
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
 
-      expect(mockPrisma.user.delete).toHaveBeenCalledWith({
-        where: { id: userId },
-      })
-      expect(result).toEqual(testUtils.mockUser)
-    })
-  })
+      await expect(userService.hardDelete(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
 
   describe('bulkSoftDelete', () => {
     it('should soft delete multiple users successfully', async () => {
-      const userIds = ['user-1', 'user-2', 'user-3']
+      const user2 = await utils.createTestUser({ email: 'user2@example.com' });
+      const user3 = await utils.createTestUser({ email: 'user3@example.com' });
 
-      mockPrisma.user.updateMany.mockResolvedValue({ count: 3 })
+      const userIds = [testUser._id.toString(), user2._id.toString(), user3._id.toString()];
 
-      const result = await userService.bulkSoftDelete(userIds)
+      await userService.bulkSoftDelete(userIds);
 
-      expect(mockPrisma.user.updateMany).toHaveBeenCalledWith({
-        where: { id: { in: userIds } },
-        data: { deletedAt: expect.any(Date) },
-      })
-      expect(result).toEqual({ count: 3 })
-    })
-  })
+      // All users should be soft deleted
+      const deletedUser1 = await userService.findById(testUser._id.toString());
+      const deletedUser2 = await userService.findById(user2._id.toString());
+      const deletedUser3 = await userService.findById(user3._id.toString());
+
+      expect(deletedUser1.deletedAt).toBeDefined();
+      expect(deletedUser2.deletedAt).toBeDefined();
+      expect(deletedUser3.deletedAt).toBeDefined();
+    });
+  });
 
   describe('bulkHardDelete', () => {
     it('should hard delete multiple users successfully', async () => {
-      const userIds = ['user-1', 'user-2', 'user-3']
+      const user2 = await utils.createTestUser({ email: 'user2@example.com' });
+      const user3 = await utils.createTestUser({ email: 'user3@example.com' });
 
-      mockPrisma.user.deleteMany.mockResolvedValue({ count: 3 })
+      const userIds = [testUser._id.toString(), user2._id.toString(), user3._id.toString()];
 
-      const result = await userService.bulkHardDelete(userIds)
+      await userService.bulkHardDelete(userIds);
 
-      expect(mockPrisma.user.deleteMany).toHaveBeenCalledWith({
-        where: { id: { in: userIds } },
-      })
-      expect(result).toEqual({ count: 3 })
-    })
-  })
+      // All users should be completely removed
+      await expect(userService.findById(testUser._id.toString())).rejects.toThrow(NotFoundError);
+      await expect(userService.findById(user2._id.toString())).rejects.toThrow(NotFoundError);
+      await expect(userService.findById(user3._id.toString())).rejects.toThrow(NotFoundError);
+    });
+  });
 
   describe('exportData', () => {
-    it('should export user data as JSON buffer', async () => {
-      const users = [testUtils.mockUser, testUtils.mockAdminUser]
-      mockPrisma.user.findMany.mockResolvedValue(users)
+    it('should export users as CSV', async () => {
+      await utils.createTestUser({ email: 'user2@example.com' });
 
-      const result = await userService.exportData('json')
+      const csvBuffer = await userService.exportData('csv');
 
-      expect(mockPrisma.user.findMany).toHaveBeenCalledWith()
-      expect(result).toBeInstanceOf(Buffer)
-      const exportedData = JSON.parse(result.toString())
-      expect(exportedData).toHaveLength(users.length)
-      expect(exportedData[0]).toHaveProperty('id', users[0].id)
-      expect(exportedData[0]).toHaveProperty('email', users[0].email)
-    })
-  })
-})
+      expect(csvBuffer).toBeDefined();
+      expect(Buffer.isBuffer(csvBuffer)).toBe(true);
+      expect(csvBuffer.toString()).toContain('email,firstName,lastName');
+    });
+
+    it('should export users as Excel', async () => {
+      await utils.createTestUser({ email: 'user2@example.com' });
+
+      const excelBuffer = await userService.exportData('xlsx');
+
+      expect(excelBuffer).toBeDefined();
+      expect(Buffer.isBuffer(excelBuffer)).toBe(true);
+    });
+
+    it('should throw error for unsupported format', async () => {
+      await expect(userService.exportData('pdf')).rejects.toThrow(BadRequestError);
+    });
+  });
+
+  describe('getUserStats', () => {
+    it('should return user statistics', async () => {
+      await utils.createTestUser({ email: 'user2@example.com', role: 'ADMIN' });
+      await utils.createTestUser({ email: 'user3@example.com', role: 'USER' });
+
+      const stats = await userService.getUserStats();
+
+      expect(stats).toBeDefined();
+      expect(stats.totalUsers).toBeGreaterThan(0);
+      expect(stats.activeUsers).toBeGreaterThan(0);
+      expect(stats.deletedUsers).toBeDefined();
+      expect(stats.roleDistribution).toBeDefined();
+    });
+  });
+
+  describe('updateUserRole', () => {
+    it('should update user role successfully', async () => {
+      const newRole = 'ADMIN';
+
+      const updatedUser = await userService.updateUserRole(testUser._id.toString(), newRole);
+
+      expect(updatedUser.role).toBe(newRole);
+    });
+
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+
+      await expect(userService.updateUserRole(fakeId, 'ADMIN')).rejects.toThrow(NotFoundError);
+    });
+
+    it('should throw error for invalid role', async () => {
+      await expect(userService.updateUserRole(testUser._id.toString(), 'INVALID_ROLE')).rejects.toThrow(BadRequestError);
+    });
+  });
+
+  describe('activateUser', () => {
+    it('should activate user successfully', async () => {
+      // First deactivate user
+      await userService.update(testUser._id.toString(), { isActive: false });
+
+      // Then activate
+      const activatedUser = await userService.activateUser(testUser._id.toString());
+
+      expect(activatedUser.isActive).toBe(true);
+    });
+
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+
+      await expect(userService.activateUser(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
+
+  describe('deactivateUser', () => {
+    it('should deactivate user successfully', async () => {
+      const deactivatedUser = await userService.deactivateUser(testUser._id.toString());
+
+      expect(deactivatedUser.isActive).toBe(false);
+    });
+
+    it('should throw error when user not found', async () => {
+      const fakeId = new mongoose.Types.ObjectId().toString();
+
+      await expect(userService.deactivateUser(fakeId)).rejects.toThrow(NotFoundError);
+    });
+  });
+});
